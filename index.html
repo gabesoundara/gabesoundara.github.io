@@ -25,6 +25,24 @@ body {
     box-shadow: 0 15px 40px rgba(0,0,0,0.06);
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.header-left {
+    max-width: 70%;
+}
+
+.header-right img {
+    width: 160px;
+    height: auto;
+    border-radius: 12px;
+}
+
 h1 {
     font-size: 42px;
     margin-bottom: 10px;
@@ -33,11 +51,11 @@ h1 {
 
 .contact {
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .links {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .links a {
@@ -45,6 +63,7 @@ h1 {
     text-decoration: none;
     font-weight: 500;
     color: #0077b5;
+    letter-spacing: 0.3px;
 }
 
 .links a:hover {
@@ -53,7 +72,7 @@ h1 {
 
 .download-btn {
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 12px 24px;
     background: #111;
     color: white;
@@ -68,15 +87,26 @@ h1 {
 }
 
 h2 {
-    margin-top: 50px;
+    margin-top: 60px;
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #888;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #eee;
 }
 
 .job {
     margin-bottom: 35px;
+    padding-left: 10px;
+    border-left: 2px solid #f0f0f0;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
 }
 
 .job-title {
@@ -89,13 +119,18 @@ h2 {
 }
 
 .date {
-    float: right;
     color: #888;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 ul {
     margin-top: 10px;
     padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 6px;
 }
 
 .summary {
@@ -107,10 +142,33 @@ ul {
     .container {
         padding: 30px;
     }
-    .date {
-        float: none;
-        display: block;
-        margin-top: 4px;
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job-header {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .download-btn,
+    .links {
+        display: none;
     }
 }
 </style>
@@ -120,104 +178,140 @@ ul {
 
 <div class="container">
 
-<div class="header">
-  <div class="header-left">
-    <h1>Gabe Soundara</h1>
-    <div class="contact">
-      Brentwood, TN | (615) 767-3769 | gbsoundara03@gmail.com
+  <div class="header">
+    <div class="header-left">
+      <h1>Gabe Soundara</h1>
+      <div class="contact">
+        Brentwood, TN | (615) 767-3769 | gbsoundara03@gmail.com
+      </div>
+    </div>
+    <div class="header-right">
+      <img src="headshot-26.jpg" alt="Gabe Soundara Headshot">
     </div>
   </div>
 
-  <div class="header-right">
-    <img src="headshot-26.jpg" 
-         alt="Gabe Soundara Headshot" 
-         style="width:180px; height:auto; border-radius: 12px;">
+  <div class="links">
+    <a href="https://www.linkedin.com/in/gabesoundara/" target="_blank">LinkedIn</a>
+    <a href="https://gabesoundara.notion.site/My-Portfolio-213350c1cbbd8084b69ec78c4aa6bb66?source=copy_link" target="_blank">Portfolio</a>
   </div>
-</div>
-    
-<div class="links">
-<a href="https://www.linkedin.com/in/gabesoundara/" target="_blank">LinkedIn</a>
-<a href="https://gabesoundara.notion.site/My-Portfolio-213350c1cbbd8084b69ec78c4aa6bb66?source=copy_link" target="_blank">Portfolio</a>
-</div>
-<a href="GabrielSoundara-Resume.pdf" download class="download-btn">
-Download Resume (PDF)</a>
-    
-<h2>Professional Summary</h2>
-<p class="summary">
-Multifaceted Public Relations student with experience in event planning, creative content development, organizational leadership, and youth engagement. Proven ability to coordinate logistics, manage teams, and execute innovative initiatives in fast-paced environments. Strong communicator with a hands-on, solutions-driven mindset.
-</p>
 
-<h2>Professional Experience</h2>
+  <a href="GabrielSoundara-Resume.pdf" download class="download-btn">
+    Download Resume (PDF)
+  </a>
 
-<div class="job">
-<span class="job-title">Camp Director</span> – <span class="company">Let It Shine Gymnastics Inc</span>
-<span class="date">May 2023 – Present</span>
-<ul>
-<li>Created and organized daily itinerary schedules for camp counselors.</li>
-<li>Supervised approximately 300 children and 35–40 staff members.</li>
-<li>Provided first aid and managed camper health concerns when necessary.</li>
-<li>Addressed guardians’ questions and concerns regarding camper experience.</li>
-</ul>
-</div>
+  <h2>Professional Summary</h2>
+  <p class="summary">
+    Multifaceted Public Relations student with experience in event planning, creative content development, organizational leadership, and youth engagement. Proven ability to coordinate logistics, manage teams, and execute innovative initiatives in fast-paced environments. Strong communicator with a hands-on, solutions-driven mindset.
+  </p>
 
-<div class="job">
-<span class="job-title">Family Formation Assistant</span> – <span class="company">St. Bartholomew’s Episcopal Church</span>
-<span class="date">Aug 2025 – Present</span>
-<ul>
-<li>Managed event logistics for youth and young adult programs.</li>
-<li>Authored and distributed newsletters to enhance community engagement.</li>
-<li>Utilized Breeze software for member database management.</li>
-</ul>
-</div>
+  <h2>Professional Experience</h2>
 
-<div class="job">
-<span class="job-title">Independent Event Coordinator</span> – <span class="company">Twin Oak Live Events</span>
-<span class="date">May 2023 – Nov 2023</span>
-<ul>
-<li>Developed and executed DIY live events featuring music, vendors, and food attractions.</li>
-<li>Coordinated three events with peak attendance of 140 ticket sales.</li>
-<a href="https://gabesoundara.notion.site/EVENTS-213350c1cbbd80c1aad2e7fa6eed2c79" target="_blank">View events here</a>
-</ul>
-</div>
-    
-<div class="job">
-<span class="job-title">Gymnastics Coach Instructor</span> – <span class="company">Let It Shine Gymnastics Inc</span>
-<span class="date">Feb 2019 – Dec 2024</span>
-<ul>
-<li>Maintained a safety-first environment for children.</li>
-<li>Designed creative equipment setups to foster engagement.</li>
-<li>Led and supervised groups of up to 24 children through structured programs.</li>
-</ul>
-</div>
+  <div class="job">
+    <div class="job-header">
+      <div>
+        <span class="job-title">Camp Director</span> – 
+        <span class="company">Let It Shine Gymnastics Inc</span>
+      </div>
+      <span class="date">May 2023 – Present</span>
+    </div>
+    <ul>
+      <li>Led daily operations and scheduling for a 300-camper program with 35–40 staff members.</li>
+      <li>Resolved parent concerns and managed camper health and safety needs.</li>
+      <li>Designed structured daily itineraries to optimize staff efficiency.</li>
+      <li>Maintained compliance with safety protocols and emergency response procedures.</li>
+    </ul>
+  </div>
 
-<div class="job">
-<span class="job-title">Recess Coach</span> – <span class="company">Foundations Christian Academy</span>
-<span class="date">Sep 2021 – May 2022</span>
-<ul>
-<li>Designed and executed engaging daily activity plans.</li>
-<li>Planned and coordinated a school-wide Field Day event.</li>
-</ul>
-</div>
+  <div class="job">
+    <div class="job-header">
+      <div>
+        <span class="job-title">Family Formation Assistant</span> – 
+        <span class="company">St. Bartholomew’s Episcopal Church</span>
+      </div>
+      <span class="date">Aug 2025 – Present</span>
+    </div>
+    <ul>
+      <li>Coordinated logistics for youth and young adult programs and special events.</li>
+      <li>Produced newsletters and communications to increase community engagement.</li>
+      <li>Maintained accurate member records using Breeze database software.</li>
+    </ul>
+  </div>
 
+  <div class="job">
+    <div class="job-header">
+      <div>
+        <span class="job-title">Independent Event Coordinator</span> – 
+        <span class="company">Twin Oak Live Events</span>
+      </div>
+      <span class="date">May 2023 – Nov 2023</span>
+    </div>
+    <ul>
+      <li>Produced DIY live events featuring music, vendors, and food partners.</li>
+      <li>Managed logistics, promotion, and on-site operations for three ticketed events.</li>
+      <li>Achieved peak attendance of 140 ticket sales per event.</li>
+      <li>
+        <a href="https://gabesoundara.notion.site/EVENTS-213350c1cbbd80c1aad2e7fa6eed2c79" target="_blank">
+          View events
+        </a>
+      </li>
+    </ul>
+  </div>
 
-<h2>Education</h2>
+  <div class="job">
+    <div class="job-header">
+      <div>
+        <span class="job-title">Gymnastics Coach Instructor</span> – 
+        <span class="company">Let It Shine Gymnastics Inc</span>
+      </div>
+      <span class="date">Feb 2019 – Dec 2024</span>
+    </div>
+    <ul>
+      <li>Created safe, engaging learning environments for youth participants.</li>
+      <li>Designed creative equipment setups to improve engagement and skill development.</li>
+      <li>Led structured programming for groups of up to 24 children.</li>
+    </ul>
+  </div>
 
-<ul>
-</p><li>Bachelor’s Degree in Public Relations: Middle Tennessee State University - May 2026
-<li>Dean’s List - (2022–2025)
-<li><a href="https://gabesoundara.notion.site/STUDY-ABROAD-213350c1cbbd8067be2cd02c621eff7f" target="_blank">Study Abroad: University of Salford (Manchester, UK) – Spring 2025</a>
-<li>John Seigenthaler Chair Scholarship Winner - (2023)
-<li><a href="https://gabesoundara.notion.site/CLIENT-CAMPAIGNS-214350c1cbbd80f39f46f2ba5d7fd0bd" target="_blank">Tourism Proposal Competition – 1st Place (2024)</a>
+  <div class="job">
+    <div class="job-header">
+      <div>
+        <span class="job-title">Recess Coach</span> – 
+        <span class="company">Foundations Christian Academy</span>
+      </div>
+      <span class="date">Sep 2021 – May 2022</span>
+    </div>
+    <ul>
+      <li>Designed and facilitated engaging daily activity programming.</li>
+      <li>Planned and coordinated a school-wide Field Day event.</li>
+    </ul>
+  </div>
 
-<h2>Skills</h2>
-<ul>
-<li>Event Planning</li>
-<li>Creative Problem Solving</li>
-<li>Leadership</li>
-<li>Verbal Communication</li>
-<li>Time Management</li>
-<li>Organizational Planning</li>
-</ul>
+  <h2>Education</h2>
+  <ul>
+    <li>Bachelor’s Degree in Public Relations: Middle Tennessee State University – May 2026</li>
+    <li>Dean’s List (2022–2025)</li>
+    <li>
+      <a href="https://gabesoundara.notion.site/STUDY-ABROAD-213350c1cbbd8067be2cd02c621eff7f" target="_blank">
+        Study Abroad: University of Salford (Manchester, UK) – Spring 2025
+      </a>
+    </li>
+    <li>John Seigenthaler Chair Scholarship Winner (2023)</li>
+    <li>
+      <a href="https://gabesoundara.notion.site/CLIENT-CAMPAIGNS-214350c1cbbd80f39f46f2ba5d7fd0bd" target="_blank">
+        Tourism Proposal Competition – 1st Place (2024)
+      </a>
+    </li>
+  </ul>
+
+  <h2>Skills</h2>
+  <ul>
+    <li>Event Planning</li>
+    <li>Creative Problem Solving</li>
+    <li>Leadership</li>
+    <li>Verbal Communication</li>
+    <li>Time Management</li>
+    <li>Organizational Planning</li>
+  </ul>
 
 </div>
 
