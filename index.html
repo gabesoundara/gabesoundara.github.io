@@ -1,629 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gabe Soundara | 2026 Resume</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    background: #f8f9fb;
-    color: #1a1a1a;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 900px;
-    margin: 60px auto;
-    background: white;
-    padding: 60px;
-    border-radius: 6px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
-    gap: 20px;
-}
-
-.header-left {
-    max-width: 72%;
-}
-
-.header-right img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 16px;
-}
-
-h1 {
-    font-size: 42px;
-    letter-spacing: -1px;
-    margin: 0 0 6px 0;
-    line-height: 1.1;
-}
-
-.contact {
-    color: #555;
-    margin-bottom: 14px;
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.link-pill {
-    display: inline-block;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1px solid #e8e8e8;
-    text-decoration: none;
-    color: #111;
-    font-weight: 600;
-}
-
-.link-pill:hover {
-    background: #f3f3f3;
-}
-
-.download-btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #111;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: 0.2s ease;
-}
-
-.download-btn:hover {
-    background: #333;
-}
-
-.tabs {
-  margin-top: 18px;
-  display: flex;
-  gap: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.tab {
-  padding: 10px 0;
-  text-decoration: none;
-  font-weight: 600;
-  color: #888;
-  position: relative;
-}
-
-.tab.active {
-  color: #111;
-}
-
-.tab.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 2px;
-  background: #111;
-}
-
-.tab-content {
-  display: none;
-  animation: fade 0.4s ease;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-h2 {
-    margin-top: 60px;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #888;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #eee;
-}
-
-.summary {
-    font-size: 17px;
-    color: #444;
-}
-
-.job {
-    margin-bottom: 35px;
-    padding-left: 10px;
-    border-left: 2px solid #f0f0f0;
-}
-
-.job-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 10px;
-}
-
-.job-title {
-    font-weight: 600;
-    font-size: 18px;
-}
-
-.company {
-    color: #555;
-}
-
-.date {
-    color: #888;
-    font-size: 14px;
-    white-space: nowrap;
-}
-
-ul {
-    margin-top: 10px;
-    padding-left: 20px;
-}
-
-ul li {
-    margin-bottom: 6px;
-}
-
-/* Portfolio - Live Events grid */
-.section-title {
-  margin-top: 40px;
-  margin-bottom: 14px;
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #888;
-}
-
-.portfolio-grid {
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-}
-
-.project-card {
-  position: relative;
-  background: #fff;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  cursor: pointer;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-}
-
-.project-card a {
-  display: block;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-
-.project-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  display: block;
-}
-
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(17, 17, 17, 0.78);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  text-align: center;
-  padding: 20px;
-}
-
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.project-overlay .project-title {
-  color: white;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.project-overlay .project-meta {
-  color: rgba(255,255,255,0.85);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Portfolio - Client Campaigns clean cards */
-.campaign-list {
-  display: grid;
-  gap: 14px;
-  margin-top: 10px;
-}
-
-.campaign-card {
-  display: block;
-  padding: 18px;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.campaign-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-}
-
-.campaign-title {
-  font-weight: 800;
-  margin-bottom: 6px;
-}
-
-.campaign-sub {
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.campaign-cta {
-  font-weight: 700;
-}
-
-/* Responsive */
-@media(max-width: 768px){
-  .container { padding: 30px; }
-  .header { flex-direction: column; align-items: flex-start; }
-  .header-left { max-width: 100%; }
-  .job-header { flex-direction: column; gap: 4px; }
-}
-
-/* Print */
-@media print {
-  body { background: white; }
-  .container { box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
-  .tabs, .header-actions { display: none; }
-}
-    .card-label {
-  margin-top: 10px;
-  font-weight: 400;
-  font-size: 16px;
-}
-
-.project-overlay .project-meta {
-  color: white;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
-}
-    .portfolio-columns {
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-  align-items: start;
-}
-
-@media (max-width: 900px) {
-  .portfolio-columns {
-    grid-template-columns: 1fr;
+  :root{
+    --text:#1a1a1a;
+    --muted:#6b6b6b;
+    --border:#eeeeee;
+    --shadow:0 15px 40px rgba(0,0,0,0.06);
   }
-}
 
-.portfolio-col-title {
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #888;
-  margin-bottom: 14px;
-}
+  * { box-sizing: border-box; }
 
-.portfolio-col {
-  border-top: 1px solid #eee;
-  padding-top: 18px;
-}
+  body{
+    font-family:'Inter',sans-serif;
+    margin:0;
+    background:#f8f9fb;
+    color:var(--text);
+    line-height:1.6;
+  }
 
-/* stack cards inside each column */
-.portfolio-stack {
-  display: grid;
-  gap: 16px;
-}
+  .container{
+    max-width:900px;
+    margin:60px auto;
+    background:#fff;
+    padding:60px;
+    border-radius:6px;
+    box-shadow:var(--shadow);
+  }
 
-/* make event images a bit taller and cleaner */
-.project-card img {
-  height: 170px;
-}
+  /* Header */
+  .header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+    gap:20px;
+  }
 
-/* labels look cleaner */
-.card-label {
-  margin-top: 10px;
-  font-weight: 400;
-  font-size: 15px;
-}
+  .header-left{ max-width:72%; }
 
-/* hover details: bottom gradient instead of full dark cover */
-.project-overlay {
-  justify-content: flex-end;
-  background: linear-gradient(to top, rgba(17,17,17,0.85), rgba(17,17,17,0.0));
-  padding: 16px;
-}
+  .header-right img{
+    width:140px;
+    height:140px;
+    object-fit:cover;
+    border-radius:16px;
+  }
 
-/* campaign card tighten */
-.campaign-card {
-  padding: 16px;
-}
-/* CLEAN COLLAGE (masonry) */
-.masonry {
-  column-count: 1;
-  column-gap: 18px;
-}
+  h1{
+    font-size:42px;
+    letter-spacing:-1px;
+    margin:0 0 6px 0;
+    line-height:1.1;
+    font-weight:600; /* softer than bold */
+  }
 
-@media (min-width: 700px) {
-  .masonry { column-count: 2; }
-}
+  .contact{
+    color:#555;
+    margin-bottom:14px;
+  }
 
-@media (min-width: 1000px) {
-  .masonry { column-count: 3; }
-}
+  .header-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
 
-/* Each item stays together inside columns */
-.masonry-item {
-  break-inside: avoid;
-  margin: 0 0 18px;
-}
+  .link-pill{
+    display:inline-block;
+    padding:10px 14px;
+    border-radius:999px;
+    border:1px solid #e8e8e8;
+    text-decoration:none;
+    color:#111;
+    font-weight:500; /* softer */
+  }
+  .link-pill:hover{ background:#f3f3f3; }
 
-/* Keep your cards looking clean in masonry */
-.masonry .project-card,
-.masonry .campaign-card {
-  width: 100%;
-}
+  .download-btn{
+    display:inline-block;
+    padding:12px 24px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:500; /* softer */
+    transition:0.2s ease;
+  }
+  .download-btn:hover{ background:#333; }
 
-/* Optional: slightly calmer hover movement */
-.project-card:hover {
-  transform: translateY(-3px);
-}
-/* ===== DIY EVENTS COLLAGE (featured + small tiles) ===== */
-.events-collage{
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 12px;
-  align-items: start;
-}
+  /* Tabs */
+  .tabs{
+    margin-top:18px;
+    display:flex;
+    gap:20px;
+    border-bottom:1px solid var(--border);
+  }
+  .tab{
+    padding:10px 0;
+    text-decoration:none;
+    font-weight:500; /* softer */
+    color:#888;
+    position:relative;
+  }
+  .tab.active{ color:#111; }
+  .tab.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-1px;
+    width:100%;
+    height:2px;
+    background:#111;
+  }
 
-/* FEATURED (these are your 3 main event cards) */
-.featured-wrap.big{
-  grid-column: span 6;
-}
-@media (min-width: 980px){
-  /* make featured feel stronger on desktop */
-  .featured-wrap.big:nth-child(1){ grid-column: span 7; }
-  .featured-wrap.big:nth-child(2){ grid-column: span 5; }
-  .featured-wrap.big:nth-child(3){ grid-column: span 7; }
-}
+  .tab-content{ display:none; animation:fade 0.35s ease; }
+  .tab-content.active{ display:block; }
 
-.featured-card{
-  position: relative;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  border: 1px solid rgba(0,0,0,0.06);
-  background:#fff;
-}
-.featured-card a{ display:block; text-decoration:none; color:inherit; }
-.featured-card img{
-  width:100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  display:block;
-}
-.featured-label{
-  margin-top: 8px;
-  font-weight: 500;
-  font-size: 15px;
-}
+  @keyframes fade{
+    from{ opacity:0; transform:translateY(8px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
 
-/* SMALL TILES (posters + extra photos) */
-.collage-item{
-  grid-column: span 3;
-  position: relative;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.06);
-  background:#fff;
-  min-height: 120px;
-}
-.collage-item a{ display:block; height:100%; text-decoration:none; color:inherit; }
-.collage-item img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
+  /* Sections */
+  h2{
+    margin-top:60px;
+    font-size:20px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#888;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--border);
+    font-weight:500;
+  }
 
-/* posters look better tall */
-.collage-item.poster{ aspect-ratio: 4/5; }
+  .summary{ font-size:17px; color:#444; }
 
-/* hover tag */
-.collage-tag{
-  position:absolute;
-  left:10px;
-  bottom:10px;
-  padding:6px 10px;
-  background: rgba(17,17,17,0.78);
-  color:#fff;
-  font-size:12px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  opacity:0;
-  transform: translateY(6px);
-  transition: 0.2s ease;
-}
-.collage-item:hover .collage-tag{
-  opacity:1;
-  transform: translateY(0);
-}
+  .job{
+    margin-bottom:35px;
+    padding-left:10px;
+    border-left:2px solid #f0f0f0;
+  }
 
-/* MOBILE */
-@media (max-width: 900px){
-  .events-collage{ grid-template-columns: repeat(6, 1fr); }
+  .job-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:10px;
+  }
+
+  .job-title{
+    font-weight:600;
+    font-size:18px;
+  }
+
+  .company{ color:#555; }
+  .date{
+    color:#888;
+    font-size:14px;
+    white-space:nowrap;
+  }
+
+  ul{ margin-top:10px; padding-left:20px; }
+  ul li{ margin-bottom:6px; }
+
+  /* Portfolio headings */
+  .section-title{
+    margin-top:40px;
+    margin-bottom:14px;
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#888;
+    font-weight:500;
+  }
+
+  /* =========================
+     DIY EVENTS: Collage (featured stand out inside)
+     ========================= */
+  .events-collage{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap:12px;
+    align-items:start;
+  }
+
+  /* Featured event tiles (big + label under) */
   .featured-wrap.big{ grid-column: span 6; }
-  .collage-item{ grid-column: span 3; }
-}
-/* ===== DIY EVENTS: One collage, featured cards bigger ===== */
-.events-collage{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-  align-items: start;
-}
 
-/* featured wrapper gives you image + label underneath */
-.featured-wrap{
-  grid-column: span 2;
-}
+  .featured-card{
+    position:relative;
+    border-radius:10px;
+    overflow:hidden;
+    border:2px solid rgba(17,17,17,0.12);   /* makes it “stand out” */
+    box-shadow:0 14px 32px rgba(0,0,0,0.10);
+    background:#fff;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
 
-/* make featured ones BIG */
-.featured-wrap.big{
-  grid-column: span 3;
-}
+  .featured-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.14);
+  }
 
-.featured-card{
-  position: relative;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  background: #fff;
-}
+  .featured-card a{ display:block; text-decoration:none; color:inherit; }
 
-.featured-card a{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-}
+  .featured-card img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+  }
 
-.featured-card img{
-  width: 100%;
-  height: 240px;          /* featured height */
-  object-fit: cover;
-  display:block;
-}
+  .featured-label{
+    margin-top:10px;
+    font-weight:500;
+    font-size:15px;
+    color:#111;
+  }
 
-/* label under featured cards */
-.featured-label{
-  margin-top: 10px;
-  font-weight: 500;       /* not harsh-bold */
-  font-size: 15px;
-  color: #111;
-}
+  /* Small collage tiles */
+  .collage-item{
+    grid-column: span 3;
+    position:relative;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid rgba(0,0,0,0.07);
+    background:#fff;
+  }
 
-/* supporting items (smaller collage pieces) */
-.collage-item{
-  grid-column: span 2;
-  position: relative;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.06);
-  background: #fff;
-}
+  .collage-item a{
+    display:block;
+    height:100%;
+    text-decoration:none;
+    color:inherit;
+  }
 
-.collage-item img{
-  width: 100%;
-  height: 140px;          /* smaller */
-  object-fit: cover;
-  display:block;
-}
+  .collage-item img{
+    width:100%;
+    aspect-ratio: 16/10;   /* default small tile shape */
+    object-fit:cover;
+    display:block;
+  }
 
-.collage-item a{
-  display:block;
-  height:100%;
-  text-decoration:none;
-  color:inherit;
-}
+  /* Posters: tall */
+  .collage-item.poster img{ aspect-ratio: 4/5; }
 
-/* hover tag for supporting items */
-.collage-tag{
-  position:absolute;
-  left:10px;
-  bottom:10px;
-  padding:6px 10px;
-  background: rgba(17,17,17,0.78);
-  color:#fff;
-  font-size:12px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  opacity:0;
-  transform: translateY(6px);
-  transition: 0.2s ease;
-}
+  /* Hover tag for small items only */
+  .collage-tag{
+    position:absolute;
+    left:10px;
+    bottom:10px;
+    padding:6px 10px;
+    background:rgba(17,17,17,0.78);
+    color:#fff;
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    opacity:0;
+    transform:translateY(6px);
+    transition:0.2s ease;
+    border-radius:999px;
+  }
 
-.collage-item:hover .collage-tag{
-  opacity:1;
-  transform: translateY(0);
-}
+  .collage-item:hover .collage-tag{
+    opacity:1;
+    transform:translateY(0);
+  }
 
-/* Optional sizing helpers */
-.span-1{ grid-column: span 1; }
-.span-2{ grid-column: span 2; }
-.span-3{ grid-column: span 3; }
-.tall .collage-item img{ height: 200px; }
+  /* =========================
+     Masonry for Campaigns + Video (unchanged idea, cleaned)
+     ========================= */
+  .masonry{
+    column-count:1;
+    column-gap:18px;
+  }
+  @media (min-width:700px){ .masonry{ column-count:2; } }
+  @media (min-width:1000px){ .masonry{ column-count:3; } }
 
-/* Mobile: go to 2 columns; featured just becomes full width */
-@media (max-width: 900px){
-  .events-collage{ grid-template-columns: repeat(2, 1fr); }
-  .featured-wrap, .featured-wrap.big{ grid-column: span 2; }
-  .featured-card img{ height: 200px; }
-  .collage-item{ grid-column: span 1; }
-  .collage-item img{ height: 140px; }
-}
+  .masonry-item{
+    break-inside:avoid;
+    margin:0 0 18px;
+  }
+
+  .project-card{
+    position:relative;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+    transition:transform 0.22s ease, box-shadow 0.22s ease;
+    cursor:pointer;
+  }
+  .project-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+  }
+  .project-card a{
+    display:block;
+    height:100%;
+    text-decoration:none;
+    color:inherit;
+  }
+  .project-card img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+  }
+
+  .project-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:flex-end;
+    padding:16px;
+    background:linear-gradient(to top, rgba(17,17,17,0.85), rgba(17,17,17,0.0));
+    opacity:0;
+    transition:opacity 0.22s ease;
+  }
+  .project-card:hover .project-overlay{ opacity:1; }
+
+  .project-overlay .project-meta{
+    color:#fff;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+
+  .card-label{
+    margin-top:10px;
+    font-weight:400;
+    font-size:15px;
+  }
+
+  /* Responsive */
+  @media (max-width:900px){
+    .events-collage{ grid-template-columns: repeat(6, 1fr); }
+    .featured-wrap.big{ grid-column: span 6; }     /* featured becomes full width */
+    .collage-item{ grid-column: span 3; }          /* 2 small tiles per row */
+  }
+
+  @media (max-width:768px){
+    .container{ padding:30px; }
+    .header{ flex-direction:column; align-items:flex-start; }
+    .header-left{ max-width:100%; }
+    .job-header{ flex-direction:column; gap:4px; }
+  }
+
+  /* Print */
+  @media print{
+    body{ background:#fff; }
+    .container{ box-shadow:none; margin:0; padding:0; max-width:100%; }
+    .tabs, .header-actions{ display:none; }
+  }
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
   <div class="header">
     <div class="header-left">
       <h1>Gabe Soundara</h1>
-      <div class="contact">
-        Brentwood, TN · (615) 767-3769 · gbsoundara03@gmail.com
-      </div>
+      <div class="contact">Brentwood, TN · (615) 767-3769 · gbsoundara03@gmail.com</div>
 
       <div class="header-actions">
-        <a class="link-pill" href="https://www.linkedin.com/in/gabesoundara/" target="_blank">LinkedIn</a>
+        <a class="link-pill" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="GabrielSoundara-Resume.pdf" download class="download-btn">Download Resume (PDF)</a>
       </div>
     </div>
@@ -723,28 +472,26 @@ ul li {
       </ul>
     </div>
 
-   <h2>Education</h2>
-<ul>
-
-  <li>
-    Middle Tennessee State University
+    <h2>Education</h2>
     <ul>
-      <li>Bachelor’s Degree in Public Relations — Expected May 2026</li>
-      <li>Dean’s List (2022–2025)</li>
-      <li>John Seigenthaler Chair Scholarship Winner (2023)</li>
-      <li>MTSU Tourism Proposal Competition — 1st Place (2024)</li>
-    </ul>
-  </li>
+      <li>
+        Middle Tennessee State University
+        <ul>
+          <li>Bachelor’s Degree in Public Relations — Expected May 2026</li>
+          <li>Dean’s List (2022–2025)</li>
+          <li>John Seigenthaler Chair Scholarship Winner (2023)</li>
+          <li>MTSU Tourism Proposal Competition — 1st Place (2024)</li>
+        </ul>
+      </li>
 
-  <li>
-    University of Salford (Manchester, UK)
-    <ul>
-      <li>Study Abroad — Spring 2025</li>
-      <li>BJTC "Best Podcast" Award (2025)</li>
+      <li>
+        University of Salford (Manchester, UK)
+        <ul>
+          <li>Study Abroad — Spring 2025</li>
+          <li>BJTC “Best Podcast” Award (2025)</li>
+        </ul>
+      </li>
     </ul>
-  </li>
-
-</ul>
 
     <h2>Skills</h2>
     <ul>
@@ -759,138 +506,143 @@ ul li {
   </div>
 
   <!-- PORTFOLIO -->
-<div id="portfolio" class="tab-content">
+  <div id="portfolio" class="tab-content">
 
-<!-- DIY EVENTS -->
-<div class="section-title">DIY Events</div>
+    <!-- DIY EVENTS -->
+    <div class="section-title">DIY Events</div>
 
-<div class="events-collage">
+    <div class="events-collage">
 
-  <!-- FEATURED EVENTS (BIGGER + LABEL UNDER) -->
+      <!-- Featured Events (BIGGER + LABEL UNDER) -->
+      <div class="featured-wrap big">
+        <div class="featured-card">
+          <a href="events/over-the-leaves.html">
+            <img src="images/events/over-the-leaves-scenic.jpg" alt="Over the Leaves">
+          </a>
+        </div>
+        <div class="featured-label">Over the Leaves — Concert</div>
+      </div>
 
-  <div class="featured-wrap big">
-    <div class="featured-card">
-      <a href="events/over-the-leaves.html">
-        <img src="images/events/over-the-leaves-scenic.jpg" alt="Over the Leaves">
-      </a>
-    </div>
-    <div class="featured-label">Over the Leaves — Concert</div>
-  </div>
+      <div class="featured-wrap big">
+        <div class="featured-card">
+          <a href="events/under-the-trees.html">
+            <img src="images/events/under-the-trees-crowd.jpg" alt="Under the Trees">
+          </a>
+        </div>
+        <div class="featured-label">Under the Trees — Music Festival</div>
+      </div>
 
-  <div class="featured-wrap big">
-    <div class="featured-card">
-      <a href="events/under-the-trees.html">
-        <img src="images/events/under-the-trees-crowd.jpg" alt="Under the Trees">
-      </a>
-    </div>
-    <div class="featured-label">Under the Trees — Music Festival</div>
-  </div>
+      <div class="featured-wrap big">
+        <div class="featured-card">
+          <a href="events/triple-threat.html">
+            <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
+          </a>
+        </div>
+        <div class="featured-label">Triple Threat — Concert</div>
+      </div>
 
-  <div class="featured-wrap big">
-    <div class="featured-card">
-      <a href="events/triple-threat.html">
-        <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
-      </a>
-    </div>
-    <div class="featured-label">Triple Threat — Concert</div>
-  </div>
-
-
-  <!-- SMALLER COLLAGE IMAGES -->
-
-  <div class="collage-item span-2">
-    <a href="events/over-the-leaves.html">
-      <img src="images/events/over-the-leaves-poster.jpg" alt="Over the Leaves Poster">
-      <div class="collage-tag">Poster</div>
-    </a>
-  </div>
-
-  <div class="collage-item span-2">
-    <a href="events/under-the-trees.html">
-      <img src="images/events/under-the-trees-poster.jpg" alt="Under the Trees Poster">
-      <div class="collage-tag">Poster</div>
-    </a>
-  </div>
-
-  <div class="collage-item span-2">
-    <a href="events/triple-threat.html">
-      <img src="images/events/triple-threat-poster.jpg" alt="Triple Threat Poster">
-      <div class="collage-tag">Poster</div>
-    </a>
-  </div>
-
-</div>
-
-  <!-- CLIENT CAMPAIGNS -->
-  <div class="section-title">Client Campaigns</div>
-  <div class="masonry">
-    <div class="masonry-item">
-      <div class="project-card">
-        <a href="campaigns/cheatham-tourism.html" target="_blank">
-          <img src="campaign1.jpg" alt="Cheatham County Tourism Proposal">
-          <div class="project-overlay"><div class="project-meta">1st Place · Strategy + Presentation</div></div>
+      <!-- Smaller collage images (no labels, just hover tags) -->
+      <div class="collage-item poster">
+        <a href="events/over-the-leaves.html">
+          <img src="images/events/over-the-leaves-poster.jpg" alt="Over the Leaves Poster">
+          <div class="collage-tag">Poster</div>
         </a>
       </div>
-      <div class="card-label">Cheatham County Tourism Proposal</div>
-    </div>
 
-    <div class="masonry-item">
-      <div class="project-card">
-        <a href="campaigns/nashville-flying-dress.html" target="_blank">
-          <img src="campaign2.jpg" alt="Nashville Flying Dress">
-          <div class="project-overlay"><div class="project-meta">Marketing Strategy · Presentation</div></div>
+      <div class="collage-item poster">
+        <a href="events/under-the-trees.html">
+          <img src="images/events/under-the-trees-poster.jpg" alt="Under the Trees Poster">
+          <div class="collage-tag">Poster</div>
         </a>
       </div>
-      <div class="card-label">Nashville Flying Dress</div>
-    </div>
 
-    <div class="masonry-item">
-      <div class="project-card">
-        <a href="campaigns/honor-flight.html" target="_blank">
-          <img src="campaign3.jpg" alt="Honor Flight MT">
-          <div class="project-overlay"><div class="project-meta">Client Campaign · Account Manager</div></div>
+      <div class="collage-item poster">
+        <a href="events/triple-threat.html">
+          <img src="images/events/triple-threat-poster.jpg" alt="Triple Threat Poster">
+          <div class="collage-tag">Poster</div>
         </a>
       </div>
-      <div class="card-label">Honor Flight MT</div>
+
+      <div class="collage-item">
+        <a href="events/under-the-trees.html">
+          <img src="images/events/under-the-trees-crowd-2.jpg" alt="Under the Trees Crowd Photo">
+          <div class="collage-tag">Photo</div>
+        </a>
+      </div>
+
     </div>
+
+    <!-- CLIENT CAMPAIGNS -->
+    <div class="section-title">Client Campaigns</div>
+
+    <div class="masonry">
+      <div class="masonry-item">
+        <div class="project-card">
+          <a href="campaigns/cheatham-tourism.html" target="_blank" rel="noopener">
+            <img src="campaign1.jpg" alt="Cheatham County Tourism Proposal">
+            <div class="project-overlay"><div class="project-meta">1st Place · Strategy + Presentation</div></div>
+          </a>
+        </div>
+        <div class="card-label">Cheatham County Tourism Proposal</div>
+      </div>
+
+      <div class="masonry-item">
+        <div class="project-card">
+          <a href="campaigns/nashville-flying-dress.html" target="_blank" rel="noopener">
+            <img src="campaign2.jpg" alt="Nashville Flying Dress">
+            <div class="project-overlay"><div class="project-meta">Marketing Strategy · Presentation</div></div>
+          </a>
+        </div>
+        <div class="card-label">Nashville Flying Dress</div>
+      </div>
+
+      <div class="masonry-item">
+        <div class="project-card">
+          <a href="campaigns/honor-flight.html" target="_blank" rel="noopener">
+            <img src="campaign3.jpg" alt="Honor Flight MT">
+            <div class="project-overlay"><div class="project-meta">Client Campaign · Account Manager</div></div>
+          </a>
+        </div>
+        <div class="card-label">Honor Flight MT</div>
+      </div>
+    </div>
+
+    <!-- VIDEO EDITING & MORE -->
+    <div class="section-title">Video Editing & More</div>
+
+    <div class="masonry">
+      <div class="masonry-item">
+        <div class="project-card">
+          <a href="video/music-videos.html" target="_blank" rel="noopener">
+            <img src="video1.jpg" alt="Music Videos">
+            <div class="project-overlay"><div class="project-meta">Directing · Editing</div></div>
+          </a>
+        </div>
+        <div class="card-label">Music Videos</div>
+      </div>
+
+      <div class="masonry-item">
+        <div class="project-card">
+          <a href="video/graphic-design.html" target="_blank" rel="noopener">
+            <img src="graphic1.jpg" alt="Graphic Design">
+            <div class="project-overlay"><div class="project-meta">Marketing · Promotion</div></div>
+          </a>
+        </div>
+        <div class="card-label">Graphic Design</div>
+      </div>
+
+      <div class="masonry-item">
+        <div class="project-card">
+          <a href="video/audio-production.html" target="_blank" rel="noopener">
+            <img src="audio1.JPG" alt="Audio Production">
+            <div class="project-overlay"><div class="project-meta">Music · Podcasts</div></div>
+          </a>
+        </div>
+        <div class="card-label">Audio Production</div>
+      </div>
+    </div>
+
   </div>
-
-
-  <!-- VIDEO EDITING & MORE -->
-  <div class="section-title">Video Editing & More</div>
-  <div class="masonry">
-    <div class="masonry-item">
-      <div class="project-card">
-        <a href="video/music-videos.html" target="_blank">
-          <img src="video1.jpg" alt="Music Videos">
-          <div class="project-overlay"><div class="project-meta">Directing · Editing</div></div>
-        </a>
-      </div>
-      <div class="card-label">Music Videos</div>
-    </div>
-
-    <div class="masonry-item">
-      <div class="project-card">
-        <a href="video/graphic-design.html" target="_blank">
-          <img src="graphic1.jpg" alt="Graphic Design">
-          <div class="project-overlay"><div class="project-meta">Marketing · Promotion</div></div>
-        </a>
-      </div>
-      <div class="card-label">Graphic Design</div>
-    </div>
-
-    <div class="masonry-item">
-      <div class="project-card">
-        <a href="video/audio-production.html" target="_blank">
-          <img src="audio1.JPG" alt="Audio Production">
-          <div class="project-overlay"><div class="project-meta">Music · Podcasts</div></div>
-        </a>
-      </div>
-      <div class="card-label">Audio Production</div>
-    </div>
-  </div>
-
-</div>
 
 </div>
 
