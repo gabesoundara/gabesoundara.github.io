@@ -534,26 +534,105 @@
     gap: 16px;
   }
 }
+/* FORCE mobile: name + photo side-by-side */
+@media (max-width: 520px){
+
+  .header { 
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+  }
+
+  .header-top{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .header-top h1{
+    margin: 0 !important;
+    font-size: 34px !important;
+    line-height: 1.05 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .header-top .header-right{
+    flex: 0 0 auto !important;
+  }
+
+  .header-top .header-right img{
+    width: 86px !important;
+    height: 86px !important;
+    border-radius: 14px !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+}
+  @media (max-width: 520px){
+  .header{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .header-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .header-top h1{
+    margin: 0;
+    font-size: 34px;
+    line-height: 1.05;
+    flex: 1 1 auto;
+  }
+
+  .header-right img{
+    width: 86px;
+    height: 86px;
+    border-radius: 14px;
+  }
+
+  .header-actions{
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .link-pill,
+  .download-btn{
+    width: 100%;
+    text-align: center;
+  }
+}
 </style>
 </head>
 
 <body>
 <div class="container">
-
-  <div class="header">
-    <div class="header-left">
-      <h1>Gabe Soundara</h1>
-
-      <div class="header-actions">
-        <a class="link-pill" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="GabrielSoundara-Resume.pdf" download class="download-btn">Download Resume (PDF)</a>
-      </div>
-    </div>
+<div class="header">
+  <!-- TOP ROW: Name + Photo -->
+  <div class="header-top">
+    <h1>Gabe Soundara</h1>
 
     <div class="header-right">
       <img src="headshot-26.jpg" alt="Gabe Soundara Headshot">
     </div>
   </div>
+
+  <!-- BUTTON ROW -->
+  <div class="header-actions">
+    <a class="link-pill" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="GabrielSoundara-Resume.pdf" download class="download-btn">Download Resume (PDF)</a>
+  </div>
+</div>
 
 <div class="tabs">
   <a href="#home" class="tab active" data-tab="home">Home</a>
