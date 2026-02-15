@@ -426,6 +426,44 @@
     .container{ box-shadow:none; margin:0; padding:0; max-width:100%; }
     .tabs, .header-actions{ display:none; }
   }
+  /* Media list (vertical) */
+.media-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:10px;
+}
+
+/* Match Events card feel: wide, not tall */
+.media-embed{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/10;  /* same vibe as events */
+  background:#000;
+}
+
+.media-embed iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* SoundCloud should be shorter */
+.media-audio{
+  position:relative;
+  width:100%;
+  height:210px;
+  background:#f5f5f5;
+}
+.media-audio iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
 </style>
 </head>
 
@@ -640,103 +678,88 @@
       </div>
     </div>
 
-    <!-- MEDIA & CREATIVE (BIG SWIPE LIKE INSTAGRAM) -->
-    <div class="section-divider">
-      <div class="section-title">Media & Creative</div>
+<!-- MEDIA & CREATIVE (Vertical list, same size as Events cards) -->
+<div class="section-divider">
+  <div class="section-title">Media & Creative</div>
 
-      <div class="slider media-slider" aria-label="Media & Creative">
+  <div class="media-list" aria-label="Media & Creative">
 
-        <div class="slide">
-          <div class="embed-card">
-            <div class="video-embed">
-              <iframe
-                src="https://www.youtube.com/embed/-xI1FW09nX4"
-                title="Music Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <div class="embed-caption">
-              <div class="embed-title">Music Video</div>
-              <div class="embed-meta">Directing · Editing</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide">
-          <div class="embed-card">
-            <div class="audio-embed">
-              <iframe
-                scrolling="no"
-                allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-548637530/the-melting-pod&auto_play=false&show_user=true&visual=true">
-              </iframe>
-            </div>
-            <div class="embed-caption">
-              <div class="embed-title">The Melting Pod</div>
-              <div class="embed-meta">Podcast · Production</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide">
-          <div class="embed-card">
-            <div class="video-embed">
-              <iframe
-                src="https://www.youtube.com/embed/ppbuGARM8Rg"
-                title="Video Project"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <div class="embed-caption">
-              <div class="embed-title">Video Project</div>
-              <div class="embed-meta">Filming · Editing</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide">
-          <div class="embed-card">
-            <div class="video-embed">
-              <iframe
-                src="https://www.youtube.com/embed/v7l-xecVXNI"
-                title="Creative Project"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <div class="embed-caption">
-              <div class="embed-title">Creative Project</div>
-              <div class="embed-meta">Editing · Production</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide">
-          <div class="embed-card">
-            <div class="video-embed">
-              <iframe
-                src="https://www.youtube.com/embed/JblfOt0AYR0"
-                title="Media Work"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <div class="embed-caption">
-              <div class="embed-title">Media Work</div>
-              <div class="embed-meta">Content Creation</div>
-            </div>
-          </div>
-        </div>
-
+    <div class="embed-card">
+      <div class="media-embed">
+        <iframe
+          src="https://www.youtube.com/embed/-xI1FW09nX4"
+          title="Music Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
       </div>
+      <div class="embed-caption">
+        <div class="embed-title">Music Video</div>
+        <div class="embed-meta">Directing · Editing</div>
+      </div>
+    </div>
 
-      <div class="swipe-hint" aria-hidden="true">Swipe →</div>
+    <div class="embed-card">
+      <div class="media-audio">
+        <iframe
+          scrolling="no"
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-548637530/the-melting-pod&auto_play=false&show_user=true&visual=true">
+        </iframe>
+      </div>
+      <div class="embed-caption">
+        <div class="embed-title">The Melting Pod</div>
+        <div class="embed-meta">Podcast · Production</div>
+      </div>
+    </div>
+
+    <div class="embed-card">
+      <div class="media-embed">
+        <iframe
+          src="https://www.youtube.com/embed/ppbuGARM8Rg"
+          title="Video Project"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="embed-caption">
+        <div class="embed-title">Video Project</div>
+        <div class="embed-meta">Filming · Editing</div>
+      </div>
+    </div>
+
+    <div class="embed-card">
+      <div class="media-embed">
+        <iframe
+          src="https://www.youtube.com/embed/v7l-xecVXNI"
+          title="Creative Project"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="embed-caption">
+        <div class="embed-title">Creative Project</div>
+        <div class="embed-meta">Editing · Production</div>
+      </div>
+    </div>
+
+    <div class="embed-card">
+      <div class="media-embed">
+        <iframe
+          src="https://www.youtube.com/embed/JblfOt0AYR0"
+          title="Media Work"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="embed-caption">
+        <div class="embed-title">Media Work</div>
+        <div class="embed-meta">Content Creation</div>
+      </div>
     </div>
 
   </div>
-
+</div>
 </div>
 
 <script>
