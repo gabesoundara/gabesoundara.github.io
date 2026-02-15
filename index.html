@@ -533,6 +533,113 @@ ul li {
   .med  { min-height: 160px; }
   .small { min-height: 140px; }
 }
+/* ===== DIY EVENTS: One collage, featured cards bigger ===== */
+.events-collage{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+/* featured wrapper gives you image + label underneath */
+.featured-wrap{
+  grid-column: span 2;
+}
+
+/* make featured ones BIG */
+.featured-wrap.big{
+  grid-column: span 3;
+}
+
+.featured-card{
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+.featured-card a{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+.featured-card img{
+  width: 100%;
+  height: 240px;          /* featured height */
+  object-fit: cover;
+  display:block;
+}
+
+/* label under featured cards */
+.featured-label{
+  margin-top: 10px;
+  font-weight: 500;       /* not harsh-bold */
+  font-size: 15px;
+  color: #111;
+}
+
+/* supporting items (smaller collage pieces) */
+.collage-item{
+  grid-column: span 2;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #fff;
+}
+
+.collage-item img{
+  width: 100%;
+  height: 140px;          /* smaller */
+  object-fit: cover;
+  display:block;
+}
+
+.collage-item a{
+  display:block;
+  height:100%;
+  text-decoration:none;
+  color:inherit;
+}
+
+/* hover tag for supporting items */
+.collage-tag{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+  padding:6px 10px;
+  background: rgba(17,17,17,0.78);
+  color:#fff;
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  opacity:0;
+  transform: translateY(6px);
+  transition: 0.2s ease;
+}
+
+.collage-item:hover .collage-tag{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Optional sizing helpers */
+.span-1{ grid-column: span 1; }
+.span-2{ grid-column: span 2; }
+.span-3{ grid-column: span 3; }
+.tall .collage-item img{ height: 200px; }
+
+/* Mobile: go to 2 columns; featured just becomes full width */
+@media (max-width: 900px){
+  .events-collage{ grid-template-columns: repeat(2, 1fr); }
+  .featured-wrap, .featured-wrap.big{ grid-column: span 2; }
+  .featured-card img{ height: 200px; }
+  .collage-item{ grid-column: span 1; }
+  .collage-item img{ height: 140px; }
+}
 </style>
 </head>
 
@@ -686,96 +793,61 @@ ul li {
   <!-- PORTFOLIO -->
 <div id="portfolio" class="tab-content">
 
-  <!-- DIY EVENTS -->
-<div class="portfolio-col-title">DIY Events</div>
+<!-- DIY EVENTS -->
+<div class="section-title">DIY Events</div>
 
-<!-- Featured (these are the 3 big “main” event links) -->
-<div class="events-featured">
-
-  <div class="featured-card">
-    <a href="events/over-the-leaves.html">
-      <img src="event1.jpg" alt="Over the Leaves — Concert">
-      <div class="featured-titlebar">
-        <div class="featured-title">Over the Leaves</div>
-        <div class="featured-type">Concert</div>
-      </div>
-    </a>
-  </div>
-
-  <div class="featured-card">
-    <a href="events/under-the-trees.html">
-      <img src="event3.jpg" alt="Under the Trees — Music Festival">
-      <div class="featured-titlebar">
-        <div class="featured-title">Under the Trees</div>
-        <div class="featured-type">Festival</div>
-      </div>
-    </a>
-  </div>
-
-  <div class="featured-card">
-    <a href="events/triple-threat.html">
-      <img src="event2.jpg" alt="Triple Threat — Concert">
-      <div class="featured-titlebar">
-        <div class="featured-title">Triple Threat</div>
-        <div class="featured-type">Concert</div>
-      </div>
-    </a>
-  </div>
-
-</div>
-
-<!-- Collage (supporting visuals: posters/photos; still link to the same pages) -->
 <div class="events-collage">
 
-  <!-- Over the Leaves -->
-  <div class="collage-item span-4 tall">
+  <!-- FEATURED EVENTS (BIGGER + LABEL UNDER) -->
+
+  <div class="featured-wrap big">
+    <div class="featured-card">
+      <a href="events/over-the-leaves.html">
+        <img src="images/events/over-the-leaves-scenic.jpg" alt="Over the Leaves">
+      </a>
+    </div>
+    <div class="featured-label">Over the Leaves — Concert</div>
+  </div>
+
+  <div class="featured-wrap big">
+    <div class="featured-card">
+      <a href="events/under-the-trees.html">
+        <img src="images/events/under-the-trees-crowd.jpg" alt="Under the Trees">
+      </a>
+    </div>
+    <div class="featured-label">Under the Trees — Music Festival</div>
+  </div>
+
+  <div class="featured-wrap big">
+    <div class="featured-card">
+      <a href="events/triple-threat.html">
+        <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
+      </a>
+    </div>
+    <div class="featured-label">Triple Threat — Concert</div>
+  </div>
+
+
+  <!-- SMALLER COLLAGE IMAGES -->
+
+  <div class="collage-item span-2">
     <a href="events/over-the-leaves.html">
       <img src="images/events/over-the-leaves-poster.jpg" alt="Over the Leaves Poster">
       <div class="collage-tag">Poster</div>
     </a>
   </div>
 
-  <div class="collage-item span-2 med">
-    <a href="events/over-the-leaves.html">
-      <img src="images/events/over-the-leaves-scenic.jpg" alt="Over the Leaves Scenic Photo">
-      <div class="collage-tag">Photo</div>
-    </a>
-  </div>
-
-  <!-- Under the Trees -->
-  <div class="collage-item span-3 med">
+  <div class="collage-item span-2">
     <a href="events/under-the-trees.html">
       <img src="images/events/under-the-trees-poster.jpg" alt="Under the Trees Poster">
       <div class="collage-tag">Poster</div>
     </a>
   </div>
 
-  <div class="collage-item span-3 tall">
-    <a href="events/under-the-trees.html">
-      <img src="images/events/under-the-trees-crowd.jpg" alt="Under the Trees Crowd Photo">
-      <div class="collage-tag">Photo</div>
-    </a>
-  </div>
-
-  <div class="collage-item span-2 small">
-    <a href="events/under-the-trees.html">
-      <img src="images/events/under-the-trees-crowd-2.jpg" alt="Under the Trees Crowd Photo 2">
-      <div class="collage-tag">Photo</div>
-    </a>
-  </div>
-
-  <!-- Triple Threat -->
-  <div class="collage-item span-4 med">
+  <div class="collage-item span-2">
     <a href="events/triple-threat.html">
       <img src="images/events/triple-threat-poster.jpg" alt="Triple Threat Poster">
       <div class="collage-tag">Poster</div>
-    </a>
-  </div>
-
-  <div class="collage-item span-2 med">
-    <a href="events/triple-threat.html">
-      <img src="images/events/triple-threat-crowd.png" alt="Triple Threat Crowd Photo">
-      <div class="collage-tag">Photo</div>
     </a>
   </div>
 
