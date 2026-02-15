@@ -15,7 +15,7 @@
     --shadow:0 15px 40px rgba(0,0,0,0.06);
   }
 
-  * { box-sizing: border-box; }
+  *{ box-sizing:border-box; }
 
   body{
     font-family:'Inter',sans-serif;
@@ -57,7 +57,7 @@
     letter-spacing:-1px;
     margin:0 0 6px 0;
     line-height:1.1;
-    font-weight:600; /* softer than bold */
+    font-weight:600;
   }
 
   .contact{
@@ -79,7 +79,7 @@
     border:1px solid #e8e8e8;
     text-decoration:none;
     color:#111;
-    font-weight:500; /* softer */
+    font-weight:500;
   }
   .link-pill:hover{ background:#f3f3f3; }
 
@@ -90,7 +90,7 @@
     color:#fff;
     text-decoration:none;
     border-radius:8px;
-    font-weight:500; /* softer */
+    font-weight:500;
     transition:0.2s ease;
   }
   .download-btn:hover{ background:#333; }
@@ -105,7 +105,7 @@
   .tab{
     padding:10px 0;
     text-decoration:none;
-    font-weight:500; /* softer */
+    font-weight:500;
     color:#888;
     position:relative;
   }
@@ -171,198 +171,248 @@
   ul li{ margin-bottom:6px; }
 
   /* Portfolio headings */
- .section-title{
-  margin-top:60px;
-  margin-bottom:18px;
-  font-size:13px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:#999;
-  font-weight:600;
-  position:relative;
-  padding-bottom:8px;
-}
+  .section-title{
+    margin-top:32px;
+    margin-bottom:18px;
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#999;
+    font-weight:600;
+    position:relative;
+    padding-bottom:8px;
+  }
+  .section-title::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:40px;
+    height:2px;
+    background:#111;
+  }
 
-.section-title::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:40px;
-  height:2px;
-  background:#111;
-}
-  
-
-/* =========================
-   DIY EVENTS: mobile swipe cards
-   ========================= */
-.events-slider{
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  padding:6px 2px 12px;
-  margin-top:10px;
-}
-
-.events-slider::-webkit-scrollbar{ height:10px; }
-.events-slider::-webkit-scrollbar-thumb{
-  background:#e8e8e8;
-  border-radius:999px;
-}
-
-.event-card{
-  flex:0 0 88%;
-  max-width:520px;
-  scroll-snap-align:start;
-  text-decoration:none;
-  color:inherit;
-  background:#fff;
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid rgba(0,0,0,0.08);
-  box-shadow:0 12px 28px rgba(0,0,0,0.08);
-  transition:transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.event-card:active{ transform:scale(0.99); }
-
-.event-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 18px 40px rgba(0,0,0,0.12);
-}
-
-.event-card img{
-  width:100%;
-  aspect-ratio:16/10;
-  object-fit:cover;
-  display:block;
-}
-
-.event-card-body{
-  padding:14px 16px 16px;
-}
-
-.event-title{
-  font-size:18px;
-  font-weight:600;
-  line-height:1.2;
-  margin-bottom:4px;
-}
-
-.event-subtitle{
-  font-size:13px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  color:#777;
-}
-
-/* Small hint under the slider */
-.swipe-hint{
-  margin-top:8px;
-  color:#888;
-  font-size:13px;
-  letter-spacing:0.2px;
-}
-
-  /* Reusable swipe slider base */
-.slider{
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  padding:6px 2px 12px;
-  margin-top:10px;
-}
-
-.slider::-webkit-scrollbar{ height:10px; }
-.slider::-webkit-scrollbar-thumb{
-  background:#e8e8e8;
-  border-radius:999px;
-}
-
-.slide{
-  flex:0 0 88%;
-  max-width:520px;
-  scroll-snap-align:start;
-}
+  .section-divider{
+    margin-top:22px;
+    padding-top:22px;
+    border-top:1px solid #f0f0f0;
+  }
 
   /* =========================
-     Masonry for Campaigns + Video (unchanged idea, cleaned)
+     EVENTS (LEAVE AS-IS)
      ========================= */
-  .masonry{
-    column-count:1;
-    column-gap:18px;
-  }
-  @media (min-width:700px){ .masonry{ column-count:2; } }
-  @media (min-width:1000px){ .masonry{ column-count:3; } }
-
-  .masonry-item{
-    break-inside:avoid;
-    margin:0 0 18px;
+  .events-slider{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding:6px 2px 12px;
+    margin-top:10px;
   }
 
-  .project-card{
-    position:relative;
-    background:#fff;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.06);
-    transition:transform 0.22s ease, box-shadow 0.22s ease;
-    cursor:pointer;
+  .events-slider::-webkit-scrollbar{ height:10px; }
+  .events-slider::-webkit-scrollbar-thumb{
+    background:#e8e8e8;
+    border-radius:999px;
   }
-  .project-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 18px 40px rgba(0,0,0,0.12);
-  }
-  .project-card a{
-    display:block;
-    height:100%;
+
+  .event-card{
+    flex:0 0 88%;
+    max-width:520px;
+    scroll-snap-align:start;
     text-decoration:none;
     color:inherit;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow:0 12px 28px rgba(0,0,0,0.08);
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
   }
-  .project-card img{
+
+  .event-card:active{ transform:scale(0.99); }
+  .event-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+  }
+
+  .event-card img{
     width:100%;
-    aspect-ratio:16/9;
+    aspect-ratio:16/10;
     object-fit:cover;
     display:block;
   }
 
-  .project-overlay{
+  .event-card-body{ padding:14px 16px 16px; }
+
+  .event-title{
+    font-size:18px;
+    font-weight:600;
+    line-height:1.2;
+    margin-bottom:4px;
+  }
+
+  .event-subtitle{
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#777;
+  }
+
+  .swipe-hint{
+    margin-top:8px;
+    color:#888;
+    font-size:13px;
+    letter-spacing:0.2px;
+  }
+
+  /* =========================
+     Reusable slider (keep carousel on ALL screen sizes)
+     ========================= */
+  .slider{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding:6px 2px 12px;
+    margin-top:10px;
+  }
+
+  .slider::-webkit-scrollbar{ height:10px; }
+  .slider::-webkit-scrollbar-thumb{
+    background:#e8e8e8;
+    border-radius:999px;
+  }
+
+  .slide{
+    flex:0 0 92%;
+    max-width:720px;
+    scroll-snap-align:center;
+  }
+
+  /* =========================
+     CLIENT CAMPAIGNS = LONG STRIPS (not a carousel)
+     ========================= */
+  .campaign-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:10px;
+  }
+
+  .campaign-strip{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    text-decoration:none;
+    color:inherit;
+
+    padding:16px 16px;
+    border-radius:14px;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow:0 12px 28px rgba(0,0,0,0.08);
+    background:#fff;
+
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .campaign-strip:hover{
+    transform:translateY(-2px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+  }
+
+  .campaign-strip:active{ transform:scale(0.99); }
+
+  .campaign-main{ flex:1 1 auto; min-width:0; }
+
+  .campaign-title{
+    font-size:18px;
+    font-weight:600;
+    line-height:1.2;
+    margin:0 0 6px 0;
+  }
+
+  .campaign-meta{
+    color:#666;
+    font-size:14px;
+  }
+
+  .campaign-thumb{
+    width:110px;
+    height:78px;
+    border-radius:12px;
+    object-fit:cover;
+    border:1px solid rgba(0,0,0,0.08);
+    flex:0 0 auto;
+  }
+
+  @media (max-width:460px){
+    .campaign-thumb{ display:none; }
+  }
+
+  /* =========================
+     MEDIA & CREATIVE = BIG SWIPE (Instagram vibe)
+     ========================= */
+  .embed-card{
+    background:#fff;
+    border-radius:18px;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow:0 12px 28px rgba(0,0,0,0.10);
+    overflow:hidden;
+  }
+
+  /* Tall like reels */
+  .video-embed{
+    position:relative;
+    width:100%;
+    aspect-ratio:9/16;
+    background:#000;
+  }
+
+  .video-embed iframe{
     position:absolute;
     inset:0;
-    display:flex;
-    justify-content:flex-end;
-    padding:16px;
-    background:linear-gradient(to top, rgba(17,17,17,0.85), rgba(17,17,17,0.0));
-    opacity:0;
-    transition:opacity 0.22s ease;
+    width:100%;
+    height:100%;
+    border:0;
   }
-  .project-card:hover .project-overlay{ opacity:1; }
 
-  .project-overlay .project-meta{
-    color:#fff;
+  .embed-caption{
+    padding:12px 14px 14px;
+  }
+
+  .embed-title{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:4px;
+  }
+
+  .embed-meta{
     font-size:13px;
+    color:#777;
+    letter-spacing:0.2px;
     text-transform:uppercase;
-    letter-spacing:1px;
   }
 
-  .card-label{
-    margin-top:10px;
-    font-weight:400;
-    font-size:15px;
+  /* SoundCloud should not be 9:16 tall — special case */
+  .audio-embed{
+    position:relative;
+    width:100%;
+    height:210px;
+    background:#f5f5f5;
+  }
+  .audio-embed iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
   }
 
   /* Responsive */
-  @media (max-width:900px){
-    .events-collage{ grid-template-columns: repeat(6, 1fr); }
-    .featured-wrap.big{ grid-column: span 6; }     /* featured becomes full width */
-    .collage-item{ grid-column: span 3; }          /* 2 small tiles per row */
-  }
-
   @media (max-width:768px){
     .container{ padding:30px; }
     .header{ flex-direction:column; align-items:flex-start; }
@@ -376,145 +426,6 @@
     .container{ box-shadow:none; margin:0; padding:0; max-width:100%; }
     .tabs, .header-actions{ display:none; }
   }
-  @media (min-width:900px){
-  .slider{
-    overflow:visible;
-    scroll-snap-type:none;
-  }
-  .slide{
-    flex:1 1 0;
-    max-width:none;
-  
-}
-.section-divider{
-  margin-top:25px;
-  padding-top:25px;
-  border-top:1px solid #f0f0f0;
-}
-}
-/* =========================
-   Text-only carousel cards (Client Campaigns)
-   ========================= */
-.text-card{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-  background:#fff;
-  border-radius:14px;
-  border:1px solid rgba(0,0,0,0.08);
-  box-shadow:0 12px 28px rgba(0,0,0,0.08);
-  padding:16px 16px 18px;
-  transition:transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.text-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 18px 40px rgba(0,0,0,0.12);
-}
-
-.text-card:active{ transform:scale(0.99); }
-
-.text-card-title{
-  font-size:18px;
-  font-weight:600;
-  line-height:1.2;
-  margin:0 0 8px 0;
-}
-
-.text-card-meta{
-  color:#666;
-  font-size:14px;
-  margin-bottom:10px;
-}
-
-.tag-row{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-
-.tag{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid #e8e8e8;
-  font-size:12px;
-  color:#555;
-  letter-spacing:0.2px;
-  background:#fafafa;
-}
-  /* Portfolio section titles should not push down a ton */
-#portfolio .section-title{ margin-top:28px; }
-#portfolio .section-title:first-of-type{ margin-top:5; }
-
-/* Text card layout with optional thumbnail */
-.text-card{
-  display:flex;                 /* was block */
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-}
-
-.text-card-main{ flex:1 1 auto; min-width:0; }
-
-.text-card-thumb{
-  width:92px;
-  height:92px;
-  border-radius:12px;
-  object-fit:cover;
-  border:1px solid rgba(0,0,0,0.08);
-  flex:0 0 auto;
-}
-
-/* On very small screens, hide the thumbnail to keep it clean */
-@media (max-width:420px){
-  .text-card-thumb{ display:none; }
-}
-
-/* =========================
-   Media embeds (YouTube) — matches your card sizing
-   ========================= */
-.embed-card{
-  background:#fff;
-  border-radius:14px;
-  border:1px solid rgba(0,0,0,0.08);
-  box-shadow:0 12px 28px rgba(0,0,0,0.08);
-  overflow:hidden;
-}
-
-.video-embed{
-  position:relative;
-  width:100%;
-  aspect-ratio:16/9;
-  background:#000;
-}
-
-.video-embed iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-.embed-caption{
-  padding:12px 14px 14px;
-}
-
-.embed-title{
-  font-size:16px;
-  font-weight:600;
-  margin-bottom:4px;
-}
-
-.embed-meta{
-  font-size:13px;
-  color:#777;
-  letter-spacing:0.2px;
-  text-transform:uppercase;
-}
-  
 </style>
 </head>
 
@@ -547,7 +458,10 @@
 
     <h2>Professional Summary</h2>
     <p class="summary">
-      Multifaceted Public Relations student with experience in event planning, creative content development, organizational leadership, and youth engagement. Proven ability to coordinate logistics, manage teams, and execute innovative initiatives in fast-paced environments. Strong communicator with a hands-on, solutions-driven mindset.
+      Multifaceted Public Relations student with experience in event planning, creative content development,
+      organizational leadership, and youth engagement. Proven ability to coordinate logistics, manage teams,
+      and execute innovative initiatives in fast-paced environments. Strong communicator with a hands-on,
+      solutions-driven mindset.
     </p>
 
     <h2>Professional Experience</h2>
@@ -657,182 +571,174 @@
       <li>Time Management</li>
       <li>Organizational Planning</li>
     </ul>
-
   </div>
 
   <!-- PORTFOLIO -->
   <div id="portfolio" class="tab-content">
 
-<!-- DIY EVENTS (Mobile swipe cards) -->
-<div class="section-title">DIY Events</div>
+    <!-- DIY EVENTS (LEAVE ALONE) -->
+    <div class="section-title">DIY Events</div>
 
-<div class="events-slider" aria-label="DIY Events">
-  <a class="event-card" href="events/over-the-leaves.html">
-    <img src="event1.jpg" alt="Over the Leaves">
-    <div class="event-card-body">
-      <div class="event-title">Over the Leaves</div>
-      <div class="event-subtitle">Concert</div>
-    </div>
-  </a>
-
-  <a class="event-card" href="events/under-the-trees.html">
-    <img src="event3.jpg" alt="Under the Trees">
-    <div class="event-card-body">
-      <div class="event-title">Under the Trees</div>
-      <div class="event-subtitle">Music Festival</div>
-    </div>
-  </a>
-
-  <a class="event-card" href="events/triple-threat.html">
-    <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
-    <div class="event-card-body">
-      <div class="event-title">Triple Threat</div>
-      <div class="event-subtitle">Concert</div>
-    </div>
-  </a>
-</div>
-
-<div class="swipe-hint" aria-hidden="true">Swipe →</div>
-
-<!-- MTSU CLIENT CAMPAIGNS (Text-only carousel + thumbnails) -->
-<div class="section-divider">
-  <div class="section-title">MTSU Client Campaigns</div>
-
-  <div class="slider campaigns-slider" aria-label="MTSU Client Campaigns">
-
-    <div class="slide">
-      <a class="text-card" href="campaigns/cheatham-tourism.html" target="_blank" rel="noopener">
-        <div class="text-card-main">
-          <div class="text-card-title">Cheatham County Tourism Proposal</div>
-          <div class="text-card-meta">1st Place · Strategy · Presentation</div>
+    <div class="events-slider" aria-label="DIY Events">
+      <a class="event-card" href="events/over-the-leaves.html">
+        <img src="event1.jpg" alt="Over the Leaves">
+        <div class="event-card-body">
+          <div class="event-title">Over the Leaves</div>
+          <div class="event-subtitle">Concert</div>
         </div>
-        <img class="text-card-thumb" src="campaign1.jpg" alt="Cheatham County Tourism thumbnail">
+      </a>
+
+      <a class="event-card" href="events/under-the-trees.html">
+        <img src="event3.jpg" alt="Under the Trees">
+        <div class="event-card-body">
+          <div class="event-title">Under the Trees</div>
+          <div class="event-subtitle">Music Festival</div>
+        </div>
+      </a>
+
+      <a class="event-card" href="events/triple-threat.html">
+        <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
+        <div class="event-card-body">
+          <div class="event-title">Triple Threat</div>
+          <div class="event-subtitle">Concert</div>
+        </div>
       </a>
     </div>
 
-    <div class="slide">
-      <a class="text-card" href="campaigns/nashville-flying-dress.html" target="_blank" rel="noopener">
-        <div class="text-card-main">
-          <div class="text-card-title">Nashville Flying Dress</div>
-          <div class="text-card-meta">Marketing Strategy · Presentation</div>
-        </div>
-        <img class="text-card-thumb" src="campaign2.jpg" alt="Nashville Flying Dress thumbnail">
-      </a>
+    <div class="swipe-hint" aria-hidden="true">Swipe →</div>
+
+    <!-- CLIENT CAMPAIGNS (LONG STRIPS) -->
+    <div class="section-divider">
+      <div class="section-title">MTSU Client Campaigns</div>
+
+      <div class="campaign-list" aria-label="MTSU Client Campaigns">
+
+        <a class="campaign-strip" href="campaigns/cheatham-tourism.html" target="_blank" rel="noopener">
+          <div class="campaign-main">
+            <div class="campaign-title">Cheatham County Tourism Proposal</div>
+            <div class="campaign-meta">1st Place · Strategy · Presentation</div>
+          </div>
+          <img class="campaign-thumb" src="campaign1.jpg" alt="Cheatham County Tourism thumbnail">
+        </a>
+
+        <a class="campaign-strip" href="campaigns/nashville-flying-dress.html" target="_blank" rel="noopener">
+          <div class="campaign-main">
+            <div class="campaign-title">Nashville Flying Dress</div>
+            <div class="campaign-meta">Marketing Strategy · Presentation</div>
+          </div>
+          <img class="campaign-thumb" src="campaign2.jpg" alt="Nashville Flying Dress thumbnail">
+        </a>
+
+        <a class="campaign-strip" href="campaigns/honor-flight.html" target="_blank" rel="noopener">
+          <div class="campaign-main">
+            <div class="campaign-title">Honor Flight Middle TN</div>
+            <div class="campaign-meta">Client Campaign · Account Manager</div>
+          </div>
+          <img class="campaign-thumb" src="campaign3.jpg" alt="Honor Flight Middle TN thumbnail">
+        </a>
+
+      </div>
     </div>
 
-    <div class="slide">
-      <a class="text-card" href="campaigns/honor-flight.html" target="_blank" rel="noopener">
-        <div class="text-card-main">
-          <div class="text-card-title">Honor Flight Middle TN</div>
-          <div class="text-card-meta">Client Campaign · Account Manager</div>
+    <!-- MEDIA & CREATIVE (BIG SWIPE LIKE INSTAGRAM) -->
+    <div class="section-divider">
+      <div class="section-title">Media & Creative</div>
+
+      <div class="slider media-slider" aria-label="Media & Creative">
+
+        <div class="slide">
+          <div class="embed-card">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/-xI1FW09nX4"
+                title="Music Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="embed-caption">
+              <div class="embed-title">Music Video</div>
+              <div class="embed-meta">Directing · Editing</div>
+            </div>
+          </div>
         </div>
-        <img class="text-card-thumb" src="campaign3.jpg" alt="Honor Flight Middle TN thumbnail">
-      </a>
+
+        <div class="slide">
+          <div class="embed-card">
+            <div class="audio-embed">
+              <iframe
+                scrolling="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-548637530/the-melting-pod&auto_play=false&show_user=true&visual=true">
+              </iframe>
+            </div>
+            <div class="embed-caption">
+              <div class="embed-title">The Melting Pod</div>
+              <div class="embed-meta">Podcast · Production</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="embed-card">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/ppbuGARM8Rg"
+                title="Video Project"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="embed-caption">
+              <div class="embed-title">Video Project</div>
+              <div class="embed-meta">Filming · Editing</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="embed-card">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/v7l-xecVXNI"
+                title="Creative Project"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="embed-caption">
+              <div class="embed-title">Creative Project</div>
+              <div class="embed-meta">Editing · Production</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="embed-card">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/JblfOt0AYR0"
+                title="Media Work"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="embed-caption">
+              <div class="embed-title">Media Work</div>
+              <div class="embed-meta">Content Creation</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="swipe-hint" aria-hidden="true">Swipe →</div>
     </div>
 
   </div>
 
 </div>
-<!-- MEDIA & CREATIVE -->
-<div class="section-divider">
-  <div class="section-title">Media & Creative</div>
 
-  <div class="slider media-slider" aria-label="Media & Creative">
-
-    <!-- YouTube 1 -->
-    <div class="slide">
-      <div class="embed-card">
-        <div class="video-embed">
-          <iframe
-            src="https://www.youtube.com/embed/-xI1FW09nX4"
-            title="Music Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="embed-caption">
-          <div class="embed-title">Music Video</div>
-          <div class="embed-meta">Directing · Editing</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SoundCloud Podcast -->
-    <div class="slide">
-      <div class="embed-card">
-        <div class="video-embed">
-          <iframe
-            scrolling="no"
-            frameborder="no"
-            allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-548637530/the-melting-pod&color=%23111&inverse=false&auto_play=false&show_user=true">
-          </iframe>
-        </div>
-        <div class="embed-caption">
-          <div class="embed-title">The Melting Pod</div>
-          <div class="embed-meta">Podcast · Production</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- YouTube 2 -->
-    <div class="slide">
-      <div class="embed-card">
-        <div class="video-embed">
-          <iframe
-            src="https://www.youtube.com/embed/ppbuGARM8Rg"
-            title="Video Project"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="embed-caption">
-          <div class="embed-title">Video Project</div>
-          <div class="embed-meta">Filming · Editing</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- YouTube 3 -->
-    <div class="slide">
-      <div class="embed-card">
-        <div class="video-embed">
-          <iframe
-            src="https://www.youtube.com/embed/v7l-xecVXNI"
-            title="Creative Work"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="embed-caption">
-          <div class="embed-title">Creative Project</div>
-          <div class="embed-meta">Editing · Production</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- YouTube 4 -->
-    <div class="slide">
-      <div class="embed-card">
-        <div class="video-embed">
-          <iframe
-            src="https://www.youtube.com/embed/JblfOt0AYR0"
-            title="Media Work"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="embed-caption">
-          <div class="embed-title">Media Work</div>
-          <div class="embed-meta">Content Creation</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="swipe-hint" aria-hidden="true">Swipe →</div>
-</div>
 <script>
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.tab-content');
