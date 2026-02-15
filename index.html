@@ -974,12 +974,10 @@ html:not(.js-ready) .tab-content {
     
 <script defer>
   document.documentElement.classList.add('js-ready');
+
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.tab-content');
   const tabsBar = document.querySelector('.tabs');
-
-  // Helps with browser back/forward restoring old scroll positions
-  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 
   function activateTab(tabName) {
     tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
@@ -988,37 +986,67 @@ html:not(.js-ready) .tab-content {
 
   function scrollToTabsTop(behavior = 'auto') {
     if (!tabsBar) return;
-
     const isSticky = getComputedStyle(tabsBar).position === 'sticky';
-    const offset = isSticky ? 10 : 24; // small breathing room
-
+    const offset = isSticky ? 10 : 24;
     const y = tabsBar.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior });
   }
 
-  function handleHashChange(behavior = 'auto') {
-    const tabName = window.location.hash.replace('#', '') || 'home';
-    activateTab(tabName);
-
-    // Scroll to the tabs bar (top of content area), NOT the section div
-    // This prevents landing "mid-portfolio" and avoids sticky-tab overlap.
-    requestAnimationFrame(() => scrollToTabsTop(behavior));
+  function currentTabFromHash() {
+    const name = window.location.hash.replace('#', '') || 'home';
+    return document.getElementById(name) ? name : 'home';
   }
 
+  /**
+   * mode:
+   *  - "init": first load (no forced scrolling; keeps header visible)
+   *  - "click": user clicked a tab (smooth scroll to tabs)
+   *  - "hash": hash changed (auto scroll only if hash exists)
+   *  - "restore": back/forward restore (DO NOT scroll; let browser restore)
+   */
+  function syncFromHash(mode = "hash") {
+    const tabName = currentTabFromHash();
+    activateTab(tabName);
+
+    if (mode === "click") {
+      requestAnimationFrame(() => scrollToTabsTop('smooth'));
+      return;
+    }
+
+    if (mode === "hash") {
+      // Only scroll if they actually have a hash (ex: /#portfolio)
+      if (window.location.hash) {
+        requestAnimationFrame(() => scrollToTabsTop('auto'));
+      }
+      return;
+    }
+
+    // init / restore: do not force scroll
+  }
+
+  // Clicking tabs
   tabs.forEach(tab => {
     tab.addEventListener('click', (e) => {
       e.preventDefault();
       const target = tab.dataset.tab;
       history.pushState(null, '', `#${target}`);
-      handleHashChange('smooth');
+      syncFromHash("click");
     });
   });
 
-  window.addEventListener('hashchange', () => handleHashChange('auto'));
+  // Hash changes (if someone manually edits URL or links to /#portfolio)
+  window.addEventListener('hashchange', () => syncFromHash("hash"));
 
-  // Load + bfcache restore
-  window.addEventListener('load', () => handleHashChange('auto'));
-  window.addEventListener('pageshow', () => handleHashChange('auto'));
+  // First load: keep header visible
+  window.addEventListener('load', () => syncFromHash("init"));
+
+  // Back/forward: don't fight the browser’s scroll restoration
+  window.addEventListener('pageshow', (e) => {
+    // If coming from bfcache/back-forward, avoid forced scroll
+    const nav = performance.getEntriesByType('navigation')[0];
+    const isBackForward = nav && nav.type === 'back_forward';
+    syncFromHash(isBackForward || e.persisted ? "restore" : "init");
+  });
 </script>
 
 </body>
