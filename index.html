@@ -384,6 +384,36 @@ ul li {
 .campaign-card {
   padding: 16px;
 }
+/* CLEAN COLLAGE (masonry) */
+.masonry {
+  column-count: 1;
+  column-gap: 18px;
+}
+
+@media (min-width: 700px) {
+  .masonry { column-count: 2; }
+}
+
+@media (min-width: 1000px) {
+  .masonry { column-count: 3; }
+}
+
+/* Each item stays together inside columns */
+.masonry-item {
+  break-inside: avoid;
+  margin: 0 0 18px;
+}
+
+/* Keep your cards looking clean in masonry */
+.masonry .project-card,
+.masonry .campaign-card {
+  width: 100%;
+}
+
+/* Optional: slightly calmer hover movement */
+.project-card:hover {
+  transform: translateY(-3px);
+}
 </style>
 </head>
 
@@ -537,150 +567,111 @@ ul li {
   <!-- PORTFOLIO -->
 <div id="portfolio" class="tab-content">
 
-  <div class="portfolio-columns">
-
-    <!-- COLUMN 1: DIY EVENTS -->
-    <div class="portfolio-col">
-      <div class="portfolio-col-title">DIY Events</div>
-
-      <div class="portfolio-stack">
-
-        <div>
-          <div class="project-card">
-            <a href="events/over-the-leaves.html">
-              <img src="event1.jpg" alt="Over the Leaves DIY Concert">
-              <div class="project-overlay">
-                <div class="project-meta">140+ Attendees · Live Bands · Vendors</div>
-              </div>
-            </a>
-          </div>
-          <div class="card-label">Over the Leaves — Concert</div>
-        </div>
-
-        <div>
-          <div class="project-card">
-            <a href="events/under-the-trees.html">
-              <img src="event3.jpg" alt="Under the Trees DIY Festival">
-              <div class="project-overlay">
-                <div class="project-meta">10 Acts · On-site Catering · Vendors</div>
-              </div>
-            </a>
-          </div>
-          <div class="card-label">Under the Trees — Music Festival</div>
-        </div>
-
-        <div>
-          <div class="project-card">
-            <a href="events/triple-threat.html">
-              <img src="event2.jpg" alt="Triple Threat DIY Concert">
-              <div class="project-overlay">
-                <div class="project-meta">Music · Local Vendors</div>
-              </div>
-            </a>
-          </div>
-          <div class="card-label">Triple Threat — Concert</div>
-        </div>
-
+  <!-- DIY EVENTS -->
+  <div class="section-title">DIY Events</div>
+  <div class="masonry">
+    <div class="masonry-item">
+      <div class="project-card">
+        <a href="events/over-the-leaves.html">
+          <img src="event1.jpg" alt="Over the Leaves DIY Concert">
+          <div class="project-overlay"><div class="project-meta">140+ Attendees · Live Bands · Vendors</div></div>
+        </a>
       </div>
+      <div class="card-label">Over the Leaves — Concert</div>
     </div>
 
-    <!-- COLUMN 2: CLIENT CAMPAIGNS -->
-    <div class="portfolio-col">
-      <div class="portfolio-col-title">Client Campaigns</div>
-
-      <div class="portfolio-stack">
-<div>
-  <div class="project-card">
-    <a href="campaigns/cheatham-tourism.html">
-      <img src="campaign1.jpg" alt="Tourism Proposal Campaign">
-      <div class="project-overlay">
-        <div class="project-meta">
-          1st Place · Strategy + Presentation
-        </div>
+    <div class="masonry-item">
+      <div class="project-card">
+        <a href="events/under-the-trees.html">
+          <img src="event3.jpg" alt="Under the Trees DIY Festival">
+          <div class="project-overlay"><div class="project-meta">10 Acts · On-site Catering · Vendors</div></div>
+        </a>
       </div>
-    </a>
-  </div>
-  <div class="card-label">Cheatham County Tourism Proposal</div>
-</div>
-<div>
-  <div class="project-card">
-    <a href="campaigns/nashville-flying-dress.html">
-      <img src="campaign2.jpg" alt="Nashville Flying Dress">
-      <div class="project-overlay">
-        <div class="project-meta">
-          Marketing Strategy · Presentation
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="card-label">Nashville Flying Dress</div>
-</div>
-<div>
-  <div class="project-card">
-    <a href="campaigns/honor-flight.html">
-      <img src="campaign3.jpg" alt="Honor Flight MT">
-      <div class="project-overlay">
-        <div class="project-meta">
-          Client Campagin · Account Manager
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="card-label">Honor Flight MT</div>
-</div>
-        <!-- add more campaign cards later by copying the block above -->
-      </div>
+      <div class="card-label">Under the Trees — Music Festival</div>
     </div>
 
-    <!-- COLUMN 3: VIDEO EDITING & MORE -->
- <div class="portfolio-col">
-      <div class="portfolio-col-title">Video Editing & More</div>
+    <div class="masonry-item">
+      <div class="project-card">
+        <a href="events/triple-threat.html">
+          <img src="event2.jpg" alt="Triple Threat DIY Concert">
+          <div class="project-overlay"><div class="project-meta">Music · Local Vendors</div></div>
+        </a>
+      </div>
+      <div class="card-label">Triple Threat — Concert</div>
+    </div>
+  </div>
 
-      <div class="portfolio-stack">
-<div>
-  <div class="project-card">
-    <a href="video/music-videos.html">
-      <img src="video1.jpg" alt="Music Videos">
-      <div class="project-overlay">
-        <div class="project-meta">
-          Directing · Editing
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="card-label">Music Videos</div>
-</div>
-<div>
-  <div class="project-card">
-    <a href="video/graphic-design.html">
-      <img src="graphic1.jpg" alt="Graphic Design">
-      <div class="project-overlay">
-        <div class="project-meta">
-          Marketing · Promotion
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="card-label">Graphic Design</div>
-</div>
-<div>
-  <div class="project-card">
-    <a href="video/audio-production.html">
-      <img src="audio1.JPG" alt="Audio Production">
-      <div class="project-overlay">
-        <div class="project-meta">
-          Music · Podcasts
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="card-label">Audio Production</div>
-</div>  
 
+  <!-- CLIENT CAMPAIGNS -->
+  <div class="section-title">Client Campaigns</div>
+  <div class="masonry">
+    <div class="masonry-item">
+      <div class="project-card">
+        <a href="campaigns/cheatham-tourism.html" target="_blank">
+          <img src="campaign1.jpg" alt="Cheatham County Tourism Proposal">
+          <div class="project-overlay"><div class="project-meta">1st Place · Strategy + Presentation</div></div>
+        </a>
       </div>
+      <div class="card-label">Cheatham County Tourism Proposal</div>
     </div>
 
+    <div class="masonry-item">
+      <div class="project-card">
+        <a href="campaigns/nashville-flying-dress.html" target="_blank">
+          <img src="campaign2.jpg" alt="Nashville Flying Dress">
+          <div class="project-overlay"><div class="project-meta">Marketing Strategy · Presentation</div></div>
+        </a>
+      </div>
+      <div class="card-label">Nashville Flying Dress</div>
+    </div>
+
+    <div class="masonry-item">
+      <div class="project-card">
+        <a href="campaigns/honor-flight.html" target="_blank">
+          <img src="campaign3.jpg" alt="Honor Flight MT">
+          <div class="project-overlay"><div class="project-meta">Client Campaign · Account Manager</div></div>
+        </a>
+      </div>
+      <div class="card-label">Honor Flight MT</div>
+    </div>
   </div>
+
+
+  <!-- VIDEO EDITING & MORE -->
+  <div class="section-title">Video Editing & More</div>
+  <div class="masonry">
+    <div class="masonry-item">
+      <div class="project-card">
+        <a href="video/music-videos.html" target="_blank">
+          <img src="video1.jpg" alt="Music Videos">
+          <div class="project-overlay"><div class="project-meta">Directing · Editing</div></div>
+        </a>
+      </div>
+      <div class="card-label">Music Videos</div>
+    </div>
+
+    <div class="masonry-item">
+      <div class="project-card">
+        <a href="video/graphic-design.html" target="_blank">
+          <img src="graphic1.jpg" alt="Graphic Design">
+          <div class="project-overlay"><div class="project-meta">Marketing · Promotion</div></div>
+        </a>
+      </div>
+      <div class="card-label">Graphic Design</div>
+    </div>
+
+    <div class="masonry-item">
+      <div class="project-card">
+        <a href="video/audio-production.html" target="_blank">
+          <img src="audio1.JPG" alt="Audio Production">
+          <div class="project-overlay"><div class="project-meta">Music · Podcasts</div></div>
+        </a>
+      </div>
+      <div class="card-label">Audio Production</div>
+    </div>
+  </div>
+
+</div>
 
 </div>
 
