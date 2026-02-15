@@ -414,124 +414,92 @@ ul li {
 .project-card:hover {
   transform: translateY(-3px);
 }
-    /* ===== EVENTS: Featured + Collage ===== */
-.events-featured {
-  display: grid;
-  gap: 16px;
-  margin-bottom: 18px;
+/* ===== DIY EVENTS COLLAGE (featured + small tiles) ===== */
+.events-collage{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+  align-items: start;
 }
 
-.featured-card {
+/* FEATURED (these are your 3 main event cards) */
+.featured-wrap.big{
+  grid-column: span 6;
+}
+@media (min-width: 980px){
+  /* make featured feel stronger on desktop */
+  .featured-wrap.big:nth-child(1){ grid-column: span 7; }
+  .featured-wrap.big:nth-child(2){ grid-column: span 5; }
+  .featured-wrap.big:nth-child(3){ grid-column: span 7; }
+}
+
+.featured-card{
   position: relative;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   border: 1px solid rgba(0,0,0,0.06);
+  background:#fff;
 }
-
-.featured-card a {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-}
-
-.featured-card img {
-  width: 100%;
-  height: 220px;
+.featured-card a{ display:block; text-decoration:none; color:inherit; }
+.featured-card img{
+  width:100%;
+  aspect-ratio: 16/9;
   object-fit: cover;
-  display: block;
+  display:block;
+}
+.featured-label{
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 15px;
 }
 
-.featured-titlebar {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 12px 12px;
-  background: white;
-}
-
-.featured-title {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.2;
-}
-
-.featured-type {
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #777;
-  white-space: nowrap;
-}
-
-/* Collage grid (messy but controlled) */
-.events-collage {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-}
-
-.collage-item {
+/* SMALL TILES (posters + extra photos) */
+.collage-item{
+  grid-column: span 3;
   position: relative;
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid rgba(0,0,0,0.06);
-  background: #fff;
+  background:#fff;
+  min-height: 120px;
 }
-
-.collage-item a {
-  display: block;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-
-.collage-item img {
-  width: 100%;
-  height: 100%;
+.collage-item a{ display:block; height:100%; text-decoration:none; color:inherit; }
+.collage-item img{
+  width:100%;
+  height:100%;
   object-fit: cover;
-  display: block;
+  display:block;
 }
 
-/* hover label: "Poster" / "Photo" etc */
-.collage-tag {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  padding: 6px 10px;
+/* posters look better tall */
+.collage-item.poster{ aspect-ratio: 4/5; }
+
+/* hover tag */
+.collage-tag{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+  padding:6px 10px;
   background: rgba(17,17,17,0.78);
-  color: white;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  opacity: 0;
+  color:#fff;
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  opacity:0;
   transform: translateY(6px);
   transition: 0.2s ease;
 }
-
-.collage-item:hover .collage-tag {
-  opacity: 1;
+.collage-item:hover .collage-tag{
+  opacity:1;
   transform: translateY(0);
 }
 
-/* Collage sizing helpers */
-.span-2 { grid-column: span 2; }
-.span-3 { grid-column: span 3; }
-.span-4 { grid-column: span 4; }
-.tall   { grid-row: span 2; min-height: 240px; }
-.med    { min-height: 160px; }
-.small  { min-height: 120px; }
-
-/* Mobile: keep it clean */
-@media (max-width: 900px) {
-  .featured-card img { height: 200px; }
-  .events-collage {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .span-2, .span-3, .span-4 { grid-column: span 1; }
-  .tall { grid-row: span 1; min-height: 160px; }
-  .med  { min-height: 160px; }
-  .small { min-height: 140px; }
+/* MOBILE */
+@media (max-width: 900px){
+  .events-collage{ grid-template-columns: repeat(6, 1fr); }
+  .featured-wrap.big{ grid-column: span 6; }
+  .collage-item{ grid-column: span 3; }
 }
 /* ===== DIY EVENTS: One collage, featured cards bigger ===== */
 .events-collage{
