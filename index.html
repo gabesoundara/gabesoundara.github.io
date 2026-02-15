@@ -21,7 +21,7 @@ body {
     margin: 60px auto;
     background: white;
     padding: 60px;
-    border-radius: 14px;
+    border-radius: 6px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.06);
 }
 
@@ -207,7 +207,7 @@ ul li {
 .project-card {
   position: relative;
   background: #fff;
-  border-radius: 14px;
+  border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -276,7 +276,7 @@ ul li {
   display: block;
   padding: 18px;
   border: 1px solid #eee;
-  border-radius: 14px;
+  border-radius: 6px;
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -327,6 +327,62 @@ ul li {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
+}
+    .portfolio-columns {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .portfolio-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portfolio-col-title {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 14px;
+}
+
+.portfolio-col {
+  border-top: 1px solid #eee;
+  padding-top: 18px;
+}
+
+/* stack cards inside each column */
+.portfolio-stack {
+  display: grid;
+  gap: 16px;
+}
+
+/* make event images a bit taller and cleaner */
+.project-card img {
+  height: 170px;
+}
+
+/* labels look cleaner */
+.card-label {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* hover details: bottom gradient instead of full dark cover */
+.project-overlay {
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(17,17,17,0.85), rgba(17,17,17,0.0));
+  padding: 16px;
+}
+
+/* campaign card tighten */
+.campaign-card {
+  padding: 16px;
 }
 </style>
 </head>
@@ -476,68 +532,99 @@ ul li {
   </div>
 
   <!-- PORTFOLIO -->
-  <div id="portfolio" class="tab-content">
+<div id="portfolio" class="tab-content">
 
-    <h2>Portfolio</h2>
+  <h2>Portfolio</h2>
 
-    <div class="section-title">Live Events</div>
-   <div class="portfolio-grid">
+  <div class="portfolio-columns">
 
-  <div>
-    <div class="project-card">
-      <a href="events/over-the-leaves.html">
-        <img src="event1.jpg" alt="Over the Leaves DIY Concert">
-        <div class="project-overlay">
-          <div class="project-meta">
-            140+ Attendees · Live Bands · Vendors
+    <!-- COLUMN 1: DIY EVENTS -->
+    <div class="portfolio-col">
+      <div class="portfolio-col-title">DIY Events</div>
+
+      <div class="portfolio-stack">
+
+        <div>
+          <div class="project-card">
+            <a href="events/over-the-leaves.html">
+              <img src="event1.jpg" alt="Over the Leaves DIY Concert">
+              <div class="project-overlay">
+                <div class="project-meta">140+ Attendees · Live Bands · Vendors</div>
+              </div>
+            </a>
           </div>
+          <div class="card-label">Over the Leaves — Concert</div>
         </div>
-      </a>
-    </div>
-    <div class="card-label">Over the Leaves - Concert</div>
-  </div>
 
-  <div>
-    <div class="project-card">
-      <a href="events/under-the-trees.html">
-        <img src="event3.jpg" alt="Under the Trees DIY Festival">
-        <div class="project-overlay">
-          <div class="project-meta">
-            10 Acts · On-site Catering · Vendors
+        <div>
+          <div class="project-card">
+            <a href="events/under-the-trees.html">
+              <img src="event3.jpg" alt="Under the Trees DIY Festival">
+              <div class="project-overlay">
+                <div class="project-meta">10 Acts · On-site Catering · Vendors</div>
+              </div>
+            </a>
           </div>
+          <div class="card-label">Under the Trees — Music Festival</div>
         </div>
-      </a>
-    </div>
-    <div class="card-label">Under the Trees - Music Festival</div>
-  </div>
 
-  <div>
-    <div class="project-card">
-      <a href="events/triple-threat.html">
-        <img src="event2.jpg" alt="Triple Threat DIY Concert">
-        <div class="project-overlay">
-          <div class="project-meta">
-            Music · Local Vendors
+        <div>
+          <div class="project-card">
+            <a href="events/triple-threat.html">
+              <img src="event2.jpg" alt="Triple Threat DIY Concert">
+              <div class="project-overlay">
+                <div class="project-meta">Music · Local Vendors</div>
+              </div>
+            </a>
           </div>
+          <div class="card-label">Triple Threat — Concert</div>
         </div>
-      </a>
-    </div>
-    <div class="card-label">Triple Threat - Concert</div>
-  </div>
 
-</div>
-
+      </div>
     </div>
 
-    <div class="section-title">Client Campaigns</div>
-    <div class="campaign-list">
-      <a class="campaign-card"
-         href="https://gabesoundara.notion.site/CLIENT-CAMPAIGNS-214350c1cbbd80f39f46f2ba5d7fd0bd"
-         target="_blank">
-        <div class="campaign-title">Tourism Proposal Competition</div>
-        <div class="campaign-sub">1st Place · Strategy + Proposal + Presentation</div>
-        <div class="campaign-cta">View Campaign →</div>
-      </a>
+    <!-- COLUMN 2: CLIENT CAMPAIGNS -->
+    <div class="portfolio-col">
+      <div class="portfolio-col-title">Client Campaigns</div>
+
+      <div class="portfolio-stack">
+        <a class="campaign-card"
+           href="https://gabesoundara.notion.site/CLIENT-CAMPAIGNS-214350c1cbbd80f39f46f2ba5d7fd0bd"
+           target="_blank">
+          <div class="campaign-title">Tourism Proposal Competition</div>
+          <div class="campaign-sub">1st Place · Strategy + Proposal + Presentation</div>
+          <div class="campaign-cta">View Campaign →</div>
+        </a>
+
+        <!-- add more campaign cards later by copying the block above -->
+      </div>
+    </div>
+
+    <!-- COLUMN 3: VIDEO EDITING & MORE -->
+    <div class="portfolio-col">
+      <div class="portfolio-col-title">Video Editing & More</div>
+
+      <div class="portfolio-stack">
+
+        <a class="campaign-card" href="#" target="_blank">
+          <div class="campaign-title">Event Recap Videos</div>
+          <div class="campaign-sub">Short-form edits · Social clips · Highlights</div>
+          <div class="campaign-cta">Coming soon →</div>
+        </a>
+
+        <a class="campaign-card" href="#" target="_blank">
+          <div class="campaign-title">Graphic Design Samples</div>
+          <div class="campaign-sub">Posters · Social assets · Branding</div>
+          <div class="campaign-cta">Coming soon →</div>
+        </a>
+
+        <a class="campaign-card" href="#" target="_blank">
+          <div class="campaign-title">Audio / Production</div>
+          <div class="campaign-sub">Live sound · Recording · Production work</div>
+          <div class="campaign-cta">Coming soon →</div>
+        </a>
+
+      </div>
     </div>
 
   </div>
