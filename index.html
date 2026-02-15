@@ -534,6 +534,66 @@
     gap: 16px;
   }
 }
+  /* =========================
+   Mobile header layout override (ONLY mobile)
+   ========================= */
+@media (max-width: 520px){
+
+  /* Keep your container sizing (optional) */
+  .container{
+    margin: 18px 12px;
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  /* Header becomes stacked: Name -> Buttons -> Photo */
+  .header{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .header-left{ max-width: 100%; }
+
+  /* NAME: force one line */
+  .header-left h1{
+    font-size: 34px;
+    line-height: 1.05;
+    margin: 0 0 6px 0;
+    white-space: nowrap;      /* keeps it on one line */
+    overflow: hidden;         /* prevents breaking layout */
+    text-overflow: ellipsis;  /* adds … if screen is too narrow */
+  }
+
+  /* Buttons stacked full-width */
+  .header-actions{
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .link-pill,
+  .download-btn{
+    width: 100%;
+    text-align: center;
+    padding: 12px 14px;
+  }
+
+  /* PHOTO: move below buttons and center it */
+  .header-right{
+    order: 3;                 /* makes sure it's after header-left */
+    display: flex;
+    justify-content: center;  /* centers photo */
+  }
+
+  .header-right img{
+    width: 120px;             /* adjust size if you want */
+    height: 120px;
+    border-radius: 16px;
+  }
+}
 </style>
 </head>
 
