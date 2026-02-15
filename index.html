@@ -207,6 +207,10 @@
   margin-top:10px;
 }
 
+.events-slider::-webkit-scrollbar{ height:10px; }
+.events-slider::-webkit-scrollbar-thumb{
+  background:#e8e8e8;
+  border-radius:999px;
 }
 
 .event-card{
@@ -275,6 +279,10 @@
   margin-top:10px;
 }
 
+.slider::-webkit-scrollbar{ height:10px; }
+.slider::-webkit-scrollbar-thumb{
+  background:#e8e8e8;
+  border-radius:999px;
 }
 
 .slide{
@@ -383,17 +391,6 @@
   margin-top:70px;
   border-top:1px solid #f0f0f0;
   padding-top:40px;
-}
-  /* Hide horizontal scrollbar (still swipe/scroll works) */
-.events-slider,
-.slider{
-  scrollbar-width: none;       /* Firefox */
-  -ms-overflow-style: none;    /* old Edge/IE */
-}
-
-.events-slider::-webkit-scrollbar,
-.slider::-webkit-scrollbar{
-  display: none;               /* Chrome/Safari */
 }
 </style>
 </head>
