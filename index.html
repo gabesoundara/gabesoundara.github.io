@@ -530,78 +530,27 @@
     padding-top: 6px;
   }
 }
-  /* =========================
-   Mobile Header Redesign
-   ========================= */
-@media (max-width: 520px){
-
-  .container{
-    margin: 18px 12px;
-    padding: 22px;
-    border-radius: 14px;
-  }
-
-  /* Make header vertical */
-  .header{
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-
-  /* Create a row just for name + photo */
-  .header-left{
-    max-width: 100%;
-  }
-
-  .header-left h1{
-    font-size: 34px;
-    line-height: 1.05;
-    margin: 0;
-  }
-
-  /* Turn name + image into horizontal layout */
-  .header{
-    display: flex;
-  }
-
-  .header-right{
-    order: -1; /* move image above buttons */
-    align-self: flex-start;
-  }
-
-  /* Create side-by-side layout */
-  .header{
-    flex-direction: column;
-  }
-
-  .header-top{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-}
 </style>
 </head>
 
 <body>
 <div class="container">
-<div class="header">
 
-  <div class="header-top">
-    <h1>Gabe Soundara</h1>
+  <div class="header">
+    <div class="header-left">
+      <h1>Gabe Soundara</h1>
+
+      <div class="header-actions">
+        <a class="link-pill" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="GabrielSoundara-Resume.pdf" download class="download-btn">Download Resume (PDF)</a>
+      </div>
+    </div>
 
     <div class="header-right">
       <img src="headshot-26.jpg" alt="Gabe Soundara Headshot">
     </div>
   </div>
 
-  <div class="header-actions">
-    <a class="link-pill" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="GabrielSoundara-Resume.pdf" download class="download-btn">Download Resume (PDF)</a>
-  </div>
-
-</div>
 <div class="tabs">
   <a href="#home" class="tab active" data-tab="home">Home</a>
   <a href="#portfolio" class="tab" data-tab="portfolio">Portfolio</a>
