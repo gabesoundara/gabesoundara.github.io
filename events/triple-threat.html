@@ -68,38 +68,12 @@
       margin-bottom:18px;
     }
 
-    .summary{
-      font-size:16px;
-      color:#444;
-      margin:0 0 28px 0;
-    }
-
-    .section-title{
-      margin-top:44px;
-      margin-bottom:18px;
-      font-size:13px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#999;
-      font-weight:600;
-      position:relative;
-      padding-bottom:8px;
-    }
-    .section-title::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:40px;
-      height:2px;
-      background:#111;
-    }
-
     /* Collage grid */
     .collage{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:14px;
+      margin-bottom:22px; /* ✅ adds intentional separation before text */
     }
 
     .tile{
@@ -122,6 +96,34 @@
     .tile.poster img{ aspect-ratio: 4/5; }
 
     .tile.wide img{ aspect-ratio: 16/10; }
+
+    .summary{
+      font-size:16px;
+      color:#444;
+      margin:22px 0 28px 0; /* ✅ pushes text down a bit */
+      max-width:70ch;       /* ✅ nicer reading width */
+    }
+
+    .section-title{
+      margin-top:44px;
+      margin-bottom:18px;
+      font-size:13px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#999;
+      font-weight:600;
+      position:relative;
+      padding-bottom:8px;
+    }
+    .section-title::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:40px;
+      height:2px;
+      background:#111;
+    }
 
     /* Video embed */
     .video-wrap{
@@ -149,9 +151,7 @@
     @media (max-width:768px){
       .container{ padding:28px; margin:24px auto; border-radius:12px; }
       h1{ font-size:28px; }
-      .collage{
-        grid-template-columns:1fr;
-      }
+      .collage{ grid-template-columns:1fr; }
       .tile.poster{ grid-row:auto; }
       .tile.poster img{ aspect-ratio: 4/5; }
     }
@@ -177,16 +177,16 @@
         <img src="../images/events/triple-threat-nolan-barba.jpg" alt="Nolan Barba">
       </div>
 
-       <div class="tile wide">
+      <div class="tile wide">
         <img src="../images/events/triple-threat-gabe.jpg" alt="Gabe Soundara">
       </div>
     </div>
 
-  <p class="summary">
-      This event was hosted a week after Over the Leaves, and we had a pretty successful turnaround. 
-      I had to quickly brainstorm a new design for the space in order to give this event its own feel. 
-      I performed my own music which was a cool expereince being able to coordinate the event and play a set.
-
+    <p class="summary">
+      This event was hosted a week after Over the Leaves, and we had a pretty successful turnaround.
+      I had to quickly brainstorm a new design for the space in order to give this event its own feel.
+      I performed my own music, which was a cool experience—being able to coordinate the event and play a set.
+    </p>
 
     <div class="section-title">Video Recap</div>
 
