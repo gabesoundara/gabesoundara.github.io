@@ -81,6 +81,7 @@
       position:relative;
       padding-bottom:8px;
     }
+
     .section-title::after{
       content:"";
       position:absolute;
@@ -117,28 +118,58 @@
     .tile.poster img{ aspect-ratio: 4/5; }
     .tile.wide img{ aspect-ratio: 16/10; }
 
-    /* Instagram */
+    /* Instagram Section */
     .instagram-wrap{
       display:flex;
       justify-content:center;
+      overflow:visible;
     }
 
     .instagram-card{
       width:100%;
       max-width:540px;
       border-radius:14px;
-      overflow:hidden;
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:0 12px 28px rgba(0,0,0,0.08);
       background:#fff;
+      padding:8px;
+      overflow:visible;
     }
 
+    .instagram-fallback{
+      margin-top:14px;
+      text-align:center;
+      font-size:14px;
+      color:#777;
+    }
+
+    .instagram-fallback a{
+      color:#111;
+      font-weight:600;
+      text-decoration:none;
+    }
+
+    .instagram-fallback a:hover{
+      text-decoration:underline;
+    }
+
+    /* Mobile */
     @media (max-width:768px){
-      .container{ padding:28px; margin:24px auto; border-radius:12px; }
+      .container{
+        padding:28px;
+        margin:24px auto;
+        border-radius:12px;
+      }
+
       h1{ font-size:28px; }
-      .collage{ grid-template-columns:1fr; }
+
+      .collage{
+        grid-template-columns:1fr;
+      }
+
       .tile.poster{ grid-row:auto; }
     }
+
   </style>
 </head>
 
@@ -177,17 +208,36 @@
 
     <div class="instagram-wrap">
       <div class="instagram-card">
-        <blockquote 
+        <blockquote
           class="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/reel/CyeA9hSMxKI/"
           data-instgrm-version="14"
+          data-instgrm-captioned
           style="margin:0; width:100%;">
         </blockquote>
       </div>
     </div>
 
+    <div class="instagram-fallback">
+      Trouble playing?
+      <a href="https://www.instagram.com/reel/CyeA9hSMxKI/" target="_blank" rel="noopener">
+        Open the reel on Instagram →
+      </a>
+    </div>
+
   </div>
 
+  <!-- Instagram Script -->
   <script async src="https://www.instagram.com/embed.js"></script>
+
+  <!-- Force Instagram re-render after load (fixes mobile issues) -->
+  <script>
+    window.addEventListener('load', function() {
+      if (window.instgrm && window.instgrm.Embeds && window.instgrm.Embeds.process) {
+        window.instgrm.Embeds.process();
+      }
+    });
+  </script>
+
 </body>
 </html>
