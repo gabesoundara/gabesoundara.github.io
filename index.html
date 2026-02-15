@@ -966,38 +966,49 @@
 <script>
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.tab-content');
+  const tabsBar = document.querySelector('.tabs');
+
+  // Helps with browser back/forward restoring old scroll positions
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 
   function activateTab(tabName) {
-    tabs.forEach(tab =>
-      tab.classList.toggle('active', tab.dataset.tab === tabName)
-    );
-    contents.forEach(content =>
-      content.classList.toggle('active', content.id === tabName)
-    );
+    tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
+    contents.forEach(content => content.classList.toggle('active', content.id === tabName));
   }
 
-  function handleHashChange() {
+  function scrollToTabsTop(behavior = 'auto') {
+    if (!tabsBar) return;
+
+    const isSticky = getComputedStyle(tabsBar).position === 'sticky';
+    const offset = isSticky ? 10 : 24; // small breathing room
+
+    const y = tabsBar.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: y, behavior });
+  }
+
+  function handleHashChange(behavior = 'auto') {
     const tabName = window.location.hash.replace('#', '') || 'home';
     activateTab(tabName);
 
-    // Scroll cleanly to the top of that section
-    const section = document.getElementById(tabName);
-    if (section) {
-      section.scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
+    // Scroll to the tabs bar (top of content area), NOT the section div
+    // This prevents landing "mid-portfolio" and avoids sticky-tab overlap.
+    requestAnimationFrame(() => scrollToTabsTop(behavior));
   }
 
   tabs.forEach(tab => {
     tab.addEventListener('click', (e) => {
       e.preventDefault();
-      history.pushState(null, '', `#${tab.dataset.tab}`);
-      handleHashChange();
+      const target = tab.dataset.tab;
+      history.pushState(null, '', `#${target}`);
+      handleHashChange('smooth');
     });
   });
 
-  window.addEventListener('hashchange', handleHashChange);
-  window.addEventListener('load', handleHashChange);
-  window.addEventListener('pageshow', handleHashChange);
+  window.addEventListener('hashchange', () => handleHashChange('auto'));
+
+  // Load + bfcache restore
+  window.addEventListener('load', () => handleHashChange('auto'));
+  window.addEventListener('pageshow', () => handleHashChange('auto'));
 </script>
 
 </body>
