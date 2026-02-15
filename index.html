@@ -266,7 +266,28 @@
   }
   .swipe-hint{ display:none; }
 }
-  
+  /* Reusable swipe slider base */
+.slider{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding:6px 2px 12px;
+  margin-top:10px;
+}
+
+.slider::-webkit-scrollbar{ height:10px; }
+.slider::-webkit-scrollbar-thumb{
+  background:#e8e8e8;
+  border-radius:999px;
+}
+
+.slide{
+  flex:0 0 88%;
+  max-width:520px;
+  scroll-snap-align:start;
+}
 
   /* =========================
      Masonry for Campaigns + Video (unchanged idea, cleaned)
@@ -354,6 +375,16 @@
     .container{ box-shadow:none; margin:0; padding:0; max-width:100%; }
     .tabs, .header-actions{ display:none; }
   }
+  @media (min-width:900px){
+  .slider{
+    overflow:visible;
+    scroll-snap-type:none;
+  }
+  .slide{
+    flex:1 1 0;
+    max-width:none;
+  }
+}
 </style>
 </head>
 
@@ -534,77 +565,78 @@
 <div class="swipe-hint" aria-hidden="true">Swipe →</div>
 
     <!-- CLIENT CAMPAIGNS -->
-    <div class="section-title">Client Campaigns</div>
+<div class="slider campaigns-slider" aria-label="Client Campaigns">
 
-    <div class="masonry">
-      <div class="masonry-item">
-        <div class="project-card">
-          <a href="campaigns/cheatham-tourism.html" target="_blank" rel="noopener">
-            <img src="campaign1.jpg" alt="Cheatham County Tourism Proposal">
-            <div class="project-overlay"><div class="project-meta">1st Place · Strategy + Presentation</div></div>
-          </a>
-        </div>
-        <div class="card-label">Cheatham County Tourism Proposal</div>
-      </div>
-
-      <div class="masonry-item">
-        <div class="project-card">
-          <a href="campaigns/nashville-flying-dress.html" target="_blank" rel="noopener">
-            <img src="campaign2.jpg" alt="Nashville Flying Dress">
-            <div class="project-overlay"><div class="project-meta">Marketing Strategy · Presentation</div></div>
-          </a>
-        </div>
-        <div class="card-label">Nashville Flying Dress</div>
-      </div>
-
-      <div class="masonry-item">
-        <div class="project-card">
-          <a href="campaigns/honor-flight.html" target="_blank" rel="noopener">
-            <img src="campaign3.jpg" alt="Honor Flight MT">
-            <div class="project-overlay"><div class="project-meta">Client Campaign · Account Manager</div></div>
-          </a>
-        </div>
-        <div class="card-label">Honor Flight MT</div>
-      </div>
+  <div class="slide">
+    <div class="project-card">
+      <a href="campaigns/cheatham-tourism.html" target="_blank" rel="noopener">
+        <img src="campaign1.jpg" alt="Cheatham County Tourism Proposal">
+        <div class="project-overlay"><div class="project-meta">1st Place · Strategy + Presentation</div></div>
+      </a>
     </div>
-
-    <!-- VIDEO EDITING & MORE -->
-    <div class="section-title">Video Editing & More</div>
-
-    <div class="masonry">
-      <div class="masonry-item">
-        <div class="project-card">
-          <a href="video/music-videos.html" target="_blank" rel="noopener">
-            <img src="video1.jpg" alt="Music Videos">
-            <div class="project-overlay"><div class="project-meta">Directing · Editing</div></div>
-          </a>
-        </div>
-        <div class="card-label">Music Videos</div>
-      </div>
-
-      <div class="masonry-item">
-        <div class="project-card">
-          <a href="video/graphic-design.html" target="_blank" rel="noopener">
-            <img src="graphic1.jpg" alt="Graphic Design">
-            <div class="project-overlay"><div class="project-meta">Marketing · Promotion</div></div>
-          </a>
-        </div>
-        <div class="card-label">Graphic Design</div>
-      </div>
-
-      <div class="masonry-item">
-        <div class="project-card">
-          <a href="video/audio-production.html" target="_blank" rel="noopener">
-            <img src="audio1.JPG" alt="Audio Production">
-            <div class="project-overlay"><div class="project-meta">Music · Podcasts</div></div>
-          </a>
-        </div>
-        <div class="card-label">Audio Production</div>
-      </div>
-    </div>
-
+    <div class="card-label">Cheatham County Tourism Proposal</div>
   </div>
 
+  <div class="slide">
+    <div class="project-card">
+      <a href="campaigns/nashville-flying-dress.html" target="_blank" rel="noopener">
+        <img src="campaign2.jpg" alt="Nashville Flying Dress">
+        <div class="project-overlay"><div class="project-meta">Marketing Strategy · Presentation</div></div>
+      </a>
+    </div>
+    <div class="card-label">Nashville Flying Dress</div>
+  </div>
+
+  <div class="slide">
+    <div class="project-card">
+      <a href="campaigns/honor-flight.html" target="_blank" rel="noopener">
+        <img src="campaign3.jpg" alt="Honor Flight MT">
+        <div class="project-overlay"><div class="project-meta">Client Campaign · Account Manager</div></div>
+      </a>
+    </div>
+    <div class="card-label">Honor Flight MT</div>
+  </div>
+
+</div>
+
+<div class="swipe-hint" aria-hidden="true">Swipe →</div>
+
+    <!-- VIDEO EDITING & MORE -->
+<div class="slider video-slider" aria-label="Video Editing & More">
+
+  <div class="slide">
+    <div class="project-card">
+      <a href="video/music-videos.html" target="_blank" rel="noopener">
+        <img src="video1.jpg" alt="Music Videos">
+        <div class="project-overlay"><div class="project-meta">Directing · Editing</div></div>
+      </a>
+    </div>
+    <div class="card-label">Music Videos</div>
+  </div>
+
+  <div class="slide">
+    <div class="project-card">
+      <a href="video/graphic-design.html" target="_blank" rel="noopener">
+        <img src="graphic1.jpg" alt="Graphic Design">
+        <div class="project-overlay"><div class="project-meta">Marketing · Promotion</div></div>
+      </a>
+    </div>
+    <div class="card-label">Graphic Design</div>
+  </div>
+
+  <div class="slide">
+    <div class="project-card">
+      <a href="video/audio-production.html" target="_blank" rel="noopener">
+        <img src="audio1.JPG" alt="Audio Production">
+        <div class="project-overlay"><div class="project-meta">Music · Podcasts</div></div>
+      </a>
+    </div>
+    <div class="card-label">Audio Production</div>
+  </div>
+
+</div>
+
+<div class="swipe-hint" aria-hidden="true">Swipe →</div>
 </div>
 
 <script>
