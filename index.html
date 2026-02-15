@@ -267,7 +267,6 @@
   letter-spacing:0.2px;
 }
 
-}
   /* Reusable swipe slider base */
 .slider{
   display:flex;
@@ -472,8 +471,50 @@
 @media (max-width:420px){
   .text-card-thumb{ display:none; }
 }
+
+/* =========================
+   Media embeds (YouTube) — matches your card sizing
+   ========================= */
+.embed-card{
+  background:#fff;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 12px 28px rgba(0,0,0,0.08);
+  overflow:hidden;
+}
+
+.video-embed{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+}
+
+.video-embed iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.embed-caption{
+  padding:12px 14px 14px;
+}
+
+.embed-title{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+.embed-meta{
+  font-size:13px;
+  color:#777;
+  letter-spacing:0.2px;
+  text-transform:uppercase;
+}
   
-</style>
 </style>
 </head>
 
@@ -692,42 +733,69 @@
   </div>
 
 </div>
-    <!-- VIDEO EDITING & MORE -->
-<div class="slider video-slider" aria-label="Video Editing & More">
-<div class="section-title">Media & Creative</div>
-  <div class="slide">
-    <div class="project-card">
-      <a href="video/music-videos.html" target="_blank" rel="noopener">
-        <img src="video1.jpg" alt="Music Videos">
-        <div class="project-overlay"><div class="project-meta">Directing · Editing</div></div>
-      </a>
+<!-- MEDIA & CREATIVE (YouTube embeds) -->
+<div class="section-divider">
+  <div class="section-title">Media & Creative</div>
+
+  <div class="slider media-slider" aria-label="Media & Creative">
+
+    <div class="slide">
+      <div class="embed-card">
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_1"
+            title="Music Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="embed-caption">
+          <div class="embed-title">Music Video</div>
+          <div class="embed-meta">Directing · Editing</div>
+        </div>
+      </div>
     </div>
-    <div class="card-label">Music Videos</div>
+
+    <div class="slide">
+      <div class="embed-card">
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_2"
+            title="Podcast Episode"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="embed-caption">
+          <div class="embed-title">Podcast</div>
+          <div class="embed-meta">Production · Editing</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="embed-card">
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_3"
+            title="Live Event Recap"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="embed-caption">
+          <div class="embed-title">Event Recap</div>
+          <div class="embed-meta">Filming · Edit</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="slide">
-    <div class="project-card">
-      <a href="video/graphic-design.html" target="_blank" rel="noopener">
-        <img src="graphic1.jpg" alt="Graphic Design">
-        <div class="project-overlay"><div class="project-meta">Marketing · Promotion</div></div>
-      </a>
-    </div>
-    <div class="card-label">Graphic Design</div>
-  </div>
-
-  <div class="slide">
-    <div class="project-card">
-      <a href="video/audio-production.html" target="_blank" rel="noopener">
-        <img src="audio1.JPG" alt="Audio Production">
-        <div class="project-overlay"><div class="project-meta">Music · Podcasts</div></div>
-      </a>
-    </div>
-    <div class="card-label">Audio Production</div>
-  </div>
-
-</div>
-
-<div class="swipe-hint" aria-hidden="true">Swipe →</div>
+  <div class="swipe-hint" aria-hidden="true">Swipe →</div>
 </div>
 
 <script>
