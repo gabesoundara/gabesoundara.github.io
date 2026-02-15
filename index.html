@@ -392,6 +392,60 @@
   border-top:1px solid #f0f0f0;
   padding-top:40px;
 }
+  <style>
+/* =========================
+   Text-only carousel cards (Client Campaigns)
+   ========================= */
+.text-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  background:#fff;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 12px 28px rgba(0,0,0,0.08);
+  padding:16px 16px 18px;
+  transition:transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.text-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+.text-card:active{ transform:scale(0.99); }
+
+.text-card-title{
+  font-size:18px;
+  font-weight:600;
+  line-height:1.2;
+  margin:0 0 8px 0;
+}
+
+.text-card-meta{
+  color:#666;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.tag-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.tag{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid #e8e8e8;
+  font-size:12px;
+  color:#555;
+  letter-spacing:0.2px;
+  background:#fafafa;
+}
+</style>
 </style>
 </head>
 
@@ -571,47 +625,52 @@
 
 <div class="swipe-hint" aria-hidden="true">Swipe →</div>
 
-<!-- CLIENT CAMPAIGNS -->
+<!-- MTSU CLIENT CAMPAIGNS (Text-only carousel) -->
 <div class="section-divider">
-  <div class="section-title">Client Campaigns</div>
+  <div class="section-title">MTSU Client Campaigns</div>
 
-  <div class="slider campaigns-slider" aria-label="Client Campaigns">
+  <div class="slider campaigns-slider" aria-label="MTSU Client Campaigns">
 
     <div class="slide">
-      <div class="project-card">
-        <a href="campaigns/cheatham-tourism.html" target="_blank" rel="noopener">
-          <img src="campaign1.jpg" alt="Cheatham County Tourism Proposal">
-          <div class="project-overlay"><div class="project-meta">1st Place · Strategy + Presentation</div></div>
-        </a>
-      </div>
-      <div class="card-label">Cheatham County Tourism Proposal</div>
+      <a class="text-card" href="campaigns/cheatham-tourism.html" target="_blank" rel="noopener">
+        <div class="text-card-title">Cheatham County Tourism Proposal</div>
+        <div class="text-card-meta">1st Place · Strategy + Presentation</div>
+        <div class="tag-row">
+          <span class="tag">Research</span>
+          <span class="tag">Strategy</span>
+          <span class="tag">Pitch Deck</span>
+        </div>
+      </a>
     </div>
 
     <div class="slide">
-      <div class="project-card">
-        <a href="campaigns/nashville-flying-dress.html" target="_blank" rel="noopener">
-          <img src="campaign2.jpg" alt="Nashville Flying Dress">
-          <div class="project-overlay"><div class="project-meta">Marketing Strategy · Presentation</div></div>
-        </a>
-      </div>
-      <div class="card-label">Nashville Flying Dress</div>
+      <a class="text-card" href="campaigns/nashville-flying-dress.html" target="_blank" rel="noopener">
+        <div class="text-card-title">Nashville Flying Dress</div>
+        <div class="text-card-meta">Marketing Strategy · Presentation</div>
+        <div class="tag-row">
+          <span class="tag">Branding</span>
+          <span class="tag">Marketing</span>
+          <span class="tag">Presentation</span>
+        </div>
+      </a>
     </div>
 
     <div class="slide">
-      <div class="project-card">
-        <a href="campaigns/honor-flight.html" target="_blank" rel="noopener">
-          <img src="campaign3.jpg" alt="Honor Flight MT">
-          <div class="project-overlay"><div class="project-meta">Client Campaign · Account Manager</div></div>
-        </a>
-      </div>
-      <div class="card-label">Honor Flight MT</div>
+      <a class="text-card" href="campaigns/honor-flight.html" target="_blank" rel="noopener">
+        <div class="text-card-title">Honor Flight Middle TN</div>
+        <div class="text-card-meta">Client Campaign · Account Manager</div>
+        <div class="tag-row">
+          <span class="tag">Client Work</span>
+          <span class="tag">Coordination</span>
+          <span class="tag">PR</span>
+        </div>
+      </a>
     </div>
 
   </div>
 
   <div class="swipe-hint" aria-hidden="true">Swipe →</div>
 </div>
-
     <!-- VIDEO EDITING & MORE -->
 <div class="slider video-slider" aria-label="Video Editing & More">
 <div class="section-title">Media & Creative</div>
