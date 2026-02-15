@@ -34,9 +34,7 @@
       box-shadow:var(--shadow);
     }
 
-    .topbar{
-      margin-bottom:20px;
-    }
+    .topbar{ margin-bottom:20px; }
 
     .back-link{
       text-decoration:none;
@@ -81,7 +79,6 @@
       position:relative;
       padding-bottom:8px;
     }
-
     .section-title::after{
       content:"";
       position:absolute;
@@ -118,58 +115,34 @@
     .tile.poster img{ aspect-ratio: 4/5; }
     .tile.wide img{ aspect-ratio: 16/10; }
 
-    /* Instagram Section */
-    .instagram-wrap{
-      display:flex;
-      justify-content:center;
-      overflow:visible;
-    }
-
-    .instagram-card{
-      width:100%;
-      max-width:540px;
+    /* YouTube embed */
+    .video-wrap{
       border-radius:14px;
+      overflow:hidden;
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:0 12px 28px rgba(0,0,0,0.08);
-      background:#fff;
-      padding:8px;
-      overflow:visible;
+      background:#000;
     }
-
-    .instagram-fallback{
-      margin-top:14px;
-      text-align:center;
-      font-size:14px;
-      color:#777;
+    .video{
+      position:relative;
+      width:100%;
+      padding-top:56.25%; /* 16:9 */
     }
-
-    .instagram-fallback a{
-      color:#111;
-      font-weight:600;
-      text-decoration:none;
-    }
-
-    .instagram-fallback a:hover{
-      text-decoration:underline;
+    .video iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
     }
 
     /* Mobile */
     @media (max-width:768px){
-      .container{
-        padding:28px;
-        margin:24px auto;
-        border-radius:12px;
-      }
-
+      .container{ padding:28px; margin:24px auto; border-radius:12px; }
       h1{ font-size:28px; }
-
-      .collage{
-        grid-template-columns:1fr;
-      }
-
+      .collage{ grid-template-columns:1fr; }
       .tile.poster{ grid-row:auto; }
     }
-
   </style>
 </head>
 
@@ -204,40 +177,19 @@
       </div>
     </div>
 
-    <div class="section-title">Event Reel</div>
+    <div class="section-title">Event Video</div>
 
-    <div class="instagram-wrap">
-      <div class="instagram-card">
-        <blockquote
-          class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/reel/CyeA9hSMxKI/"
-          data-instgrm-version="14"
-          data-instgrm-captioned
-          style="margin:0; width:100%;">
-        </blockquote>
+    <div class="video-wrap">
+      <div class="video">
+        <iframe
+          src="https://www.youtube.com/embed/vEagjOAzs1g"
+          title="Under the Trees Event Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
 
-    <div class="instagram-fallback">
-      Trouble playing?
-      <a href="https://www.instagram.com/reel/CyeA9hSMxKI/" target="_blank" rel="noopener">
-        Open the reel on Instagram →
-      </a>
-    </div>
-
   </div>
-
-  <!-- Instagram Script -->
-  <script async src="https://www.instagram.com/embed.js"></script>
-
-  <!-- Force Instagram re-render after load (fixes mobile issues) -->
-  <script>
-    window.addEventListener('load', function() {
-      if (window.instgrm && window.instgrm.Embeds && window.instgrm.Embeds.process) {
-        window.instgrm.Embeds.process();
-      }
-    });
-  </script>
-
 </body>
 </html>
