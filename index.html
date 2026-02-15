@@ -181,98 +181,92 @@
     font-weight:500;
   }
 
-  /* =========================
-     DIY EVENTS: Collage (featured stand out inside)
-     ========================= */
-  .events-collage{
-    display:grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap:12px;
-    align-items:start;
+/* =========================
+   DIY EVENTS: mobile swipe cards
+   ========================= */
+.events-slider{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding:6px 2px 12px;
+  margin-top:10px;
+}
+
+.events-slider::-webkit-scrollbar{ height:10px; }
+.events-slider::-webkit-scrollbar-thumb{
+  background:#e8e8e8;
+  border-radius:999px;
+}
+
+.event-card{
+  flex:0 0 88%;
+  max-width:520px;
+  scroll-snap-align:start;
+  text-decoration:none;
+  color:inherit;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 12px 28px rgba(0,0,0,0.08);
+  transition:transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.event-card:active{ transform:scale(0.99); }
+
+.event-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+.event-card img{
+  width:100%;
+  aspect-ratio:16/10;
+  object-fit:cover;
+  display:block;
+}
+
+.event-card-body{
+  padding:14px 16px 16px;
+}
+
+.event-title{
+  font-size:18px;
+  font-weight:600;
+  line-height:1.2;
+  margin-bottom:4px;
+}
+
+.event-subtitle{
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#777;
+}
+
+/* Small hint under the slider */
+.swipe-hint{
+  margin-top:8px;
+  color:#888;
+  font-size:13px;
+  letter-spacing:0.2px;
+}
+
+/* Desktop: turn into 3 nice cards in a row */
+@media (min-width:900px){
+  .events-slider{
+    overflow:visible;
+    scroll-snap-type:none;
   }
-
-  /* Featured event tiles (big + label under) */
-  .featured-wrap.big{ grid-column: span 6; }
-
-  .featured-card{
-    position:relative;
-    border-radius:10px;
-    overflow:hidden;
-    border:2px solid rgba(17,17,17,0.12);   /* makes it “stand out” */
-    box-shadow:0 14px 32px rgba(0,0,0,0.10);
-    background:#fff;
-    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  .event-card{
+    flex:1 1 0;
+    max-width:none;
   }
-
-  .featured-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 18px 40px rgba(0,0,0,0.14);
-  }
-
-  .featured-card a{ display:block; text-decoration:none; color:inherit; }
-
-  .featured-card img{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-    display:block;
-  }
-
-  .featured-label{
-    margin-top:10px;
-    font-weight:500;
-    font-size:15px;
-    color:#111;
-  }
-
-  /* Small collage tiles */
-  .collage-item{
-    grid-column: span 3;
-    position:relative;
-    border-radius:10px;
-    overflow:hidden;
-    border:1px solid rgba(0,0,0,0.07);
-    background:#fff;
-  }
-
-  .collage-item a{
-    display:block;
-    height:100%;
-    text-decoration:none;
-    color:inherit;
-  }
-
-  .collage-item img{
-    width:100%;
-    aspect-ratio: 16/10;   /* default small tile shape */
-    object-fit:cover;
-    display:block;
-  }
-
-  /* Posters: tall */
-  .collage-item.poster img{ aspect-ratio: 4/5; }
-
-  /* Hover tag for small items only */
-  .collage-tag{
-    position:absolute;
-    left:10px;
-    bottom:10px;
-    padding:6px 10px;
-    background:rgba(17,17,17,0.78);
-    color:#fff;
-    font-size:12px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    opacity:0;
-    transform:translateY(6px);
-    transition:0.2s ease;
-    border-radius:999px;
-  }
-
-  .collage-item:hover .collage-tag{
-    opacity:1;
-    transform:translateY(0);
-  }
+  .swipe-hint{ display:none; }
+}
+  
 
   /* =========================
      Masonry for Campaigns + Video (unchanged idea, cleaned)
@@ -508,69 +502,36 @@
   <!-- PORTFOLIO -->
   <div id="portfolio" class="tab-content">
 
-    <!-- DIY EVENTS -->
-    <div class="section-title">DIY Events</div>
+<!-- DIY EVENTS (Mobile swipe cards) -->
+<div class="section-title">DIY Events</div>
 
-    <div class="events-collage">
-
-      <!-- Featured Events (BIGGER + LABEL UNDER) -->
-      <div class="featured-wrap big">
-        <div class="featured-card">
-          <a href="events/over-the-leaves.html">
-            <img src="images/events/over-the-leaves-scenic.jpg" alt="Over the Leaves">
-          </a>
-        </div>
-        <div class="featured-label">Over the Leaves — Concert</div>
-      </div>
-
-      <div class="featured-wrap big">
-        <div class="featured-card">
-          <a href="events/under-the-trees.html">
-            <img src="images/events/under-the-trees-crowd.jpg" alt="Under the Trees">
-          </a>
-        </div>
-        <div class="featured-label">Under the Trees — Music Festival</div>
-      </div>
-
-      <div class="featured-wrap big">
-        <div class="featured-card">
-          <a href="events/triple-threat.html">
-            <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
-          </a>
-        </div>
-        <div class="featured-label">Triple Threat — Concert</div>
-      </div>
-
-      <!-- Smaller collage images (no labels, just hover tags) -->
-      <div class="collage-item poster">
-        <a href="events/over-the-leaves.html">
-          <img src="images/events/over-the-leaves-poster.jpg" alt="Over the Leaves Poster">
-          <div class="collage-tag">Poster</div>
-        </a>
-      </div>
-
-      <div class="collage-item poster">
-        <a href="events/under-the-trees.html">
-          <img src="images/events/under-the-trees-poster.jpg" alt="Under the Trees Poster">
-          <div class="collage-tag">Poster</div>
-        </a>
-      </div>
-
-      <div class="collage-item poster">
-        <a href="events/triple-threat.html">
-          <img src="images/events/triple-threat-poster.jpg" alt="Triple Threat Poster">
-          <div class="collage-tag">Poster</div>
-        </a>
-      </div>
-
-      <div class="collage-item">
-        <a href="events/under-the-trees.html">
-          <img src="images/events/under-the-trees-crowd-2.jpg" alt="Under the Trees Crowd Photo">
-          <div class="collage-tag">Photo</div>
-        </a>
-      </div>
-
+<div class="events-slider" aria-label="DIY Events">
+  <a class="event-card" href="events/over-the-leaves.html">
+    <img src="images/events/over-the-leaves-scenic.jpg" alt="Over the Leaves">
+    <div class="event-card-body">
+      <div class="event-title">Over the Leaves</div>
+      <div class="event-subtitle">Concert</div>
     </div>
+  </a>
+
+  <a class="event-card" href="events/under-the-trees.html">
+    <img src="images/events/under-the-trees-crowd.jpg" alt="Under the Trees">
+    <div class="event-card-body">
+      <div class="event-title">Under the Trees</div>
+      <div class="event-subtitle">Music Festival</div>
+    </div>
+  </a>
+
+  <a class="event-card" href="events/triple-threat.html">
+    <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
+    <div class="event-card-body">
+      <div class="event-title">Triple Threat</div>
+      <div class="event-subtitle">Concert</div>
+    </div>
+  </a>
+</div>
+
+<div class="swipe-hint" aria-hidden="true">Swipe →</div>
 
     <!-- CLIENT CAMPAIGNS -->
     <div class="section-title">Client Campaigns</div>
