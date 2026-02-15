@@ -465,7 +465,8 @@
   border:0;
 }
 /* =========================
-   Mobile cleanup
+   Mobile header: name + photo side-by-side
+   (Desktop stays unchanged)
    ========================= */
 @media (max-width: 520px){
 
@@ -475,16 +476,36 @@
     border-radius: 14px;
   }
 
-  /* Header: make it compact */
+  /* Keep header stacked overall, but make the TOP row side-by-side */
   .header{
+    flex-direction: column;
+    align-items: stretch;
     gap: 14px;
     margin-bottom: 12px;
   }
 
-  h1{
+  .header-left{ max-width: 100%; }
+
+  .header-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .header-top h1{
     font-size: 34px;
     line-height: 1.05;
-    margin-bottom: 8px;
+    margin: 0;
+    flex: 1 1 auto;
+  }
+
+  /* Photo smaller on mobile, sitting to the right of the name */
+  .header-right img{
+    width: 88px;
+    height: 88px;
+    border-radius: 14px;
+    flex: 0 0 auto;
   }
 
   /* Buttons: full width + stacked */
@@ -502,32 +523,15 @@
     padding: 12px 14px;
   }
 
-  /* Photo: smaller so it doesn't dominate */
-  .header-right img{
-    width: 96px;
-    height: 96px;
-    border-radius: 14px;
-  }
-
-  /* Tabs: slightly tighter */
-  .tabs{
-    margin-top: 10px;
-    gap: 16px;
-  }
-  .tab{
-    padding: 10px 0;
-    font-size: 16px;
-  }
-}
-
-/* Optional: sticky tabs (nice for QR/mobile browsing) */
-@media (max-width: 520px){
+  /* Tabs: optional sticky */
   .tabs{
     position: sticky;
     top: 0;
     background: #fff;
     z-index: 10;
     padding-top: 6px;
+    margin-top: 10px;
+    gap: 16px;
   }
 }
 </style>
