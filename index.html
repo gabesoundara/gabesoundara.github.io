@@ -28,51 +28,57 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 30px;
+    align-items: center;
+    margin-bottom: 18px;
     gap: 20px;
 }
 
 .header-left {
-    max-width: 70%;
+    max-width: 72%;
 }
 
 .header-right img {
-    width: 160px;
-    height: auto;
-    border-radius: 12px;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 16px;
 }
 
 h1 {
     font-size: 42px;
-    margin-bottom: 10px;
     letter-spacing: -1px;
+    margin: 0 0 6px 0;
+    line-height: 1.1;
 }
 
 .contact {
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
 }
 
-.links {
-    margin-bottom: 10px;
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.links a {
-    margin-right: 20px;
+.link-pill {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid #e8e8e8;
     text-decoration: none;
-    font-weight: 500;
-    color: #0077b5;
-    letter-spacing: 0.3px;
+    color: #111;
+    font-weight: 600;
 }
 
-.links a:hover {
-    text-decoration: underline;
+.link-pill:hover {
+    background: #f3f3f3;
 }
 
 .download-btn {
     display: inline-block;
-    margin-top: 10px;
     padding: 12px 24px;
     background: #111;
     color: white;
@@ -86,6 +92,49 @@ h1 {
     background: #333;
 }
 
+.tabs {
+  margin-top: 18px;
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.tab {
+  padding: 10px 0;
+  text-decoration: none;
+  font-weight: 600;
+  color: #888;
+  position: relative;
+}
+
+.tab.active {
+  color: #111;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: #111;
+}
+
+.tab-content {
+  display: none;
+  animation: fade 0.4s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 h2 {
     margin-top: 60px;
     font-size: 20px;
@@ -94,6 +143,11 @@ h2 {
     color: #888;
     padding-bottom: 6px;
     border-bottom: 1px solid #eee;
+}
+
+.summary {
+    font-size: 17px;
+    color: #444;
 }
 
 .job {
@@ -133,124 +187,21 @@ ul li {
     margin-bottom: 6px;
 }
 
-.summary {
-    font-size: 17px;
-    color: #444;
-}
-
-@media(max-width: 768px){
-    .container {
-        padding: 30px;
-    }
-
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .job-header {
-        flex-direction: column;
-        gap: 4px;
-    }
-}
-
-@media print {
-    body {
-        background: white;
-    }
-
-    .container {
-        box-shadow: none;
-        margin: 0;
-        padding: 0;
-        max-width: 100%;
-    }
-
-    .download-btn,
-    .links {
-        display: none;
-    }
-}
-.tabs {
-  margin-top: 30px;
-  display: flex;
-  gap: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.tab {
-  padding: 10px 0;
-  text-decoration: none;
-  font-weight: 600;
+/* Portfolio - Live Events grid */
+.section-title {
+  margin-top: 40px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: #888;
-  position: relative;
 }
 
-.tab.active {
-  color: #111;
-}
-
-.tab.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 2px;
-  background: #111;
-}
-
-.tab-content {
-  display: none;
-  animation: fade 0.4s ease;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .portfolio-grid {
-  margin-top: 30px;
+  margin-top: 18px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
-}
-
-
-
-.project-content {
-  padding: 18px;
-}
-
-.project-title {
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.project-meta {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.project-link {
-  font-weight: 600;
-  text-decoration: none;
-  color: #111;
-}
-
-.project-link:hover {
-  text-decoration: underline;
 }
 
 .project-card {
@@ -314,15 +265,59 @@ ul li {
   letter-spacing: 1px;
 }
 
-.project-stats {
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-top: 6px;
+/* Portfolio - Client Campaigns clean cards */
+.campaign-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.campaign-card {
+  display: block;
+  padding: 18px;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campaign-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+.campaign-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.campaign-sub {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.campaign-cta {
+  font-weight: 700;
+}
+
+/* Responsive */
+@media(max-width: 768px){
+  .container { padding: 30px; }
+  .header { flex-direction: column; align-items: flex-start; }
+  .header-left { max-width: 100%; }
+  .job-header { flex-direction: column; gap: 4px; }
+}
+
+/* Print */
+@media print {
+  body { background: white; }
+  .container { box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
+  .tabs, .header-actions { display: none; }
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -331,226 +326,222 @@ ul li {
     <div class="header-left">
       <h1>Gabe Soundara</h1>
       <div class="contact">
-        Brentwood, TN | (615) 767-3769 | gbsoundara03@gmail.com
+        Brentwood, TN · (615) 767-3769 · gbsoundara03@gmail.com
+      </div>
+
+      <div class="header-actions">
+        <a class="link-pill" href="https://www.linkedin.com/in/gabesoundara/" target="_blank">LinkedIn</a>
+        <a href="GabrielSoundara-Resume.pdf" download class="download-btn">Download Resume (PDF)</a>
       </div>
     </div>
+
     <div class="header-right">
       <img src="headshot-26.jpg" alt="Gabe Soundara Headshot">
     </div>
   </div>
 
-<div class="links">
-  <a href="https://www.linkedin.com/in/gabesoundara/" target="_blank">LinkedIn</a>
-</div>
-
-  <a href="GabrielSoundara-Resume.pdf" download class="download-btn">
-    Download Resume (PDF)
-  </a>
-
-<div class="tabs">
-  <a href="#home" class="tab active" data-tab="home">Home</a>
-  <a href="#portfolio" class="tab" data-tab="portfolio">Portfolio</a>
-</div>
-<div id="home" class="tab-content active">
-  <h2>Professional Summary</h2>
-  <p class="summary">
-    Multifaceted Public Relations student with experience in event planning, creative content development, organizational leadership, and youth engagement. Proven ability to coordinate logistics, manage teams, and execute innovative initiatives in fast-paced environments. Strong communicator with a hands-on, solutions-driven mindset.
-  </p>
-
-  <h2>Professional Experience</h2>
-
-  <div class="job">
-    <div class="job-header">
-      <div>
-        <span class="job-title">Camp Director</span> – 
-        <span class="company">Let It Shine Gymnastics Inc</span>
-      </div>
-      <span class="date">May 2023 – Present</span>
-    </div>
-    <ul>
-      <li>Led daily operations and scheduling for a 300-camper program with 35–40 staff members.</li>
-      <li>Resolved parent concerns and managed camper health and safety needs.</li>
-      <li>Designed structured daily itineraries to optimize staff efficiency.</li>
-      <li>Maintained compliance with safety protocols and emergency response procedures.</li>
-    </ul>
+  <div class="tabs">
+    <a href="#home" class="tab active" data-tab="home">Home</a>
+    <a href="#portfolio" class="tab" data-tab="portfolio">Portfolio</a>
   </div>
 
-  <div class="job">
-    <div class="job-header">
-      <div>
-        <span class="job-title">Family Formation Assistant</span> – 
-        <span class="company">St. Bartholomew’s Episcopal Church</span>
-      </div>
-      <span class="date">Aug 2025 – Present</span>
-    </div>
-    <ul>
-      <li>Coordinated logistics for youth and young adult programs and special events.</li>
-      <li>Produced newsletters and communications to increase community engagement.</li>
-      <li>Maintained accurate member records using Breeze database software.</li>
-    </ul>
-  </div>
+  <!-- HOME -->
+  <div id="home" class="tab-content active">
 
-  <div class="job">
-    <div class="job-header">
-      <div>
-        <span class="job-title">Independent Event Coordinator</span> – 
-        <span class="company">Twin Oak Live Events</span>
+    <h2>Professional Summary</h2>
+    <p class="summary">
+      Multifaceted Public Relations student with experience in event planning, creative content development, organizational leadership, and youth engagement. Proven ability to coordinate logistics, manage teams, and execute innovative initiatives in fast-paced environments. Strong communicator with a hands-on, solutions-driven mindset.
+    </p>
+
+    <h2>Professional Experience</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <span class="job-title">Camp Director</span> –
+          <span class="company">Let It Shine Gymnastics Inc</span>
+        </div>
+        <span class="date">May 2023 – Present</span>
       </div>
-      <span class="date">May 2023 – Nov 2023</span>
+      <ul>
+        <li>Led daily operations and scheduling for a 300-camper program with 35–40 staff members.</li>
+        <li>Resolved parent concerns and managed camper health and safety needs.</li>
+        <li>Designed structured daily itineraries to optimize staff efficiency.</li>
+        <li>Maintained compliance with safety protocols and emergency response procedures.</li>
+      </ul>
     </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <span class="job-title">Family Formation Assistant</span> –
+          <span class="company">St. Bartholomew’s Episcopal Church</span>
+        </div>
+        <span class="date">Aug 2025 – Present</span>
+      </div>
+      <ul>
+        <li>Coordinated logistics for youth and young adult programs and special events.</li>
+        <li>Produced newsletters and communications to increase community engagement.</li>
+        <li>Maintained accurate member records using Breeze database software.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <span class="job-title">Independent Event Coordinator</span> –
+          <span class="company">Twin Oak Live Events</span>
+        </div>
+        <span class="date">May 2023 – Nov 2023</span>
+      </div>
+      <ul>
+        <li>Produced DIY live events featuring music, vendors, and food partners.</li>
+        <li>Managed logistics, promotion, and on-site operations for three ticketed events.</li>
+        <li>Achieved peak attendance of 140 ticket sales per event.</li>
+        <li>
+          <a href="https://gabesoundara.notion.site/EVENTS-213350c1cbbd80c1aad2e7fa6eed2c79" target="_blank">View events</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <span class="job-title">Gymnastics Coach Instructor</span> –
+          <span class="company">Let It Shine Gymnastics Inc</span>
+        </div>
+        <span class="date">Feb 2019 – Dec 2024</span>
+      </div>
+      <ul>
+        <li>Created safe, engaging learning environments for youth participants.</li>
+        <li>Designed creative equipment setups to improve engagement and skill development.</li>
+        <li>Led structured programming for groups of up to 24 children.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <span class="job-title">Recess Coach</span> –
+          <span class="company">Foundations Christian Academy</span>
+        </div>
+        <span class="date">Sep 2021 – May 2022</span>
+      </div>
+      <ul>
+        <li>Designed and facilitated engaging daily activity programming.</li>
+        <li>Planned and coordinated a school-wide Field Day event.</li>
+      </ul>
+    </div>
+
+    <h2>Education</h2>
     <ul>
-      <li>Produced DIY live events featuring music, vendors, and food partners.</li>
-      <li>Managed logistics, promotion, and on-site operations for three ticketed events.</li>
-      <li>Achieved peak attendance of 140 ticket sales per event.</li>
+      <li>Bachelor’s Degree in Public Relations: Middle Tennessee State University – May 2026</li>
+      <li>Dean’s List (2022–2025)</li>
       <li>
-        <a href="https://gabesoundara.notion.site/EVENTS-213350c1cbbd80c1aad2e7fa6eed2c79" target="_blank">
-          View events
+        <a href="https://gabesoundara.notion.site/STUDY-ABROAD-213350c1cbbd8067be2cd02c621eff7f" target="_blank">
+          Study Abroad: University of Salford (Manchester, UK) – Spring 2025
         </a>
       </li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <div class="job-header">
-      <div>
-        <span class="job-title">Gymnastics Coach Instructor</span> – 
-        <span class="company">Let It Shine Gymnastics Inc</span>
-      </div>
-      <span class="date">Feb 2019 – Dec 2024</span>
-    </div>
-    <ul>
-      <li>Created safe, engaging learning environments for youth participants.</li>
-      <li>Designed creative equipment setups to improve engagement and skill development.</li>
-      <li>Led structured programming for groups of up to 24 children.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <div class="job-header">
-      <div>
-        <span class="job-title">Recess Coach</span> – 
-        <span class="company">Foundations Christian Academy</span>
-      </div>
-      <span class="date">Sep 2021 – May 2022</span>
-    </div>
-    <ul>
-      <li>Designed and facilitated engaging daily activity programming.</li>
-      <li>Planned and coordinated a school-wide Field Day event.</li>
-    </ul>
-  </div>
-
-  <h2>Education</h2>
-  <ul>
-    <li>Bachelor’s Degree in Public Relations: Middle Tennessee State University – May 2026</li>
-    <li>Dean’s List (2022–2025)</li>
-    <li>
-      <a href="https://gabesoundara.notion.site/STUDY-ABROAD-213350c1cbbd8067be2cd02c621eff7f" target="_blank">
-        Study Abroad: University of Salford (Manchester, UK) – Spring 2025
-      </a>
-    </li>
-    <li>John Seigenthaler Chair Scholarship Winner (2023)</li>
-    <li>
-      <a href="https://gabesoundara.notion.site/CLIENT-CAMPAIGNS-214350c1cbbd80f39f46f2ba5d7fd0bd" target="_blank">
-        Tourism Proposal Competition – 1st Place (2024)
-      </a>
-    </li>
-  </ul>
-
-  <h2>Skills</h2>
-  <ul>
-    <li>Event Planning</li>
-    <li>Creative Problem Solving</li>
-    <li>Leadership</li>
-    <li>Verbal Communication</li>
-    <li>Time Management</li>
-    <li>Organizational Planning</li>
-  </ul>
-
-</div>
-<div id="portfolio" class="tab-content">
-
-  <h2>Portfolio</h2>
-
- <h2>Live Events</h2>
-
-<div class="portfolio-grid">
-
-  <div class="project-card">
-    <a href="events/over-the-leaves.html">
-      <img src="event1.jpg" alt="Over the Leaves DIY Concert crowd">
-      <div class="project-overlay">
-        <div class="project-title">Over the Leaves</div>
-        <div class="project-meta">140+ Attendees · Live Bands · Vendors</div>
-      </div>
-    </a>
-  </div>
-
-  <div class="project-card">
-    <a href="events/under-the-trees.html">
-      <img src="event3.jpg" alt="Under the Trees DIY Festival">
-      <div class="project-overlay">
-        <div class="project-title">Under the Trees</div>
-        <div class="project-meta">10 Acts · Catering · Outdoor Festival</div>
-      </div>
-    </a>
-  </div>
-
-  <div class="project-card">
-    <a href="events/triple-threat.html">
-      <img src="event2.jpg" alt="Triple Threat DIY Concert">
-      <div class="project-overlay">
-        <div class="project-title">Triple Threat</div>
-        <div class="project-meta">Multiple Bands · Local Vendors</div>
-      </div>
-    </a>
-  </div>
-
-</div>
-
-  <div class="job">
-    <div class="job-header">
-      <div>
-        <span class="job-title">Client Campaigns</span>
-        <span class="company">– Tourism Proposal</span>
-      </div>
-    </div>
-    <ul>
-      <li>1st Place in Tourism Proposal Competition</li>
+      <li>John Seigenthaler Chair Scholarship Winner (2023)</li>
       <li>
         <a href="https://gabesoundara.notion.site/CLIENT-CAMPAIGNS-214350c1cbbd80f39f46f2ba5d7fd0bd" target="_blank">
-          View Campaign
+          Tourism Proposal Competition – 1st Place (2024)
         </a>
       </li>
     </ul>
+
+    <h2>Skills</h2>
+    <ul>
+      <li>Event Planning</li>
+      <li>Creative Problem Solving</li>
+      <li>Leadership</li>
+      <li>Verbal Communication</li>
+      <li>Time Management</li>
+      <li>Organizational Planning</li>
+    </ul>
+
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div id="portfolio" class="tab-content">
+
+    <h2>Portfolio</h2>
+
+    <div class="section-title">Live Events</div>
+    <div class="portfolio-grid">
+
+      <div class="project-card">
+        <a href="events/over-the-leaves.html">
+          <img src="event1.jpg" alt="Over the Leaves DIY Concert">
+          <div class="project-overlay">
+            <div class="project-title">Over the Leaves</div>
+            <div class="project-meta">140+ Attendees · Live Bands · Vendors</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <a href="events/under-the-trees.html">
+          <img src="event3.jpg" alt="Under the Trees DIY Festival">
+          <div class="project-overlay">
+            <div class="project-title">Under the Trees</div>
+            <div class="project-meta">10 Acts · Catering · Outdoor Festival</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <a href="events/triple-threat.html">
+          <img src="event2.jpg" alt="Triple Threat DIY Concert">
+          <div class="project-overlay">
+            <div class="project-title">Triple Threat</div>
+            <div class="project-meta">Multiple Bands · Local Vendors</div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="section-title">Client Campaigns</div>
+    <div class="campaign-list">
+      <a class="campaign-card"
+         href="https://gabesoundara.notion.site/CLIENT-CAMPAIGNS-214350c1cbbd80f39f46f2ba5d7fd0bd"
+         target="_blank">
+        <div class="campaign-title">Tourism Proposal Competition</div>
+        <div class="campaign-sub">1st Place · Strategy + Proposal + Presentation</div>
+        <div class="campaign-cta">View Campaign →</div>
+      </a>
+    </div>
+
+  </div>
+
 </div>
+
 <script>
-      const tabs = document.querySelectorAll('.tab');
-      const contents = document.querySelectorAll('.tab-content');
-    
-      function activateTab(tabName) {
-        tabs.forEach(tab => {
-          tab.classList.toggle('active', tab.dataset.tab === tabName);
-        });
-    
-        contents.forEach(content => {
-          content.classList.toggle('active', content.id === tabName);
-        });
-      }
-    
-      function handleHashChange() {
-        const hash = window.location.hash.replace('#', '') || 'home';
-        activateTab(hash);
-      }
-    
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          history.pushState(null, '', `#${tab.dataset.tab}`);
-          handleHashChange();
-        });
-      });
-    
-      window.addEventListener('hashchange', handleHashChange);
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  function activateTab(tabName) {
+    tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
+    contents.forEach(content => content.classList.toggle('active', content.id === tabName));
+  }
+
+  function handleHashChange() {
+    const hash = window.location.hash.replace('#', '') || 'home';
+    activateTab(hash);
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      history.pushState(null, '', `#${tab.dataset.tab}`);
       handleHashChange();
+    });
+  });
+
+  window.addEventListener('hashchange', handleHashChange);
+  handleHashChange();
 </script>
+
 </body>
 </html>
