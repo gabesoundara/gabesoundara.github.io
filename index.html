@@ -123,6 +123,11 @@
   .tab-content{ display:none; animation:fade 0.35s ease; }
   .tab-content.active{ display:block; }
 
+  /* Prevent wrong tab flash before JS activates correct tab */
+html:not(.js-ready) .tab-content {
+  display: none !important;
+}
+
   @keyframes fade{
     from{ opacity:0; transform:translateY(8px); }
     to{ opacity:1; transform:translateY(0); }
@@ -534,6 +539,10 @@
     gap: 16px;
   }
 }
+  /* Prevent the page from showing the wrong tab for a split second */
+html:not(.js-ready) .tab-content { 
+  display: none !important; 
+}
 /* =========================
    Mobile header (ONLY mobile)
    Photo on top, centered
@@ -642,13 +651,13 @@
   </div>
 
 <div class="tabs">
-  <a href="#home" class="tab active" data-tab="home">Home</a>
+  <a href="#home" class="tab" data-tab="home">Home</a>
   <a href="#portfolio" class="tab" data-tab="portfolio">Portfolio</a>
   <a href="#contact" class="tab" data-tab="contact">Contact</a>
 </div>
 
   <!-- HOME -->
-  <div id="home" class="tab-content active">
+  <div id="home" class="tab-content">
 
     <h2>Professional Summary</h2>
     <p class="summary">
@@ -963,7 +972,8 @@
 
 </div>
     
-<script>
+<script defer>
+  document.documentElement.classList.add('js-ready');
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.tab-content');
   const tabsBar = document.querySelector('.tabs');
