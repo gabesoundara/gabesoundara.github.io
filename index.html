@@ -385,12 +385,13 @@
   .slide{
     flex:1 1 0;
     max-width:none;
-  }
+  
 }
-  .section-divider{
-  margin-top:24px;
+.section-divider{
+  margin-top:22px;
+  padding-top:22px;
   border-top:1px solid #f0f0f0;
-  padding-top:24px;
+}
 }
 /* =========================
    Text-only carousel cards (Client Campaigns)
@@ -444,6 +445,34 @@
   letter-spacing:0.2px;
   background:#fafafa;
 }
+  /* Portfolio section titles should not push down a ton */
+#portfolio .section-title{ margin-top:28px; }
+#portfolio .section-title:first-of-type{ margin-top:0; }
+
+/* Text card layout with optional thumbnail */
+.text-card{
+  display:flex;                 /* was block */
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.text-card-main{ flex:1 1 auto; min-width:0; }
+
+.text-card-thumb{
+  width:92px;
+  height:92px;
+  border-radius:12px;
+  object-fit:cover;
+  border:1px solid rgba(0,0,0,0.08);
+  flex:0 0 auto;
+}
+
+/* On very small screens, hide the thumbnail to keep it clean */
+@media (max-width:420px){
+  .text-card-thumb{ display:none; }
+}
+  
 </style>
 </style>
 </head>
@@ -624,7 +653,7 @@
 
 <div class="swipe-hint" aria-hidden="true">Swipe →</div>
 
-<!-- MTSU CLIENT CAMPAIGNS (Text-only carousel) -->
+<!-- MTSU CLIENT CAMPAIGNS (Text-only carousel + thumbnails) -->
 <div class="section-divider">
   <div class="section-title">MTSU Client Campaigns</div>
 
@@ -632,37 +661,46 @@
 
     <div class="slide">
       <a class="text-card" href="campaigns/cheatham-tourism.html" target="_blank" rel="noopener">
-        <div class="text-card-title">Cheatham County Tourism Proposal</div>
-        <div class="text-card-meta">1st Place · Strategy + Presentation</div>
-        <div class="tag-row">
-          <span class="tag">Research</span>
-          <span class="tag">Strategy</span>
-          <span class="tag">Pitch Deck</span>
+        <div class="text-card-main">
+          <div class="text-card-title">Cheatham County Tourism Proposal</div>
+          <div class="text-card-meta">1st Place · Strategy + Presentation</div>
+          <div class="tag-row">
+            <span class="tag">Research</span>
+            <span class="tag">Strategy</span>
+            <span class="tag">Pitch Deck</span>
+          </div>
         </div>
+        <img class="text-card-thumb" src="campaigns/thumbs/cheatham.jpg" alt="Cheatham County Tourism thumbnail">
       </a>
     </div>
 
     <div class="slide">
       <a class="text-card" href="campaigns/nashville-flying-dress.html" target="_blank" rel="noopener">
-        <div class="text-card-title">Nashville Flying Dress</div>
-        <div class="text-card-meta">Marketing Strategy · Presentation</div>
-        <div class="tag-row">
-          <span class="tag">Branding</span>
-          <span class="tag">Marketing</span>
-          <span class="tag">Presentation</span>
+        <div class="text-card-main">
+          <div class="text-card-title">Nashville Flying Dress</div>
+          <div class="text-card-meta">Marketing Strategy · Presentation</div>
+          <div class="tag-row">
+            <span class="tag">Branding</span>
+            <span class="tag">Marketing</span>
+            <span class="tag">Presentation</span>
+          </div>
         </div>
+        <img class="text-card-thumb" src="campaigns/thumbs/flying-dress.jpg" alt="Nashville Flying Dress thumbnail">
       </a>
     </div>
 
     <div class="slide">
       <a class="text-card" href="campaigns/honor-flight.html" target="_blank" rel="noopener">
-        <div class="text-card-title">Honor Flight Middle TN</div>
-        <div class="text-card-meta">Client Campaign · Account Manager</div>
-        <div class="tag-row">
-          <span class="tag">Client Work</span>
-          <span class="tag">Coordination</span>
-          <span class="tag">PR</span>
+        <div class="text-card-main">
+          <div class="text-card-title">Honor Flight Middle TN</div>
+          <div class="text-card-meta">Client Campaign · Account Manager</div>
+          <div class="tag-row">
+            <span class="tag">Client Work</span>
+            <span class="tag">Coordination</span>
+            <span class="tag">PR</span>
+          </div>
         </div>
+        <img class="text-card-thumb" src="campaigns/thumbs/honor-flight.jpg" alt="Honor Flight Middle TN thumbnail">
       </a>
     </div>
 
