@@ -968,17 +968,23 @@
   const contents = document.querySelectorAll('.tab-content');
 
   function activateTab(tabName) {
-    tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
-    contents.forEach(content => content.classList.toggle('active', content.id === tabName));
-    
-      // Always jump to the top of the content when switching tabs
-  const top = document.querySelector('.container');
-  if (top) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    tabs.forEach(tab =>
+      tab.classList.toggle('active', tab.dataset.tab === tabName)
+    );
+    contents.forEach(content =>
+      content.classList.toggle('active', content.id === tabName)
+    );
   }
 
   function handleHashChange() {
-    const hash = window.location.hash.replace('#', '') || 'home';
-    activateTab(hash);
+    const tabName = window.location.hash.replace('#', '') || 'home';
+    activateTab(tabName);
+
+    // Scroll cleanly to the top of that section
+    const section = document.getElementById(tabName);
+    if (section) {
+      section.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }
   }
 
   tabs.forEach(tab => {
@@ -990,7 +996,8 @@
   });
 
   window.addEventListener('hashchange', handleHashChange);
-  handleHashChange();
+  window.addEventListener('load', handleHashChange);
+  window.addEventListener('pageshow', handleHashChange);
 </script>
 
 </body>
