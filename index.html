@@ -594,6 +594,67 @@
     border-radius: 16px;
   }
 }
+  /* =========================
+   Mobile header: Photo on top
+   (Desktop unchanged)
+   ========================= */
+@media (max-width: 520px){
+
+  .container{
+    margin: 18px 12px;
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  /* Stack everything vertically */
+  .header{
+    flex-direction: column;
+    align-items: center;   /* center everything */
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .header-left{
+    max-width: 100%;
+    text-align: center;
+  }
+
+  /* Move photo to top */
+  .header-right{
+    order: -1;             /* this moves it above the name */
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-right img{
+    width: 120px;          /* adjust size if you want */
+    height: 120px;
+    border-radius: 18px;
+  }
+
+  /* Keep name on one line */
+  .header-left h1{
+    font-size: 34px;
+    line-height: 1.05;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  /* Buttons stacked full width */
+  .header-actions{
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .link-pill,
+  .download-btn{
+    width: 100%;
+    text-align: center;
+    padding: 12px 14px;
+  }
+}
 </style>
 </head>
 
