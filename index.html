@@ -464,6 +464,72 @@
   height:100%;
   border:0;
 }
+/* =========================
+   Mobile cleanup
+   ========================= */
+@media (max-width: 520px){
+
+  .container{
+    margin: 18px 12px;
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  /* Header: make it compact */
+  .header{
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  h1{
+    font-size: 34px;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  /* Buttons: full width + stacked */
+  .header-actions{
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .link-pill,
+  .download-btn{
+    width: 100%;
+    text-align: center;
+    padding: 12px 14px;
+  }
+
+  /* Photo: smaller so it doesn't dominate */
+  .header-right img{
+    width: 96px;
+    height: 96px;
+    border-radius: 14px;
+  }
+
+  /* Tabs: slightly tighter */
+  .tabs{
+    margin-top: 10px;
+    gap: 16px;
+  }
+  .tab{
+    padding: 10px 0;
+    font-size: 16px;
+  }
+}
+
+/* Optional: sticky tabs (nice for QR/mobile browsing) */
+@media (max-width: 520px){
+  .tabs{
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+    padding-top: 6px;
+  }
+}
 </style>
 </head>
 
