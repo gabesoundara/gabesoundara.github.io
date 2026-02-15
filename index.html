@@ -171,14 +171,27 @@
   ul li{ margin-bottom:6px; }
 
   /* Portfolio headings */
-  .section-title{
-    margin-top:40px;
-    margin-bottom:14px;
-    font-size:14px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:#888;
-    font-weight:500;
+ .section-title{
+  margin-top:60px;
+  margin-bottom:18px;
+  font-size:13px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#999;
+  font-weight:600;
+  position:relative;
+  padding-bottom:8px;
+}
+
+.section-title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:40px;
+  height:2px;
+  background:#111;
+}
   }
 
 /* =========================
@@ -565,7 +578,8 @@
 <div class="swipe-hint" aria-hidden="true">Swipe →</div>
 
     <!-- CLIENT CAMPAIGNS -->
-<div class="slider campaigns-slider" aria-label="Client Campaigns">
+<div class="section-divider">
+  <div class="section-title">Client Campaigns</div>
 
   <div class="slide">
     <div class="project-card">
