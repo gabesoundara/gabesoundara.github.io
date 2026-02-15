@@ -68,38 +68,12 @@
       margin-bottom:18px;
     }
 
-    .summary{
-      font-size:16px;
-      color:#444;
-      margin:0 0 28px 0;
-    }
-
-    .section-title{
-      margin-top:44px;
-      margin-bottom:18px;
-      font-size:13px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#999;
-      font-weight:600;
-      position:relative;
-      padding-bottom:8px;
-    }
-    .section-title::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:40px;
-      height:2px;
-      background:#111;
-    }
-
     /* Collage grid */
     .collage{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:14px;
+      margin-bottom:22px; /* ✅ intentional breathing room before summary */
     }
 
     .tile{
@@ -122,6 +96,34 @@
     .tile.poster img{ aspect-ratio: 4/5; }
 
     .tile.wide img{ aspect-ratio: 16/10; }
+
+    .summary{
+      font-size:16px;
+      color:#444;
+      margin:22px 0 28px 0; /* ✅ pushes text down a bit */
+      max-width:70ch;       /* ✅ nicer reading width */
+    }
+
+    .section-title{
+      margin-top:44px;
+      margin-bottom:18px;
+      font-size:13px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#999;
+      font-weight:600;
+      position:relative;
+      padding-bottom:8px;
+    }
+    .section-title::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:40px;
+      height:2px;
+      background:#111;
+    }
 
     /* Video embed */
     .video-wrap{
@@ -149,9 +151,7 @@
     @media (max-width:768px){
       .container{ padding:28px; margin:24px auto; border-radius:12px; }
       h1{ font-size:28px; }
-      .collage{
-        grid-template-columns:1fr;
-      }
+      .collage{ grid-template-columns:1fr; }
       .tile.poster{ grid-row:auto; }
       .tile.poster img{ aspect-ratio: 4/5; }
     }
@@ -162,7 +162,8 @@
   <div class="container">
 
     <div class="topbar">
-      <a class="back-link" href="../index.html#portfolio">← Back</a>
+      <!-- ✅ add a tiny query string so index.html can force-scroll to #portfolio reliably -->
+      <a class="back-link" href="../index.html?from=event#portfolio">← Back</a>
     </div>
 
     <h1>Over the Leaves</h1>
@@ -177,15 +178,15 @@
         <img src="../images/events/over-the-leaves-scenic.jpg" alt="Over the Leaves Scenic Photo">
       </div>
 
-       <div class="tile wide">
+      <div class="tile wide">
         <img src="../images/events/over-the-leaves-avalon2.jpg" alt="Avalon Performance">
       </div>
     </div>
 
-  <p class="summary">
+    <p class="summary">
       A DIY concert built around community, local bands, and creative collaboration.
       I coordinated logistics, promotion, and on-site execution — working with artists and partners
-      to deliver our highest attended event at 140 tickets sold at the door. We offered on-site catering with hot cider, smores, and other deserts. 
+      to deliver our highest attended event at 140 tickets sold at the door. We offered on-site catering with hot cider, smores, and other desserts.
     </p>
 
     <div class="section-title">Video Recap</div>
@@ -202,5 +203,14 @@
     </div>
 
   </div>
+
+  <!-- ✅ This helps with browser back/forward weirdness: always start at top on page load -->
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+    window.addEventListener("load", () => window.scrollTo(0, 0));
+    window.addEventListener("pageshow", () => window.scrollTo(0, 0));
+  </script>
 </body>
 </html>
