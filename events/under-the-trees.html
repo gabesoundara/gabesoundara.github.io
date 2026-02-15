@@ -62,12 +62,6 @@
       margin-bottom:18px;
     }
 
-    .summary{
-      font-size:16px;
-      color:#444;
-      margin:0 0 28px 0;
-    }
-
     .section-title{
       margin-top:44px;
       margin-bottom:18px;
@@ -94,6 +88,7 @@
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:14px;
+      margin-bottom:22px; /* ✅ breathing room before summary */
     }
 
     .tile{
@@ -114,6 +109,13 @@
     .tile.poster{ grid-row: span 2; }
     .tile.poster img{ aspect-ratio: 4/5; }
     .tile.wide img{ aspect-ratio: 16/10; }
+
+    .summary{
+      font-size:16px;
+      color:#444;
+      margin:22px 0 28px 0; /* ✅ pushes text down a bit */
+      max-width:70ch;       /* ✅ nicer reading width */
+    }
 
     /* YouTube embed */
     .video-wrap{
@@ -142,6 +144,7 @@
       h1{ font-size:28px; }
       .collage{ grid-template-columns:1fr; }
       .tile.poster{ grid-row:auto; }
+      .tile.poster img{ aspect-ratio: 4/5; }
     }
   </style>
 </head>
@@ -171,7 +174,7 @@
         <img src="../images/events/under-the-trees-shirts1.jpg" alt="Twin Oak merch">
       </div>
     </div>
-   
+
     <p class="summary">
       This was an ambitious concept that I worked on for a few months alongside my best friends. We wanted every element of the event to be intentional, from the lineup and promotional material to the food.
       We built the stage, bought a sound system, and power-washed the entire garage. It was an invaluable experience and helped me grow as a leader.
