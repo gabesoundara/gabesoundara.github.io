@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>2026 Resume</title>
 <link rel="icon" href="favicon.png">
-  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -853,7 +854,7 @@ html:not(.js-ready) .tab-content {
     <div class="embed-card">
       <div class="media-embed">
         <iframe
-          src="https://www.youtube.com/embed/-xI1FW09nX4"
+          data-src="https://www.youtube.com/embed/-xI1FW09nX4"
           title="Music Video"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
@@ -868,6 +869,7 @@ html:not(.js-ready) .tab-content {
     <div class="embed-card">
       <div class="media-audio">
         <iframe
+          loading="lazy"
           scrolling="no"
           allow="autoplay"
           src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-548637530/the-melting-pod&auto_play=false&show_user=true&visual=true">
@@ -882,7 +884,7 @@ html:not(.js-ready) .tab-content {
     <div class="embed-card">
       <div class="media-embed">
         <iframe
-          src="https://www.youtube.com/embed/ppbuGARM8Rg"
+         data-src="https://www.youtube.com/embed/ppbuGARM8Rg"
           title="Video Project"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
@@ -897,7 +899,7 @@ html:not(.js-ready) .tab-content {
     <div class="embed-card">
       <div class="media-embed">
         <iframe
-          src="https://www.youtube.com/embed/v7l-xecVXNI"
+          data-src="https://www.youtube.com/embed/v7l-xecVXNI"
           title="Creative Project"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
@@ -912,7 +914,7 @@ html:not(.js-ready) .tab-content {
     <div class="embed-card">
       <div class="media-embed">
         <iframe
-          src="https://www.youtube.com/embed/JblfOt0AYR0"
+          data-src="https://www.youtube.com/embed/JblfOt0AYR0"
           title="Media Work"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
@@ -926,7 +928,7 @@ html:not(.js-ready) .tab-content {
     <div class="embed-card">
       <div class="media-embed">
         <iframe
-          src="https://www.youtube.com/embed/avWOJLH1ZzM"
+          data-src="https://www.youtube.com/embed/avWOJLH1ZzM"
           title="Media Work"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
@@ -980,10 +982,18 @@ html:not(.js-ready) .tab-content {
   const contents = document.querySelectorAll('.tab-content');
   const tabsBar = document.querySelector('.tabs');
 
-  function activateTab(tabName) {
-    tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
-    contents.forEach(content => content.classList.toggle('active', content.id === tabName));
+ function activateTab(tabName) {
+  tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
+  contents.forEach(content => content.classList.toggle('active', content.id === tabName));
+
+  // Load heavy embeds ONLY when Portfolio tab opens
+  if (tabName === 'portfolio') {
+    const portfolio = document.getElementById('portfolio');
+    portfolio.querySelectorAll('iframe[data-src]').forEach((iframe) => {
+      if (!iframe.src) iframe.src = iframe.dataset.src;
+    });
   }
+}
 
   function currentTabFromHash() {
     const name = window.location.hash.replace('#', '') || 'home';
