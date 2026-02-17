@@ -1,31 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Project Title | Gabe Soundara</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<style>
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 60px auto;
-  max-width: 900px;
-  padding: 0 20px;
-}
-h1 { font-weight: 600; }
-.back {
-  margin-top: 40px;
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 600;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheatham County Tourism Initiative | Client Campaign</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --text:#1a1a1a;
+      --muted:#6b6b6b;
+      --border:#eeeeee;
+      --shadow:0 15px 40px rgba(0,0,0,0.06);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      font-family:'Inter',sans-serif;
+      margin:0;
+      background:#f8f9fb;
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:60px auto;
+      background:#fff;
+      padding:60px;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+    }
+
+    .back-link{
+      text-decoration:none;
+      color:#111;
+      font-weight:500;
+      border:1px solid #e8e8e8;
+      padding:10px 14px;
+      border-radius:999px;
+      display:inline-block;
+      margin-bottom:30px;
+    }
+
+    h1{
+      font-size:34px;
+      letter-spacing:-0.8px;
+      margin:0 0 6px 0;
+      font-weight:600;
+    }
+
+    .meta{
+      color:#777;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      margin-bottom:30px;
+    }
+
+    /* GRID */
+    .collage{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-bottom:30px;
+    }
+
+    .tile{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,0.08);
+      box-shadow:0 12px 28px rgba(0,0,0,0.08);
+      background:#fff;
+    }
+
+    .tile img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+    }
+
+    .square img{ aspect-ratio: 1/1; }
+    .wide img{ aspect-ratio: 16/10; }
+
+    /* LOGO TILE */
+    .logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+      background:#fff;
+    }
+
+    .logo img{
+      max-width:70%;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .summary{
+      font-size:16px;
+      color:#444;
+      margin:30px 0 40px 0;
+      max-width:70ch;
+    }
+
+    .section-title{
+      margin-top:40px;
+      margin-bottom:18px;
+      font-size:13px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#999;
+      font-weight:600;
+      position:relative;
+      padding-bottom:8px;
+    }
+
+    .section-title::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:40px;
+      height:2px;
+      background:#111;
+    }
+
+    /* PDF */
+    .pdf-wrap{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,0.08);
+      box-shadow:0 12px 28px rgba(0,0,0,0.08);
+      background:#fff;
+    }
+
+    .pdf-frame{
+      width:100%;
+      height:900px;
+      border:0;
+    }
+
+    @media (max-width:768px){
+      .container{ padding:28px; margin:24px auto; }
+      .collage{ grid-template-columns:1fr; }
+      .pdf-frame{ height:600px; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
 
-<h1>Project Title</h1>
-<p>Short overview of the project.</p>
+    <a class="back-link" href="../index.html#portfolio">← Back</a>
 
-<a class="back" href="../index.html#portfolio">← Back to Portfolio</a>
+    <h1>Cheatham County Tourism Initiative</h1>
+    <div class="meta">Client Campaign • Fall 2024</div>
 
+    <!-- ALL IMAGES INCLUDED -->
+    <div class="collage">
+
+      <div class="tile square">
+        <img src="../images/campaigns/cheatham-county-1.jpg" alt="Campaign Photo 1">
+      </div>
+
+      <div class="tile square">
+        <img src="../images/campaigns/cheatham-county-2.jpg" alt="Campaign Photo 2">
+      </div>
+
+      <div class="tile wide">
+        <img src="../images/campaigns/cheatham-county-brochure-a.jpg" alt="Brochure A">
+      </div>
+
+      <div class="tile wide">
+        <img src="../images/campaigns/cheatham-county-brochure-b.jpg" alt="Brochure B">
+      </div>
+
+      <div class="tile logo">
+        <img src="../images/campaigns/cheatham-county-logo.jpg" alt="Cheatham County Logo">
+      </div>
+
+    </div>
+
+    <p class="summary">
+      In the Fall of 2024, I collaborated on the development of a tourism initiative for Cheatham County, Tennessee.
+      My team and I identified a county-wide tourism alliance as the most effective strategy to strengthen and unify local tourism efforts.
+      To inform our proposal, we conducted interviews with small business owners and residents, which provided valuable insight into the challenges
+      facing the local tourism industry and guided the refinement of our concept. Our project was selected as the winning proposal by the head of tourism
+      for Cheatham County.
+    </p>
+
+    <div class="section-title">Full Proposal</div>
+
+    <div class="pdf-wrap">
+      <iframe
+        class="pdf-frame"
+        src="../images/campaigns/cheatham-county-paper.pdf"
+        title="Cheatham County Proposal">
+      </iframe>
+    </div>
+
+  </div>
 </body>
 </html>
