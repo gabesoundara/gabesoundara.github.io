@@ -122,13 +122,11 @@
     background:#111;
   }
 
-  .tab-content{ display:none; animation:fade 0.35s ease; }
-  .tab-content.active{ display:block; }
+/* Tabs (fail-safe: Home shows even if JS fails) */
+.tab-content{ display:none; animation:fade 0.35s ease; }
+#home.tab-content{ display:block; }        /* ✅ default visible */
+.tab-content.active{ display:block; }       /* ✅ JS-controlled */
 
-  /* Prevent wrong tab flash before JS activates correct tab */
-html:not(.js-ready) .tab-content {
-  display: none !important;
-}
 
   @keyframes fade{
     from{ opacity:0; transform:translateY(8px); }
@@ -541,10 +539,7 @@ html:not(.js-ready) .tab-content {
     gap: 16px;
   }
 }
-  /* Prevent the page from showing the wrong tab for a split second */
-html:not(.js-ready) .tab-content { 
-  display: none !important; 
-}
+
 /* =========================
    Mobile header (ONLY mobile)
    Photo on top, centered
