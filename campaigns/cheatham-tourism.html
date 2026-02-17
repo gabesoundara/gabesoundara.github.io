@@ -84,73 +84,80 @@
       margin-bottom:18px;
     }
 
-    /* FULL-SIZE BROCHURE (no cropping) */
-    .hero{
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(0,0,0,0.08);
-      box-shadow:0 12px 28px rgba(0,0,0,0.08);
-      background:#fff;
-      margin:18px 0 22px 0;
-    }
-    .hero img{
-      width:100%;
-      height:auto;          /* ✅ keeps full image */
-      display:block;
-      object-fit:contain;   /* ✅ no cropping */
-      background:#fff;
-    }
+/* FULL BROCHURE (uncropped, but not gigantic) */
+.hero{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 12px 28px rgba(0,0,0,0.08);
+  background:#fff;
+  margin:18px 0 22px 0;
 
-    .summary{
-      font-size:16px;
-      color:#444;
-      margin:18px 0 22px 0;
-      max-width:72ch;
-    }
+  /* ✅ keeps it feeling full-size without being insane */
+  max-height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
 
-    /* THREE SMALL IMAGES IN A ROW */
-    .thumbs{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:14px;
-      margin:18px 0 34px 0;
-    }
+.hero img{
+  width:100%;
+  height:100%;
+  max-height:480px;     /* ✅ cap */
+  object-fit:contain;   /* ✅ never crop */
+  display:block;
+  background:#fff;
+  border-radius:10px;
+}
 
-    .thumb{
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(0,0,0,0.08);
-      box-shadow:0 10px 22px rgba(0,0,0,0.08);
-      background:#fff;
-    }
+/* 3 thumbnails row */
+.thumbs{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:14px;
+  margin:18px 0 34px 0;
+}
 
-    .thumb img{
-      width:100%;
-      height:170px;       /* small + consistent */
-      display:block;
-      object-fit:cover;   /* thumbs can crop, that’s fine */
-    }
+.thumb{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 10px 22px rgba(0,0,0,0.08);
+  background:#fff;
+}
 
-    .section-title{
-      margin-top:44px;
-      margin-bottom:18px;
-      font-size:13px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#999;
-      font-weight:600;
-      position:relative;
-      padding-bottom:8px;
-    }
-    .section-title::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:40px;
-      height:2px;
-      background:#111;
-    }
+/* default thumb behavior for photos */
+.thumb img{
+  width:100%;
+  height:160px;
+  display:block;
+  object-fit:cover;
+}
+
+/* ✅ special-case the logo: don't crop it */
+.thumb.logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+
+.thumb.logo img{
+  height:160px;
+  width:100%;
+  object-fit:contain;  /* ✅ logo stays whole */
+  background:#fff;
+}
+
+/* Mobile */
+@media (max-width:768px){
+  .hero{ max-height:none; padding:14px; }
+  .hero img{ max-height:70vh; }
+  .thumbs{ grid-template-columns:1fr; }
+  .thumb img{ height:220px; }
+  .thumb.logo img{ height:220px; }
+}
 
     /* PDF embed */
     .pdf-wrap{
@@ -217,34 +224,21 @@
       for Cheatham County.
     </p>
 
-    <!-- ✅ 3 small images in a row -->
-    <div class="thumbs">
-      <div class="thumb">
-        <img src="../images/campaigns/cheatham-county-1.jpg" alt="Cheatham County Photo 1">
-      </div>
-      <div class="thumb">
-        <img src="../images/campaigns/cheatham-county-2.jpg" alt="Cheatham County Photo 2">
-      </div>
-      <div class="thumb">
-        <img src="../images/campaigns/cheatham-county-logo.jpg" alt="Cheatham County Logo">
-      </div>
-    </div>
-
-    <div class="section-title">Embedded PDF</div>
-
-    <div class="pdf-wrap">
-      <iframe
-        class="pdf-frame"
-        src="../images/campaigns/cheatham-county-paper.pdf"
-        title="Cheatham County Full Report PDF">
-      </iframe>
-
-      <div class="pdf-fallback">
-        If the PDF doesn’t load here, <a href="../images/campaigns/cheatham-county-paper.pdf" target="_blank" rel="noopener">open it in a new tab</a>.
-      </div>
-    </div>
-
+<div class="thumbs">
+  <div class="thumb">
+    <img src="../images/campaigns/cheatham-county-1.jpg" alt="Cheatham County Photo 1">
   </div>
+
+  <div class="thumb">
+    <img src="../images/campaigns/cheatham-county-2.jpg" alt="Cheatham County Photo 2">
+  </div>
+
+  <div class="thumb logo">
+    <img src="../images/campaigns/cheatham-county-logo.jpg" alt="Cheatham County Logo">
+  </div>
+</div>
+
+</div>
 
   <script>
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
