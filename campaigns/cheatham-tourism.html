@@ -52,8 +52,15 @@
     }
     .back-link:hover{ background:#f3f3f3; }
 
-    .cta{
+    .actions{
       margin-left:auto;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .cta{
       text-decoration:none;
       color:#fff;
       background:#111;
@@ -67,6 +74,13 @@
       white-space:nowrap;
     }
     .cta:hover{ opacity:0.92; }
+
+    .cta.secondary{
+      background:#fff;
+      color:#111;
+      border:1px solid #e8e8e8;
+    }
+    .cta.secondary:hover{ background:#f3f3f3; }
 
     h1{
       font-size:34px;
@@ -84,112 +98,79 @@
       margin-bottom:18px;
     }
 
-/* FULL BROCHURE (uncropped, but not gigantic) */
-.hero{
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid rgba(0,0,0,0.08);
-  box-shadow:0 12px 28px rgba(0,0,0,0.08);
-  background:#fff;
-  margin:18px 0 22px 0;
+    .summary{
+      font-size:16px;
+      color:#444;
+      margin:18px 0 18px 0; /* ✅ now above brochures */
+      max-width:72ch;
+    }
 
-  /* ✅ keeps it feeling full-size without being insane */
-  max-height:520px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-}
+    /* Brochures side-by-side */
+    .brochures{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin:16px 0 26px 0;
+    }
 
-.hero img{
-  width:100%;
-  height:100%;
-  max-height:480px;     /* ✅ cap */
-  object-fit:contain;   /* ✅ never crop */
-  display:block;
-  background:#fff;
-  border-radius:10px;
-}
-
-/* 3 thumbnails row */
-.thumbs{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:14px;
-  margin:18px 0 34px 0;
-}
-
-.thumb{
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid rgba(0,0,0,0.08);
-  box-shadow:0 10px 22px rgba(0,0,0,0.08);
-  background:#fff;
-}
-
-/* default thumb behavior for photos */
-.thumb img{
-  width:100%;
-  height:160px;
-  display:block;
-  object-fit:cover;
-}
-
-/* ✅ special-case the logo: don't crop it */
-.thumb.logo{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:16px;
-}
-
-.thumb.logo img{
-  height:160px;
-  width:100%;
-  object-fit:contain;  /* ✅ logo stays whole */
-  background:#fff;
-}
-
-/* Mobile */
-@media (max-width:768px){
-  .hero{ max-height:none; padding:14px; }
-  .hero img{ max-height:70vh; }
-  .thumbs{ grid-template-columns:1fr; }
-  .thumb img{ height:220px; }
-  .thumb.logo img{ height:220px; }
-}
-
-    /* PDF embed */
-    .pdf-wrap{
+    .brochure{
       border-radius:14px;
       overflow:hidden;
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:0 12px 28px rgba(0,0,0,0.08);
       background:#fff;
+
+      /* ✅ same "good" size, not cropped */
+      max-height:520px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
     }
 
-    .pdf-frame{
+    .brochure img{
       width:100%;
-      height:900px;
-      border:0;
+      height:100%;
+      max-height:480px;
+      object-fit:contain; /* ✅ no crop */
       display:block;
+      background:#fff;
+      border-radius:10px;
     }
 
-    .pdf-fallback{
-      padding:14px 16px;
-      font-size:14px;
-      color:#444;
-      border-top:1px solid rgba(0,0,0,0.06);
+    /* 3 thumbnails row */
+    .thumbs{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin:18px 0 10px 0;
+    }
+
+    .thumb{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,0.08);
+      box-shadow:0 10px 22px rgba(0,0,0,0.08);
+      background:#fff;
+    }
+
+    .thumb img{
+      width:100%;
+      height:160px;
+      display:block;
+      object-fit:cover;
     }
 
     /* Mobile */
     @media (max-width:768px){
       .container{ padding:28px; margin:24px auto; border-radius:12px; }
       h1{ font-size:28px; }
-      .cta{ margin-left:0; }
+      .actions{ margin-left:0; }
+      .brochures{ grid-template-columns:1fr; }
+      .brochure{ max-height:none; padding:14px; }
+      .brochure img{ max-height:70vh; }
       .thumbs{ grid-template-columns:1fr; }
       .thumb img{ height:220px; }
-      .pdf-frame{ height:600px; }
     }
   </style>
 </head>
@@ -200,22 +181,26 @@
     <div class="topbar">
       <a class="back-link" href="../index.html#portfolio">← Back</a>
 
-      <!-- ✅ Download button -->
-      <a class="cta"
-         href="../images/campaigns/cheatham-county-paper.pdf"
-         download>
-        Full Report ↓
-      </a>
+      <div class="actions">
+        <!-- ✅ Download buttons -->
+        <a class="cta secondary"
+           href="../images/campaigns/cheatham-county-presentation.pdf"
+           download>
+          Presentation ↓
+        </a>
+
+        <a class="cta"
+           href="../images/campaigns/cheatham-county-paper.pdf"
+           download>
+          Full Report ↓
+        </a>
+      </div>
     </div>
 
     <h1>Cheatham County Tourism Initiative</h1>
     <div class="meta">Client Campaign • Fall 2024</div>
 
-    <!-- ✅ Full-size brochure (pick A or B; using A here) -->
-    <div class="hero">
-      <img src="../images/campaigns/cheatham-county-brochure-a.jpg" alt="Cheatham County Brochure (Full Size)">
-    </div>
-
+    <!-- ✅ Text ABOVE brochures -->
     <p class="summary">
       In the Fall of 2024, I collaborated on the development of a tourism initiative for Cheatham County, Tennessee.
       My team and I identified a county-wide tourism alliance as the most effective strategy to strengthen and unify local tourism efforts.
@@ -224,21 +209,33 @@
       for Cheatham County.
     </p>
 
-<div class="thumbs">
-  <div class="thumb">
-    <img src="../images/campaigns/cheatham-county-1.jpg" alt="Cheatham County Photo 1">
-  </div>
+    <!-- ✅ Brochure A + B side-by-side -->
+    <div class="brochures">
+      <div class="brochure">
+        <img src="../images/campaigns/cheatham-county-brochure-a.jpg" alt="Cheatham County Brochure A">
+      </div>
 
-  <div class="thumb">
-    <img src="../images/campaigns/cheatham-county-2.jpg" alt="Cheatham County Photo 2">
-  </div>
+      <div class="brochure">
+        <img src="../images/campaigns/cheatham-county-brochure-b.jpg" alt="Cheatham County Brochure B">
+      </div>
+    </div>
 
-  <div class="thumb logo">
-    <img src="../images/campaigns/cheatham-county-logo.jpg" alt="Cheatham County Logo">
-  </div>
-</div>
+    <!-- ✅ 3 small images in a row -->
+    <div class="thumbs">
+      <div class="thumb">
+        <img src="../images/campaigns/cheatham-county-1.jpg" alt="Cheatham County Photo 1">
+      </div>
 
-</div>
+      <div class="thumb">
+        <img src="../images/campaigns/cheatham-county-2.jpg" alt="Cheatham County Photo 2">
+      </div>
+
+      <div class="thumb">
+        <img src="../images/campaigns/cheatham-county-3.jpg" alt="Cheatham County Photo 3">
+      </div>
+    </div>
+
+  </div>
 
   <script>
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
