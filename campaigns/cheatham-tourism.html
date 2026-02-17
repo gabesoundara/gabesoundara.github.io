@@ -11,7 +11,6 @@
     :root{
       --text:#1a1a1a;
       --muted:#6b6b6b;
-      --border:#eeeeee;
       --shadow:0 15px 40px rgba(0,0,0,0.06);
     }
 
@@ -26,12 +25,21 @@
     }
 
     .container{
-      max-width:1000px;
+      max-width:950px;
       margin:60px auto;
       background:#fff;
       padding:60px;
       border-radius:12px;
       box-shadow:var(--shadow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:22px;
+      flex-wrap:wrap;
     }
 
     .back-link{
@@ -41,14 +49,30 @@
       border:1px solid #e8e8e8;
       padding:10px 14px;
       border-radius:999px;
-      display:inline-block;
-      margin-bottom:30px;
     }
+    .back-link:hover{ background:#f3f3f3; }
+
+    .cta{
+      margin-left:auto;
+      text-decoration:none;
+      color:#fff;
+      background:#111;
+      font-weight:600;
+      border:1px solid #111;
+      padding:10px 14px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+    .cta:hover{ opacity:0.92; }
 
     h1{
       font-size:34px;
       letter-spacing:-0.8px;
       margin:0 0 6px 0;
+      line-height:1.15;
       font-weight:600;
     }
 
@@ -57,59 +81,58 @@
       font-size:13px;
       text-transform:uppercase;
       letter-spacing:2px;
-      margin-bottom:30px;
+      margin-bottom:18px;
     }
 
-    /* GRID */
-    .collage{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-      margin-bottom:30px;
-    }
-
-    .tile{
+    /* FULL-SIZE BROCHURE (no cropping) */
+    .hero{
       border-radius:14px;
       overflow:hidden;
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:0 12px 28px rgba(0,0,0,0.08);
       background:#fff;
+      margin:18px 0 22px 0;
     }
-
-    .tile img{
+    .hero img{
       width:100%;
-      height:100%;
+      height:auto;          /* ✅ keeps full image */
       display:block;
-      object-fit:cover;
-    }
-
-    .square img{ aspect-ratio: 1/1; }
-    .wide img{ aspect-ratio: 16/10; }
-
-    /* LOGO TILE */
-    .logo{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:40px;
+      object-fit:contain;   /* ✅ no cropping */
       background:#fff;
-    }
-
-    .logo img{
-      max-width:70%;
-      height:auto;
-      object-fit:contain;
     }
 
     .summary{
       font-size:16px;
       color:#444;
-      margin:30px 0 40px 0;
-      max-width:70ch;
+      margin:18px 0 22px 0;
+      max-width:72ch;
+    }
+
+    /* THREE SMALL IMAGES IN A ROW */
+    .thumbs{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin:18px 0 34px 0;
+    }
+
+    .thumb{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,0.08);
+      box-shadow:0 10px 22px rgba(0,0,0,0.08);
+      background:#fff;
+    }
+
+    .thumb img{
+      width:100%;
+      height:170px;       /* small + consistent */
+      display:block;
+      object-fit:cover;   /* thumbs can crop, that’s fine */
     }
 
     .section-title{
-      margin-top:40px;
+      margin-top:44px;
       margin-bottom:18px;
       font-size:13px;
       letter-spacing:3px;
@@ -119,7 +142,6 @@
       position:relative;
       padding-bottom:8px;
     }
-
     .section-title::after{
       content:"";
       position:absolute;
@@ -130,7 +152,7 @@
       background:#111;
     }
 
-    /* PDF */
+    /* PDF embed */
     .pdf-wrap{
       border-radius:14px;
       overflow:hidden;
@@ -143,11 +165,23 @@
       width:100%;
       height:900px;
       border:0;
+      display:block;
     }
 
+    .pdf-fallback{
+      padding:14px 16px;
+      font-size:14px;
+      color:#444;
+      border-top:1px solid rgba(0,0,0,0.06);
+    }
+
+    /* Mobile */
     @media (max-width:768px){
-      .container{ padding:28px; margin:24px auto; }
-      .collage{ grid-template-columns:1fr; }
+      .container{ padding:28px; margin:24px auto; border-radius:12px; }
+      h1{ font-size:28px; }
+      .cta{ margin-left:0; }
+      .thumbs{ grid-template-columns:1fr; }
+      .thumb img{ height:220px; }
       .pdf-frame{ height:600px; }
     }
   </style>
@@ -156,34 +190,23 @@
 <body>
   <div class="container">
 
-    <a class="back-link" href="../index.html#portfolio">← Back</a>
+    <div class="topbar">
+      <a class="back-link" href="../index.html#portfolio">← Back</a>
+
+      <!-- ✅ Download button -->
+      <a class="cta"
+         href="../images/campaigns/cheatham-county-paper.pdf"
+         download>
+        Full Report ↓
+      </a>
+    </div>
 
     <h1>Cheatham County Tourism Initiative</h1>
     <div class="meta">Client Campaign • Fall 2024</div>
 
-    <!-- ALL IMAGES INCLUDED -->
-    <div class="collage">
-
-      <div class="tile square">
-        <img src="../images/campaigns/cheatham-county-1.jpg" alt="Campaign Photo 1">
-      </div>
-
-      <div class="tile square">
-        <img src="../images/campaigns/cheatham-county-2.jpg" alt="Campaign Photo 2">
-      </div>
-
-      <div class="tile wide">
-        <img src="../images/campaigns/cheatham-county-brochure-a.jpg" alt="Brochure A">
-      </div>
-
-      <div class="tile wide">
-        <img src="../images/campaigns/cheatham-county-brochure-b.jpg" alt="Brochure B">
-      </div>
-
-      <div class="tile logo">
-        <img src="../images/campaigns/cheatham-county-logo.jpg" alt="Cheatham County Logo">
-      </div>
-
+    <!-- ✅ Full-size brochure (pick A or B; using A here) -->
+    <div class="hero">
+      <img src="../images/campaigns/cheatham-county-brochure-a.jpg" alt="Cheatham County Brochure (Full Size)">
     </div>
 
     <p class="summary">
@@ -194,16 +217,39 @@
       for Cheatham County.
     </p>
 
-    <div class="section-title">Full Proposal</div>
+    <!-- ✅ 3 small images in a row -->
+    <div class="thumbs">
+      <div class="thumb">
+        <img src="../images/campaigns/cheatham-county-1.jpg" alt="Cheatham County Photo 1">
+      </div>
+      <div class="thumb">
+        <img src="../images/campaigns/cheatham-county-2.jpg" alt="Cheatham County Photo 2">
+      </div>
+      <div class="thumb">
+        <img src="../images/campaigns/cheatham-county-logo.jpg" alt="Cheatham County Logo">
+      </div>
+    </div>
+
+    <div class="section-title">Embedded PDF</div>
 
     <div class="pdf-wrap">
       <iframe
         class="pdf-frame"
         src="../images/campaigns/cheatham-county-paper.pdf"
-        title="Cheatham County Proposal">
+        title="Cheatham County Full Report PDF">
       </iframe>
+
+      <div class="pdf-fallback">
+        If the PDF doesn’t load here, <a href="../images/campaigns/cheatham-county-paper.pdf" target="_blank" rel="noopener">open it in a new tab</a>.
+      </div>
     </div>
 
   </div>
+
+  <script>
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.addEventListener("load", () => window.scrollTo(0, 0));
+    window.addEventListener("pageshow", () => window.scrollTo(0, 0));
+  </script>
 </body>
 </html>
