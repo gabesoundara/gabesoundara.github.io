@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>2026 Resume</title>
+<title>Gabe Soundara | Strategic Communications</title>
 <link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root{
     --text:#1a1a1a;
-    --muted:#6b6b6b;
+    --muted:#666;
+    --light:#888;
     --border:#eeeeee;
+    --bg:#f8f9fb;
     --shadow:0 15px 40px rgba(0,0,0,0.06);
   }
 
@@ -22,49 +24,50 @@
   body{
     font-family:'Inter',sans-serif;
     margin:0;
-    background:#f8f9fb;
+    background:var(--bg);
     color:var(--text);
     line-height:1.6;
   }
 
   .container{
-    max-width:900px;
+    max-width:940px;
     margin:60px auto;
     background:#fff;
     padding:60px;
-    border-radius:6px;
+    border-radius:10px;
     box-shadow:var(--shadow);
   }
 
-  /* Header */
   .header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:18px;
-    gap:20px;
+    gap:28px;
+    margin-bottom:22px;
   }
 
   .header-left{ max-width:72%; }
+
+  h1{
+    font-size:44px;
+    letter-spacing:-1.4px;
+    margin:0;
+    line-height:1.05;
+    font-weight:700;
+  }
+
+  .tagline{
+    margin:10px 0 18px;
+    color:#444;
+    font-size:17px;
+    font-weight:500;
+  }
 
   .header-right img{
     width:140px;
     height:140px;
     object-fit:cover;
-    border-radius:16px;
-  }
-
-  h1{
-    font-size:42px;
-    letter-spacing:-1px;
-    margin:0 0 6px 0;
-    line-height:1.1;
-    font-weight:600;
-  }
-
-  .contact{
-    color:#555;
-    margin-bottom:14px;
+    border-radius:18px;
   }
 
   .header-actions{
@@ -74,36 +77,38 @@
     flex-wrap:wrap;
   }
 
-  .link-pill{
-    display:inline-block;
-    padding:10px 14px;
-    border-radius:999px;
-    border:1px solid #e8e8e8;
-    text-decoration:none;
-    color:#111;
-    font-weight:500;
-  }
-  .link-pill:hover{ background:#f3f3f3; }
-
+  .link-pill,
   .download-btn{
     display:inline-block;
-    padding:12px 24px;
-    background:#111;
-    color:#fff;
+    padding:10px 14px;
+    border-radius:9px;
     text-decoration:none;
-    border-radius:8px;
+    font-size:14px;
     font-weight:500;
     transition:0.2s ease;
   }
+
+  .link-pill{
+    border:1px solid #e5e5e5;
+    color:#111;
+  }
+
+  .link-pill:hover{ background:#f4f4f4; }
+
+  .download-btn{
+    background:#111;
+    color:#fff;
+  }
+
   .download-btn:hover{ background:#333; }
 
-  /* Tabs */
   .tabs{
-    margin-top:18px;
+    margin-top:20px;
     display:flex;
-    gap:20px;
+    gap:22px;
     border-bottom:1px solid var(--border);
   }
+
   .tab{
     padding:10px 0;
     text-decoration:none;
@@ -111,7 +116,9 @@
     color:#888;
     position:relative;
   }
+
   .tab.active{ color:#111; }
+
   .tab.active::after{
     content:"";
     position:absolute;
@@ -125,19 +132,16 @@
   .tab-content{ display:none; animation:fade 0.35s ease; }
   .tab-content.active{ display:block; }
 
-  /* Prevent wrong tab flash before JS activates correct tab */
-html:not(.js-ready) .tab-content {
-  display: none !important;
-}
+  html:not(.js-ready) .tab-content{ display:none !important; }
+  html:not(.js-ready) #home.tab-content{ display:block !important; }
 
   @keyframes fade{
     from{ opacity:0; transform:translateY(8px); }
     to{ opacity:1; transform:translateY(0); }
   }
 
-  /* Sections */
   h2{
-    margin-top:60px;
+    margin-top:56px;
     font-size:20px;
     text-transform:uppercase;
     letter-spacing:2px;
@@ -147,11 +151,43 @@ html:not(.js-ready) .tab-content {
     font-weight:500;
   }
 
-  .summary{ font-size:17px; color:#444; }
+  .summary{
+    font-size:17px;
+    color:#444;
+    max-width:780px;
+  }
+
+  .highlight-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+    margin-top:24px;
+  }
+
+  .highlight-card{
+    border:1px solid rgba(0,0,0,0.08);
+    border-radius:14px;
+    padding:18px;
+    background:#fff;
+    box-shadow:0 8px 24px rgba(0,0,0,0.04);
+  }
+
+  .highlight-card strong{
+    display:block;
+    font-size:15px;
+    margin-bottom:6px;
+  }
+
+  .highlight-card span{
+    display:block;
+    color:#666;
+    font-size:14px;
+    line-height:1.5;
+  }
 
   .job{
     margin-bottom:35px;
-    padding-left:10px;
+    padding-left:12px;
     border-left:2px solid #f0f0f0;
   }
 
@@ -168,6 +204,7 @@ html:not(.js-ready) .tab-content {
   }
 
   .company{ color:#555; }
+
   .date{
     color:#888;
     font-size:14px;
@@ -177,7 +214,6 @@ html:not(.js-ready) .tab-content {
   ul{ margin-top:10px; padding-left:20px; }
   ul li{ margin-bottom:6px; }
 
-  /* Portfolio headings */
   .section-title{
     margin-top:32px;
     margin-bottom:18px;
@@ -189,6 +225,7 @@ html:not(.js-ready) .tab-content {
     position:relative;
     padding-bottom:8px;
   }
+
   .section-title::after{
     content:"";
     position:absolute;
@@ -200,14 +237,62 @@ html:not(.js-ready) .tab-content {
   }
 
   .section-divider{
-    margin-top:22px;
-    padding-top:22px;
+    margin-top:28px;
+    padding-top:24px;
     border-top:1px solid #f0f0f0;
   }
 
-  /* =========================
-     EVENTS (LEAVE AS-IS)
-     ========================= */
+  .campaign-list,
+  .media-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-top:10px;
+  }
+
+  .campaign-strip{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    text-decoration:none;
+    color:inherit;
+    padding:18px;
+    border-radius:14px;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow:0 10px 26px rgba(0,0,0,0.06);
+    background:#fff;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .campaign-strip:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 36px rgba(0,0,0,0.10);
+  }
+
+  .campaign-main{ flex:1 1 auto; min-width:0; }
+
+  .campaign-title{
+    font-size:18px;
+    font-weight:600;
+    line-height:1.2;
+    margin:0 0 6px 0;
+  }
+
+  .campaign-meta{
+    color:#666;
+    font-size:14px;
+  }
+
+  .campaign-thumb{
+    width:112px;
+    height:78px;
+    border-radius:12px;
+    object-fit:cover;
+    border:1px solid rgba(0,0,0,0.08);
+    flex:0 0 auto;
+  }
+
   .events-slider{
     display:flex;
     gap:14px;
@@ -219,6 +304,7 @@ html:not(.js-ready) .tab-content {
   }
 
   .events-slider::-webkit-scrollbar{ height:10px; }
+
   .events-slider::-webkit-scrollbar-thumb{
     background:#e8e8e8;
     border-radius:999px;
@@ -238,7 +324,6 @@ html:not(.js-ready) .tab-content {
     transition:transform 0.18s ease, box-shadow 0.18s ease;
   }
 
-  .event-card:active{ transform:scale(0.99); }
   .event-card:hover{
     transform:translateY(-2px);
     box-shadow:0 18px 40px rgba(0,0,0,0.12);
@@ -271,98 +356,8 @@ html:not(.js-ready) .tab-content {
     margin-top:8px;
     color:#888;
     font-size:13px;
-    letter-spacing:0.2px;
   }
 
-  /* =========================
-     Reusable slider (keep carousel on ALL screen sizes)
-     ========================= */
-  .slider{
-    display:flex;
-    gap:14px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    padding:6px 2px 12px;
-    margin-top:10px;
-  }
-
-  .slider::-webkit-scrollbar{ height:10px; }
-  .slider::-webkit-scrollbar-thumb{
-    background:#e8e8e8;
-    border-radius:999px;
-  }
-
-  .slide{
-    flex:0 0 92%;
-    max-width:720px;
-    scroll-snap-align:center;
-  }
-
-  /* =========================
-     CLIENT CAMPAIGNS = LONG STRIPS (not a carousel)
-     ========================= */
-  .campaign-list{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    margin-top:10px;
-  }
-
-  .campaign-strip{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-    text-decoration:none;
-    color:inherit;
-
-    padding:16px 16px;
-    border-radius:14px;
-    border:1px solid rgba(0,0,0,0.08);
-    box-shadow:0 12px 28px rgba(0,0,0,0.08);
-    background:#fff;
-
-    transition:transform 0.18s ease, box-shadow 0.18s ease;
-  }
-
-  .campaign-strip:hover{
-    transform:translateY(-2px);
-    box-shadow:0 18px 40px rgba(0,0,0,0.12);
-  }
-
-  .campaign-strip:active{ transform:scale(0.99); }
-
-  .campaign-main{ flex:1 1 auto; min-width:0; }
-
-  .campaign-title{
-    font-size:18px;
-    font-weight:600;
-    line-height:1.2;
-    margin:0 0 6px 0;
-  }
-
-  .campaign-meta{
-    color:#666;
-    font-size:14px;
-  }
-
-  .campaign-thumb{
-    width:110px;
-    height:78px;
-    border-radius:12px;
-    object-fit:cover;
-    border:1px solid rgba(0,0,0,0.08);
-    flex:0 0 auto;
-  }
-
-  @media (max-width:460px){
-    .campaign-thumb{ display:none; }
-  }
-
-  /* =========================
-     MEDIA & CREATIVE = BIG SWIPE (Instagram vibe)
-     ========================= */
   .embed-card{
     background:#fff;
     border-radius:18px;
@@ -371,15 +366,29 @@ html:not(.js-ready) .tab-content {
     overflow:hidden;
   }
 
-  /* Tall like reels */
-  .video-embed{
+  .media-embed{
     position:relative;
     width:100%;
-    aspect-ratio:9/16;
+    aspect-ratio:16/10;
     background:#000;
   }
 
-  .video-embed iframe{
+  .media-embed iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  .media-audio{
+    position:relative;
+    width:100%;
+    height:210px;
+    background:#f5f5f5;
+  }
+
+  .media-audio iframe{
     position:absolute;
     inset:0;
     width:100%;
@@ -404,235 +413,82 @@ html:not(.js-ready) .tab-content {
     text-transform:uppercase;
   }
 
-  /* SoundCloud should not be 9:16 tall — special case */
-  .audio-embed{
-    position:relative;
-    width:100%;
-    height:210px;
-    background:#f5f5f5;
-  }
-  .audio-embed iframe{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    border:0;
-  }
-
-  /* Responsive */
   @media (max-width:768px){
     .container{ padding:30px; }
     .header{ flex-direction:column; align-items:flex-start; }
     .header-left{ max-width:100%; }
     .job-header{ flex-direction:column; gap:4px; }
+    .highlight-grid{ grid-template-columns:1fr; }
   }
 
-  /* Print */
+  @media (max-width:520px){
+    .container{
+      margin:18px 12px;
+      padding:22px;
+      border-radius:14px;
+    }
+
+    .header{
+      align-items:center;
+      text-align:center;
+      gap:16px;
+      margin-bottom:12px;
+    }
+
+    .header-right{
+      order:-1;
+      display:flex;
+      justify-content:center;
+    }
+
+    .header-right img{
+      width:120px;
+      height:120px;
+      border-radius:18px;
+    }
+
+    h1{
+      font-size:34px;
+      white-space:nowrap;
+    }
+
+    .tagline{
+      font-size:15px;
+      margin-bottom:14px;
+    }
+
+    .header-actions{
+      width:100%;
+      flex-direction:column;
+      align-items:stretch;
+      gap:10px;
+    }
+
+    .link-pill,
+    .download-btn{
+      width:100%;
+      text-align:center;
+      padding:12px 14px;
+    }
+
+    .tabs{
+      position:sticky;
+      top:0;
+      background:#fff;
+      z-index:10;
+      padding-top:6px;
+      margin-top:10px;
+      gap:16px;
+    }
+
+    .campaign-thumb{ display:none; }
+  }
+
   @media print{
     body{ background:#fff; }
     .container{ box-shadow:none; margin:0; padding:0; max-width:100%; }
     .tabs, .header-actions{ display:none; }
   }
-  /* Media list (vertical) */
-.media-list{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-top:10px;
-}
-
-/* Match Events card feel: wide, not tall */
-.media-embed{
-  position:relative;
-  width:100%;
-  aspect-ratio:16/10;  /* same vibe as events */
-  background:#000;
-}
-
-.media-embed iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* SoundCloud should be shorter */
-.media-audio{
-  position:relative;
-  width:100%;
-  height:210px;
-  background:#f5f5f5;
-}
-.media-audio iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-/* =========================
-   Mobile header: name + photo side-by-side
-   (Desktop stays unchanged)
-   ========================= */
-@media (max-width: 520px){
-
-  .container{
-    margin: 18px 12px;
-    padding: 22px;
-    border-radius: 14px;
-  }
-
-  /* Keep header stacked overall, but make the TOP row side-by-side */
-  .header{
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
-    margin-bottom: 12px;
-  }
-
-  .header-left{ max-width: 100%; }
-
-  .header-top{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-  }
-
-  .header-top h1{
-    font-size: 34px;
-    line-height: 1.05;
-    margin: 0;
-    flex: 1 1 auto;
-  }
-
-  /* Photo smaller on mobile, sitting to the right of the name */
-  .header-right img{
-    width: 88px;
-    height: 88px;
-    border-radius: 14px;
-    flex: 0 0 auto;
-  }
-
-  /* Buttons: full width + stacked */
-  .header-actions{
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-
-  .link-pill,
-  .download-btn{
-    width: 100%;
-    text-align: center;
-    padding: 12px 14px;
-  }
-
-  /* Tabs: optional sticky */
-  .tabs{
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 10;
-    padding-top: 6px;
-    margin-top: 10px;
-    gap: 16px;
-  }
-}
-  /* Prevent the page from showing the wrong tab for a split second */
-html:not(.js-ready) .tab-content { 
-  display: none !important; 
-}
-/* =========================
-   Mobile header (ONLY mobile)
-   Photo on top, centered
-   ========================= */
-@media (max-width: 520px){
-
-  .container{
-    margin: 18px 12px;
-    padding: 22px;
-    border-radius: 14px;
-  }
-
-  .header{
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 12px;
-  }
-
-  .header-left{
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .header-right{
-    order: -1; /* photo above name */
-    display: flex;
-    justify-content: center;
-  }
-
-  .header-right img{
-    width: 120px;
-    height: 120px;
-    border-radius: 18px;
-  }
-
-  .header-left h1{
-    font-size: 34px;
-    line-height: 1.05;
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  .header-actions{
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-
-  .link-pill,
-  .download-btn{
-    width: 100%;
-    text-align: center;
-    padding: 12px 14px;
-  }
-
-  /* sticky tabs */
-  .tabs{
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 10;
-    padding-top: 6px;
-    margin-top: 10px;
-    gap: 16px;
-  }
-}
-  /* Smaller buttons on mobile */
-.link-pill,
-.download-btn{
-  padding: 8px 12px;      /* smaller height */
-  font-size: 14px;        /* slightly smaller text */
-  font-weight: 500;
-  border-radius: 8px;     /* less bulky */
-}
-
-/* Optional: make LinkedIn lighter */
-.link-pill{
-  border: 1px solid #e5e5e5;
-}
-
-/* Optional: make download slightly less heavy */
-.download-btn{
-  background: #222;
-}
-  html:not(.js-ready) #home.tab-content { display:block !important; }
-  
 </style>
 </head>
 
@@ -642,10 +498,11 @@ html:not(.js-ready) .tab-content {
   <div class="header">
     <div class="header-left">
       <h1>Gabe Soundara</h1>
+      <p class="tagline">Strategic Communications · Nonprofit Storytelling · Media Relations</p>
 
       <div class="header-actions">
         <a class="link-pill" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="GabeSoundara-ResumeApr26.pdf" download class="download-btn">Download Resume (PDF)</a>
+        <a href="GabeSoundara-ResumeApr26.pdf" download class="download-btn">Download Resume</a>
       </div>
     </div>
 
@@ -654,22 +511,37 @@ html:not(.js-ready) .tab-content {
     </div>
   </div>
 
-<div class="tabs">
-  <a href="#home" class="tab" data-tab="home">Home</a>
-  <a href="#portfolio" class="tab" data-tab="portfolio">Portfolio</a>
-  <a href="#contact" class="tab" data-tab="contact">Contact</a>
-</div>
+  <div class="tabs">
+    <a href="#home" class="tab" data-tab="home">Home</a>
+    <a href="#portfolio" class="tab" data-tab="portfolio">Portfolio</a>
+    <a href="#contact" class="tab" data-tab="contact">Contact</a>
+  </div>
 
   <!-- HOME -->
   <div id="home" class="tab-content">
 
     <h2>Professional Summary</h2>
     <p class="summary">
-      Multifaceted Public Relations student with experience in event planning, creative content development,
-      organizational leadership, and youth engagement. Proven ability to coordinate logistics, manage teams,
-      and execute innovative initiatives in fast-paced environments. Strong communicator with a hands-on,
-      solutions-driven mindset.
+      Strategic communications and public relations professional with experience leading nonprofit campaigns,
+      coordinating earned media outreach, producing community-focused content, and managing events across nonprofit,
+      faith-based, and youth-serving organizations. Skilled in writing, storytelling, media relations, and hands-on
+      project execution.
     </p>
+
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <strong>Nonprofit Campaigns</strong>
+        <span>Led communications strategy, messaging, and media outreach for mission-driven client work.</span>
+      </div>
+      <div class="highlight-card">
+        <strong>Community Engagement</strong>
+        <span>Produced newsletters, event communications, and outreach materials for local organizations.</span>
+      </div>
+      <div class="highlight-card">
+        <strong>Leadership</strong>
+        <span>Managed teams, schedules, events, and public-facing communication in fast-paced environments.</span>
+      </div>
+    </div>
 
     <h2>Professional Experience</h2>
 
@@ -683,8 +555,8 @@ html:not(.js-ready) .tab-content {
       </div>
       <ul>
         <li>Led daily operations and scheduling for a 300-camper program with 35–40 staff members.</li>
-        <li>Resolved parent concerns and managed camper health and safety needs.</li>
-        <li>Designed structured daily itineraries to optimize staff efficiency.</li>
+        <li>Managed parent communication, conflict resolution, and camper health and safety needs.</li>
+        <li>Designed structured daily itineraries to improve staff efficiency and program flow.</li>
         <li>Maintained compliance with safety protocols and emergency response procedures.</li>
       </ul>
     </div>
@@ -698,9 +570,9 @@ html:not(.js-ready) .tab-content {
         <span class="date">Aug 2025 – Present</span>
       </div>
       <ul>
-        <li>Coordinated logistics for youth and young adult programs and special events.</li>
-        <li>Produced newsletters and communications to increase community engagement.</li>
-        <li>Maintained accurate member records using Breeze database software.</li>
+        <li>Coordinate logistics for youth and young adult programs, ministry events, and community gatherings.</li>
+        <li>Produce newsletters and community-facing communications to support engagement and participation.</li>
+        <li>Maintain member records and communication data using Breeze church management software.</li>
       </ul>
     </div>
 
@@ -734,20 +606,6 @@ html:not(.js-ready) .tab-content {
       </ul>
     </div>
 
-    <div class="job">
-      <div class="job-header">
-        <div>
-          <span class="job-title">Recess Coach</span> –
-          <span class="company">Foundations Christian Academy</span>
-        </div>
-        <span class="date">Sep 2021 – May 2022</span>
-      </div>
-      <ul>
-        <li>Designed and facilitated engaging daily activity programming.</li>
-        <li>Planned and coordinated a school-wide Field Day event.</li>
-      </ul>
-    </div>
-
     <h2>Education</h2>
     <ul>
       <li>
@@ -761,37 +619,48 @@ html:not(.js-ready) .tab-content {
       </li>
 
       <li>
-        University of Salford (Manchester, UK)
+        University of Salford — Manchester, UK
         <ul>
           <li>Study Abroad — Spring 2025</li>
-          <li>BJTC “Best Podcast” Award (2025)</li>
+          <li>BJTC “Best Podcast” Award Recognition — 2025</li>
         </ul>
       </li>
     </ul>
 
     <h2>Skills</h2>
     <ul>
-      <li>Event Planning</li>
-      <li>Creative Problem Solving</li>
-      <li>Leadership</li>
-      <li>Verbal Communication</li>
-      <li>Time Management</li>
-      <li>Organizational Planning</li>
+      <li>Strategic Communications</li>
+      <li>Nonprofit Storytelling</li>
+      <li>Media Relations</li>
+      <li>Campaign Development</li>
+      <li>Event Communications</li>
+      <li>Community Engagement</li>
+      <li>Content Writing and Editing</li>
+      <li>Canva, Adobe Creative Suite, Final Cut Pro</li>
+      <li>Google Workspace, Microsoft Office, Breeze CMS</li>
     </ul>
   </div>
 
   <!-- PORTFOLIO -->
   <div id="portfolio" class="tab-content">
-    <!-- CLIENT CAMPAIGNS (LONG STRIPS) -->
-    <div class="section-divider">
-      <div class="section-title">MTSU Client Campaigns</div>
 
-      <div class="campaign-list" aria-label="MTSU Client Campaigns">
+    <div class="section-divider">
+      <div class="section-title">Strategic Campaigns</div>
+
+      <div class="campaign-list" aria-label="Strategic Campaigns">
+
+        <a class="campaign-strip" href="campaigns/honor-flight.html">
+          <div class="campaign-main">
+            <div class="campaign-title">Honor Flight of Middle Tennessee</div>
+            <div class="campaign-meta">Nonprofit Campaign · Media Relations · Team Leadership</div>
+          </div>
+          <img class="campaign-thumb" src="campaign3.jpg" alt="Honor Flight Middle Tennessee thumbnail">
+        </a>
 
         <a class="campaign-strip" href="campaigns/cheatham-tourism.html">
           <div class="campaign-main">
             <div class="campaign-title">Cheatham County Tourism Proposal</div>
-            <div class="campaign-meta">1st Place · Strategy · Presentation</div>
+            <div class="campaign-meta">1st Place · Tourism Strategy · Presentation</div>
           </div>
           <img class="campaign-thumb" src="campaign1.jpg" alt="Cheatham County Tourism thumbnail">
         </a>
@@ -799,183 +668,209 @@ html:not(.js-ready) .tab-content {
         <a class="campaign-strip" href="campaigns/nashville-flying-dress.html">
           <div class="campaign-main">
             <div class="campaign-title">Nashville Flying Dress</div>
-            <div class="campaign-meta">Marketing Strategy · Presentation</div>
+            <div class="campaign-meta">Marketing Strategy · Audience Research · Presentation</div>
           </div>
           <img class="campaign-thumb" src="campaign2.jpg" alt="Nashville Flying Dress thumbnail">
         </a>
 
-        <a class="campaign-strip" href="campaigns/honor-flight.html">
+      </div>
+    </div>
+
+    <div class="section-divider">
+      <div class="section-title">Selected Writing</div>
+
+      <div class="campaign-list" aria-label="Selected Writing">
+
+        <a class="campaign-strip" href="writing/donor-appeal-sample.html">
           <div class="campaign-main">
-            <div class="campaign-title">Honor Flight Middle TN</div>
-            <div class="campaign-meta">Client Campaign · Account Manager</div>
+            <div class="campaign-title">Donor Appeal Sample</div>
+            <div class="campaign-meta">Nonprofit Storytelling · Fundraising Language</div>
           </div>
-          <img class="campaign-thumb" src="campaign3.jpg" alt="Honor Flight Middle TN thumbnail">
+        </a>
+
+        <a class="campaign-strip" href="writing/media-pitch-sample.html">
+          <div class="campaign-main">
+            <div class="campaign-title">Media Pitch Sample</div>
+            <div class="campaign-meta">Earned Media · Public Relations</div>
+          </div>
+        </a>
+
+        <a class="campaign-strip" href="writing/newsletter-sample.html">
+          <div class="campaign-main">
+            <div class="campaign-title">Newsletter Feature</div>
+            <div class="campaign-meta">Community Engagement · Long-Form Writing</div>
+          </div>
         </a>
 
       </div>
     </div>
-    
-    <!-- DIY EVENTS (LEAVE ALONE) -->
-    <div class="section-title">DIY Events</div>
 
-    <div class="events-slider" aria-label="DIY Events">
-      <a class="event-card" href="events/over-the-leaves.html">
-        <img src="event1.jpg" alt="Over the Leaves">
-        <div class="event-card-body">
-          <div class="event-title">Over the Leaves</div>
-          <div class="event-subtitle">Concert</div>
+    <div class="section-divider">
+      <div class="section-title">DIY Events</div>
+
+      <div class="events-slider" aria-label="DIY Events">
+        <a class="event-card" href="events/over-the-leaves.html">
+          <img src="event1.jpg" alt="Over the Leaves">
+          <div class="event-card-body">
+            <div class="event-title">Over the Leaves</div>
+            <div class="event-subtitle">Concert · Promotion · Event Operations</div>
+          </div>
+        </a>
+
+        <a class="event-card" href="events/under-the-trees.html">
+          <img src="event3.jpg" alt="Under the Trees">
+          <div class="event-card-body">
+            <div class="event-title">Under the Trees</div>
+            <div class="event-subtitle">Music Festival · Vendors · Live Production</div>
+          </div>
+        </a>
+
+        <a class="event-card" href="events/triple-threat.html">
+          <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
+          <div class="event-card-body">
+            <div class="event-title">Triple Threat</div>
+            <div class="event-subtitle">Concert · Promotion · Audience Engagement</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="swipe-hint" aria-hidden="true">Swipe →</div>
+    </div>
+
+    <div class="section-divider">
+      <div class="section-title">Media & Creative</div>
+
+      <div class="media-list" aria-label="Media and Creative Work">
+
+        <div class="embed-card">
+          <div class="media-embed">
+            <iframe
+              data-src="https://www.youtube.com/embed/-xI1FW09nX4"
+              title="Music Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="embed-caption">
+            <div class="embed-title">Music Video</div>
+            <div class="embed-meta">Directing · Filming · Editing</div>
+          </div>
         </div>
-      </a>
 
-      <a class="event-card" href="events/under-the-trees.html">
-        <img src="event3.jpg" alt="Under the Trees">
-        <div class="event-card-body">
-          <div class="event-title">Under the Trees</div>
-          <div class="event-subtitle">Music Festival</div>
+        <div class="embed-card">
+          <div class="media-audio">
+            <iframe
+              loading="lazy"
+              scrolling="no"
+              allow="autoplay"
+              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-548637530/the-melting-pod&auto_play=false&show_user=true&visual=true">
+            </iframe>
+          </div>
+          <div class="embed-caption">
+            <div class="embed-title">The Melting Pod</div>
+            <div class="embed-meta">Writing · Production · Podcast Host</div>
+          </div>
         </div>
-      </a>
 
-      <a class="event-card" href="events/triple-threat.html">
-        <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
-        <div class="event-card-body">
-          <div class="event-title">Triple Threat</div>
-          <div class="event-subtitle">Concert</div>
+        <div class="embed-card">
+          <div class="media-embed">
+            <iframe
+              data-src="https://www.youtube.com/embed/ppbuGARM8Rg"
+              title="Video Interview"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="embed-caption">
+            <div class="embed-title">Video Interview</div>
+            <div class="embed-meta">Writing · Editing</div>
+          </div>
         </div>
-      </a>
-    </div>
 
-    <div class="swipe-hint" aria-hidden="true">Swipe →</div>
+        <div class="embed-card">
+          <div class="media-embed">
+            <iframe
+              data-src="https://www.youtube.com/embed/v7l-xecVXNI"
+              title="Creative Project"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="embed-caption">
+            <div class="embed-title">Video Project</div>
+            <div class="embed-meta">Directing · Filming · Editing</div>
+          </div>
+        </div>
 
-<!-- MEDIA & CREATIVE (Vertical list, same size as Events cards) -->
-<div class="section-divider">
-  <div class="section-title">Media & Creative</div>
+        <div class="embed-card">
+          <div class="media-embed">
+            <iframe
+              data-src="https://www.youtube.com/embed/JblfOt0AYR0"
+              title="Media Work"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="embed-caption">
+            <div class="embed-title">Music Video</div>
+            <div class="embed-meta">Directing · Filming · Editing</div>
+          </div>
+        </div>
 
-  <div class="media-list" aria-label="Media & Creative">
+        <div class="embed-card">
+          <div class="media-embed">
+            <iframe
+              data-src="https://www.youtube.com/embed/avWOJLH1ZzM"
+              title="Audio Drama"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="embed-caption">
+            <div class="embed-title">Audio Drama</div>
+            <div class="embed-meta">Sound Design · Production</div>
+          </div>
+        </div>
 
-    <div class="embed-card">
-      <div class="media-embed">
-        <iframe
-          data-src="https://www.youtube.com/embed/-xI1FW09nX4"
-          title="Music Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="embed-caption">
-        <div class="embed-title">Music Video</div>
-        <div class="embed-meta">Directing · Fliming · Editing</div>
-      </div>
-    </div>
-
-    <div class="embed-card">
-      <div class="media-audio">
-        <iframe
-          loading="lazy"
-          scrolling="no"
-          allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-548637530/the-melting-pod&auto_play=false&show_user=true&visual=true">
-        </iframe>
-      </div>
-      <div class="embed-caption">
-        <div class="embed-title">The Melting Pod</div>
-        <div class="embed-meta">Writing · Production · Podcast Host</div>
-      </div>
-    </div>
-
-    <div class="embed-card">
-      <div class="media-embed">
-        <iframe
-         data-src="https://www.youtube.com/embed/ppbuGARM8Rg"
-          title="Video Project"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="embed-caption">
-        <div class="embed-title">Video Interview</div>
-        <div class="embed-meta">Writing · Editing</div>
-      </div>
-    </div>
-
-    <div class="embed-card">
-      <div class="media-embed">
-        <iframe
-          data-src="https://www.youtube.com/embed/v7l-xecVXNI"
-          title="Creative Project"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="embed-caption">
-        <div class="embed-title">Video Project</div>
-        <div class="embed-meta">Directing · Filming · Editing</div>
-      </div>
-    </div>
-
-    <div class="embed-card">
-      <div class="media-embed">
-        <iframe
-          data-src="https://www.youtube.com/embed/JblfOt0AYR0"
-          title="Media Work"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="embed-caption">
-        <div class="embed-title">Music Video</div>
-        <div class="embed-meta">Directing · Filming · Editing</div>
-      </div>
-    </div>
-    <div class="embed-card">
-      <div class="media-embed">
-        <iframe
-          data-src="https://www.youtube.com/embed/avWOJLH1ZzM"
-          title="Media Work"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="embed-caption">
-        <div class="embed-title">Audio Drama</div>
-        <div class="embed-meta">Sound Design · Production</div>
       </div>
     </div>
 
   </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="tab-content">
+
+    <div class="section-title">Contact</div>
+
+    <div class="campaign-list">
+
+      <a class="campaign-strip" href="mailto:gbsoundara03@gmail.com">
+        <div class="campaign-main">
+          <div class="campaign-title">Email</div>
+          <div class="campaign-meta">gbsoundara03@gmail.com</div>
+        </div>
+      </a>
+
+      <a class="campaign-strip" href="tel:+16157673769">
+        <div class="campaign-main">
+          <div class="campaign-title">Phone</div>
+          <div class="campaign-meta">(615) 767-3769</div>
+        </div>
+      </a>
+
+      <a class="campaign-strip" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">
+        <div class="campaign-main">
+          <div class="campaign-title">LinkedIn</div>
+          <div class="campaign-meta">View Profile</div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
 </div>
-</div> <!-- closes #portfolio -->
-        <!-- CONTACT -->
-<div id="contact" class="tab-content">
 
-  <div class="section-title">Contact</div>
-
-  <div class="campaign-list">
-
-<a class="campaign-strip" href="mailto:gbsoundara03@gmail.com">
-  <div class="campaign-main">
-    <div class="campaign-title">Email</div>
-    <div class="campaign-meta">gbsoundara03@gmail.com</div>
-  </div>
-</a>
-
-<a class="campaign-strip" href="tel:+16157673769">
-  <div class="campaign-main">
-    <div class="campaign-title">Phone</div>
-    <div class="campaign-meta">(615) 767-3769</div>
-  </div>
-</a>
-
-    <a class="campaign-strip" href="https://www.linkedin.com/in/gabesoundara/" target="_blank">
-      <div class="campaign-main">
-        <div class="campaign-title">LinkedIn</div>
-        <div class="campaign-meta">View Profile</div>
-      </div>
-    </a>
-
-  </div>
-
-</div>
-    
 <script defer>
   document.documentElement.classList.add('js-ready');
 
@@ -983,18 +878,17 @@ html:not(.js-ready) .tab-content {
   const contents = document.querySelectorAll('.tab-content');
   const tabsBar = document.querySelector('.tabs');
 
- function activateTab(tabName) {
-  tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
-  contents.forEach(content => content.classList.toggle('active', content.id === tabName));
+  function activateTab(tabName) {
+    tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
+    contents.forEach(content => content.classList.toggle('active', content.id === tabName));
 
-  // Load heavy embeds ONLY when Portfolio tab opens
-  if (tabName === 'portfolio') {
-    const portfolio = document.getElementById('portfolio');
-    portfolio.querySelectorAll('iframe[data-src]').forEach((iframe) => {
-      if (!iframe.src) iframe.src = iframe.dataset.src;
-    });
+    if (tabName === 'portfolio') {
+      const portfolio = document.getElementById('portfolio');
+      portfolio.querySelectorAll('iframe[data-src]').forEach((iframe) => {
+        if (!iframe.src) iframe.src = iframe.dataset.src;
+      });
+    }
   }
-}
 
   function currentTabFromHash() {
     const name = window.location.hash.replace('#', '') || 'home';
@@ -1005,7 +899,6 @@ html:not(.js-ready) .tab-content {
     const el = document.getElementById(tabName);
     if (!el) return;
 
-    // If tabs are sticky, offset by their height so content isn't hidden underneath
     const isSticky = tabsBar && getComputedStyle(tabsBar).position === 'sticky';
     const offset = isSticky ? (tabsBar.offsetHeight + 12) : 24;
 
@@ -1028,8 +921,6 @@ html:not(.js-ready) .tab-content {
       }
       return;
     }
-
-    // init / restore: do not force scroll
   }
 
   tabs.forEach(tab => {
