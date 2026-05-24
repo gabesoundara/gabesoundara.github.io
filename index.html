@@ -3,944 +3,864 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gabe Soundara | Strategic Communications</title>
+<title>Gabe Soundara | Communications & Events Portfolio</title>
 <link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --text:#1a1a1a;
-    --muted:#666;
-    --light:#888;
-    --border:#eeeeee;
-    --bg:#f8f9fb;
-    --shadow:0 15px 40px rgba(0,0,0,0.06);
+    --text:#161616;
+    --muted:#5f625f;
+    --light:#8a8d89;
+    --line:rgba(22,22,22,0.10);
+    --card:#ffffff;
+    --cream:#f5f1ea;
+    --soft:#ebe5da;
+    --ink:#111111;
+    --accent:#2f5d50;
+    --accent-light:#dbe8e2;
+    --shadow:0 18px 50px rgba(30,25,20,0.10);
+    --radius:24px;
   }
 
   *{ box-sizing:border-box; }
 
+  html{ scroll-behavior:smooth; }
+
   body{
-    font-family:'Inter',sans-serif;
     margin:0;
-    background:var(--bg);
+    font-family:'Inter',sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(47,93,80,0.14), transparent 34%),
+      linear-gradient(180deg, #fbfaf7 0%, var(--cream) 100%);
     color:var(--text);
     line-height:1.6;
   }
 
-  .container{
-    max-width:940px;
-    margin:60px auto;
-    background:#fff;
-    padding:60px;
-    border-radius:10px;
-    box-shadow:var(--shadow);
+  a{ color:inherit; }
+
+  .site-shell{
+    width:min(1120px, calc(100% - 36px));
+    margin:0 auto;
   }
 
-  .header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:28px;
-    margin-bottom:22px;
+  .nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    backdrop-filter:blur(18px);
+    background:rgba(251,250,247,0.82);
+    border-bottom:1px solid rgba(22,22,22,0.08);
   }
 
-  .header-left{ max-width:72%; }
-
-  h1{
-    font-size:44px;
-    letter-spacing:-1.4px;
-    margin:0;
-    line-height:1.05;
-    font-weight:700;
-  }
-
-  .tagline{
-    margin:10px 0 18px;
-    color:#444;
-    font-size:17px;
-    font-weight:500;
-  }
-
-  .header-right img{
-    width:140px;
-    height:140px;
-    object-fit:cover;
-    border-radius:18px;
-  }
-
-  .header-actions{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-  }
-
-  .link-pill,
-  .download-btn{
-    display:inline-block;
-    padding:10px 14px;
-    border-radius:9px;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:500;
-    transition:0.2s ease;
-  }
-
-  .link-pill{
-    border:1px solid #e5e5e5;
-    color:#111;
-  }
-
-  .link-pill:hover{ background:#f4f4f4; }
-
-  .download-btn{
-    background:#111;
-    color:#fff;
-  }
-
-  .download-btn:hover{ background:#333; }
-
-  .tabs{
-    margin-top:20px;
-    display:flex;
-    gap:22px;
-    border-bottom:1px solid var(--border);
-  }
-
-  .tab{
-    padding:10px 0;
-    text-decoration:none;
-    font-weight:500;
-    color:#888;
-    position:relative;
-  }
-
-  .tab.active{ color:#111; }
-
-  .tab.active::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-1px;
-    width:100%;
-    height:2px;
-    background:#111;
-  }
-
-  .tab-content{ display:none; animation:fade 0.35s ease; }
-  .tab-content.active{ display:block; }
-
-  html:not(.js-ready) .tab-content{ display:none !important; }
-  html:not(.js-ready) #home.tab-content{ display:block !important; }
-
-  @keyframes fade{
-    from{ opacity:0; transform:translateY(8px); }
-    to{ opacity:1; transform:translateY(0); }
-  }
-
-  h2{
-    margin-top:56px;
-    font-size:20px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#888;
-    padding-bottom:6px;
-    border-bottom:1px solid var(--border);
-    font-weight:500;
-  }
-
-  .summary{
-    font-size:17px;
-    color:#444;
-    max-width:780px;
-  }
-
-  .highlight-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:14px;
-    margin-top:24px;
-  }
-
-  .highlight-card{
-    border:1px solid rgba(0,0,0,0.08);
-    border-radius:14px;
-    padding:18px;
-    background:#fff;
-    box-shadow:0 8px 24px rgba(0,0,0,0.04);
-  }
-
-  .highlight-card strong{
-    display:block;
-    font-size:15px;
-    margin-bottom:6px;
-  }
-
-  .highlight-card span{
-    display:block;
-    color:#666;
-    font-size:14px;
-    line-height:1.5;
-  }
-
-  .job{
-    margin-bottom:35px;
-    padding-left:12px;
-    border-left:2px solid #f0f0f0;
-  }
-
-  .job-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    gap:10px;
-  }
-
-  .job-title{
-    font-weight:600;
-    font-size:18px;
-  }
-
-  .company{ color:#555; }
-
-  .date{
-    color:#888;
-    font-size:14px;
-    white-space:nowrap;
-  }
-
-  ul{ margin-top:10px; padding-left:20px; }
-  ul li{ margin-bottom:6px; }
-
-  .section-title{
-    margin-top:32px;
-    margin-bottom:18px;
-    font-size:13px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    color:#999;
-    font-weight:600;
-    position:relative;
-    padding-bottom:8px;
-  }
-
-  .section-title::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:40px;
-    height:2px;
-    background:#111;
-  }
-
-  .section-divider{
-    margin-top:28px;
-    padding-top:24px;
-    border-top:1px solid #f0f0f0;
-  }
-
-  .campaign-list,
-  .media-list{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    margin-top:10px;
-  }
-
-  .campaign-strip{
+  .nav-inner{
+    width:min(1120px, calc(100% - 36px));
+    margin:0 auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:16px;
+    gap:18px;
+    padding:15px 0;
+  }
+
+  .brand{
     text-decoration:none;
-    color:inherit;
-    padding:18px;
-    border-radius:14px;
-    border:1px solid rgba(0,0,0,0.08);
-    box-shadow:0 10px 26px rgba(0,0,0,0.06);
-    background:#fff;
-    transition:transform 0.18s ease, box-shadow 0.18s ease;
+    font-weight:800;
+    letter-spacing:-0.04em;
+    font-size:19px;
   }
 
-  .campaign-strip:hover{
-    transform:translateY(-2px);
-    box-shadow:0 16px 36px rgba(0,0,0,0.10);
-  }
-
-  .campaign-main{ flex:1 1 auto; min-width:0; }
-
-  .campaign-title{
-    font-size:18px;
-    font-weight:600;
-    line-height:1.2;
-    margin:0 0 6px 0;
-  }
-
-  .campaign-meta{
-    color:#666;
-    font-size:14px;
-  }
-
-  .campaign-thumb{
-    width:112px;
-    height:78px;
-    border-radius:12px;
-    object-fit:cover;
-    border:1px solid rgba(0,0,0,0.08);
-    flex:0 0 auto;
-  }
-
-  .events-slider{
+  .nav-links{
     display:flex;
-    gap:14px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    padding:6px 2px 12px;
-    margin-top:10px;
+    align-items:center;
+    gap:18px;
+    font-size:14px;
+    font-weight:600;
   }
 
-  .events-slider::-webkit-scrollbar{ height:10px; }
+  .nav-links a{
+    text-decoration:none;
+    color:#494c48;
+  }
 
-  .events-slider::-webkit-scrollbar-thumb{
-    background:#e8e8e8;
+  .nav-links a:hover{ color:var(--text); }
+
+  .nav-cta{
+    background:var(--ink);
+    color:#fff !important;
+    padding:9px 13px;
     border-radius:999px;
   }
 
-  .event-card{
-    flex:0 0 88%;
-    max-width:520px;
-    scroll-snap-align:start;
+  .hero{
+    display:grid;
+    grid-template-columns:minmax(0, 1.1fr) 360px;
+    gap:42px;
+    align-items:center;
+    padding:74px 0 48px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--accent);
+    background:rgba(47,93,80,0.10);
+    border:1px solid rgba(47,93,80,0.16);
+    border-radius:999px;
+    padding:8px 12px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    margin-bottom:18px;
+  }
+
+  h1{
+    font-size:clamp(46px, 7vw, 82px);
+    line-height:0.92;
+    letter-spacing:-0.075em;
+    margin:0;
+    max-width:780px;
+  }
+
+  .hero-copy{
+    font-size:20px;
+    color:#3e413e;
+    max-width:690px;
+    margin:24px 0 0;
+  }
+
+  .hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+  }
+
+  .button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:46px;
+    padding:12px 17px;
+    border-radius:999px;
     text-decoration:none;
-    color:inherit;
-    background:#fff;
-    border-radius:14px;
-    overflow:hidden;
-    border:1px solid rgba(0,0,0,0.08);
-    box-shadow:0 12px 28px rgba(0,0,0,0.08);
-    transition:transform 0.18s ease, box-shadow 0.18s ease;
+    font-size:14px;
+    font-weight:700;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
   }
 
-  .event-card:hover{
-    transform:translateY(-2px);
-    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+  .button:hover{ transform:translateY(-2px); }
+
+  .button.primary{
+    background:var(--ink);
+    color:#fff;
+    box-shadow:0 12px 28px rgba(0,0,0,0.18);
   }
 
-  .event-card img{
+  .button.secondary{
+    background:rgba(255,255,255,0.72);
+    border:1px solid var(--line);
+  }
+
+  .hero-card{
+    background:rgba(255,255,255,0.70);
+    border:1px solid rgba(22,22,22,0.10);
+    border-radius:32px;
+    padding:16px;
+    box-shadow:var(--shadow);
+  }
+
+  .headshot{
     width:100%;
-    aspect-ratio:16/10;
+    aspect-ratio:1/1.08;
+    object-fit:cover;
+    border-radius:24px;
+    display:block;
+  }
+
+  .hero-card-caption{
+    padding:16px 8px 4px;
+  }
+
+  .hero-card-caption strong{
+    display:block;
+    font-size:17px;
+    letter-spacing:-0.02em;
+  }
+
+  .hero-card-caption span{
+    display:block;
+    color:var(--muted);
+    font-size:14px;
+    margin-top:3px;
+  }
+
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+    margin:20px 0 44px;
+  }
+
+  .stat{
+    background:rgba(255,255,255,0.68);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:20px;
+  }
+
+  .stat strong{
+    display:block;
+    font-size:26px;
+    line-height:1;
+    letter-spacing:-0.04em;
+  }
+
+  .stat span{
+    display:block;
+    margin-top:8px;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  section{ padding:34px 0; }
+
+  .section-heading{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:18px;
+  }
+
+  h2{
+    margin:0;
+    font-size:clamp(30px, 4vw, 46px);
+    line-height:1;
+    letter-spacing:-0.06em;
+  }
+
+  .section-heading p{
+    margin:0;
+    color:var(--muted);
+    max-width:410px;
+  }
+
+  .focus-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+
+  .focus-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px;
+    box-shadow:0 12px 32px rgba(30,25,20,0.06);
+  }
+
+  .focus-card span{
+    display:inline-flex;
+    width:38px;
+    height:38px;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    background:var(--accent-light);
+    color:var(--accent);
+    font-weight:800;
+    margin-bottom:18px;
+  }
+
+  .focus-card h3{
+    margin:0 0 8px;
+    font-size:20px;
+    letter-spacing:-0.03em;
+  }
+
+  .focus-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:15px;
+  }
+
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+
+  .project-card{
+    min-height:380px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    text-decoration:none;
+    color:#fff;
+    background:#111;
+    box-shadow:var(--shadow);
+  }
+
+  .project-card.featured{
+    grid-column:span 2;
+  }
+
+  .project-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.72;
+    transition:transform .35s ease, opacity .35s ease;
+  }
+
+  .project-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.05) 25%, rgba(0,0,0,0.78) 100%);
+  }
+
+  .project-card:hover img{
+    transform:scale(1.05);
+    opacity:0.86;
+  }
+
+  .project-content{
+    position:relative;
+    z-index:2;
+    padding:24px;
+  }
+
+  .project-kicker{
+    display:inline-flex;
+    background:rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.24);
+    border-radius:999px;
+    padding:6px 10px;
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:12px;
+  }
+
+  .project-card h3{
+    margin:0;
+    font-size:26px;
+    line-height:1.03;
+    letter-spacing:-0.05em;
+  }
+
+  .project-card p{
+    margin:10px 0 0;
+    color:rgba(255,255,255,0.82);
+    font-size:14px;
+  }
+
+  .events-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+
+  .event-tile{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:24px;
+    overflow:hidden;
+    text-decoration:none;
+    box-shadow:0 12px 30px rgba(30,25,20,0.07);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+
+  .event-tile:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 40px rgba(30,25,20,0.12);
+  }
+
+  .event-tile img{
+    width:100%;
+    aspect-ratio:16/11;
     object-fit:cover;
     display:block;
   }
 
-  .event-card-body{ padding:14px 16px 16px; }
+  .event-tile div{ padding:18px; }
 
-  .event-title{
-    font-size:18px;
-    font-weight:600;
-    line-height:1.2;
-    margin-bottom:4px;
+  .event-tile h3{
+    margin:0 0 4px;
+    font-size:20px;
+    line-height:1.1;
+    letter-spacing:-0.04em;
   }
 
-  .event-subtitle{
-    font-size:13px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:#777;
+  .event-tile p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
   }
 
-  .swipe-hint{
-    margin-top:8px;
-    color:#888;
-    font-size:13px;
+  .resume-panel{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:16px;
+    background:rgba(255,255,255,0.62);
+    border:1px solid var(--line);
+    border-radius:32px;
+    padding:18px;
+    box-shadow:var(--shadow);
   }
 
-  .embed-card{
+  .resume-intro{
+    background:var(--ink);
+    color:#fff;
+    border-radius:24px;
+    padding:26px;
+  }
+
+  .resume-intro h2{ color:#fff; }
+
+  .resume-intro p{
+    color:rgba(255,255,255,0.75);
+    margin:16px 0 22px;
+  }
+
+  .experience-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .role{
     background:#fff;
-    border-radius:18px;
-    border:1px solid rgba(0,0,0,0.08);
-    box-shadow:0 12px 28px rgba(0,0,0,0.10);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:18px;
+  }
+
+  .role-top{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    align-items:start;
+    margin-bottom:7px;
+  }
+
+  .role h3{
+    margin:0;
+    font-size:18px;
+    line-height:1.15;
+    letter-spacing:-0.03em;
+  }
+
+  .role .date{
+    color:var(--light);
+    font-size:13px;
+    white-space:nowrap;
+  }
+
+  .role p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  .media-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:16px;
+  }
+
+  .media-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:24px;
     overflow:hidden;
+    box-shadow:0 12px 30px rgba(30,25,20,0.07);
   }
 
   .media-embed{
     position:relative;
-    width:100%;
-    aspect-ratio:16/10;
-    background:#000;
+    aspect-ratio:16/9;
+    background:#111;
   }
 
-  .media-embed iframe{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    border:0;
-  }
+  .media-audio{ height:190px; background:#f3f3f3; }
 
-  .media-audio{
-    position:relative;
-    width:100%;
-    height:210px;
-    background:#f5f5f5;
-  }
-
+  .media-embed iframe,
   .media-audio iframe{
-    position:absolute;
-    inset:0;
     width:100%;
     height:100%;
     border:0;
+    display:block;
   }
 
-  .embed-caption{
-    padding:12px 14px 14px;
+  .media-caption{ padding:16px 18px 18px; }
+
+  .media-caption h3{
+    margin:0 0 4px;
+    font-size:18px;
+    letter-spacing:-0.03em;
   }
 
-  .embed-title{
-    font-size:16px;
-    font-weight:600;
-    margin-bottom:4px;
+  .media-caption p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
   }
 
-  .embed-meta{
+  .contact-card{
+    background:var(--accent);
+    color:#fff;
+    border-radius:34px;
+    padding:34px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:28px;
+    margin:32px 0 70px;
+    box-shadow:var(--shadow);
+  }
+
+  .contact-card h2{ color:#fff; }
+
+  .contact-card p{
+    color:rgba(255,255,255,0.78);
+    max-width:600px;
+    margin:12px 0 0;
+  }
+
+  .contact-links{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+
+  .contact-links a{
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.22);
+    color:#fff;
+    text-decoration:none;
+    padding:11px 14px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:14px;
+  }
+
+  footer{
+    color:var(--light);
     font-size:13px;
-    color:#777;
-    letter-spacing:0.2px;
-    text-transform:uppercase;
+    padding:0 0 30px;
   }
 
-  @media (max-width:768px){
-    .container{ padding:30px; }
-    .header{ flex-direction:column; align-items:flex-start; }
-    .header-left{ max-width:100%; }
-    .job-header{ flex-direction:column; gap:4px; }
-    .highlight-grid{ grid-template-columns:1fr; }
+  @media (max-width:900px){
+    .hero{ grid-template-columns:1fr; padding-top:48px; }
+    .hero-card{ max-width:420px; }
+    .stats,.focus-grid,.project-grid,.events-row,.media-grid,.resume-panel{ grid-template-columns:1fr; }
+    .project-card.featured{ grid-column:auto; }
+    .project-card{ min-height:330px; }
+    .section-heading{ align-items:start; flex-direction:column; }
+    .contact-card{ align-items:flex-start; flex-direction:column; }
+    .contact-links{ justify-content:flex-start; }
   }
 
-  @media (max-width:520px){
-    .container{
-      margin:18px 12px;
-      padding:22px;
-      border-radius:14px;
-    }
-
-    .header{
-      align-items:center;
-      text-align:center;
-      gap:16px;
-      margin-bottom:12px;
-    }
-
-    .header-right{
-      order:-1;
-      display:flex;
-      justify-content:center;
-    }
-
-    .header-right img{
-      width:120px;
-      height:120px;
-      border-radius:18px;
-    }
-
-    h1{
-      font-size:34px;
-      white-space:nowrap;
-    }
-
-    .tagline{
-      font-size:15px;
-      margin-bottom:14px;
-    }
-
-    .header-actions{
-      width:100%;
-      flex-direction:column;
-      align-items:stretch;
-      gap:10px;
-    }
-
-    .link-pill,
-    .download-btn{
-      width:100%;
-      text-align:center;
-      padding:12px 14px;
-    }
-
-    .tabs{
-      position:sticky;
-      top:0;
-      background:#fff;
-      z-index:10;
-      padding-top:6px;
-      margin-top:10px;
-      gap:16px;
-    }
-
-    .campaign-thumb{ display:none; }
+  @media (max-width:620px){
+    .site-shell,.nav-inner{ width:min(100% - 24px, 1120px); }
+    .nav-inner{ align-items:flex-start; flex-direction:column; }
+    .nav-links{ width:100%; overflow-x:auto; padding-bottom:2px; }
+    h1{ letter-spacing:-0.065em; }
+    .hero-copy{ font-size:17px; }
+    .stats{ gap:10px; }
+    .stat{ padding:16px; }
+    .role-top{ flex-direction:column; gap:4px; }
+    .contact-card{ padding:24px; border-radius:26px; }
   }
 
   @media print{
     body{ background:#fff; }
-    .container{ box-shadow:none; margin:0; padding:0; max-width:100%; }
-    .tabs, .header-actions{ display:none; }
+    .nav,.media-grid,.contact-card,footer{ display:none; }
+    .site-shell{ width:100%; }
+    .hero,.resume-panel{ display:block; }
+    .hero-card{ box-shadow:none; }
   }
 </style>
 </head>
 
 <body>
-<div class="container">
-
-  <div class="header">
-    <div class="header-left">
-      <h1>Gabe Soundara</h1>
-      <p class="tagline">Strategic Communications · Nonprofit Storytelling · Media Relations</p>
-
-      <div class="header-actions">
-        <a class="link-pill" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="GabeSoundara-ResumeApr26.pdf" download class="download-btn">Download Resume</a>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Gabe Soundara</a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#events">Events</a>
+        <a href="#media">Media</a>
+        <a href="#resume">Resume</a>
+        <a class="nav-cta" href="#contact">Contact</a>
       </div>
     </div>
+  </nav>
 
-    <div class="header-right">
-      <img src="headshot-26.jpg" alt="Gabe Soundara Headshot">
-    </div>
-  </div>
-
-  <div class="tabs">
-    <a href="#home" class="tab" data-tab="home">Home</a>
-    <a href="#portfolio" class="tab" data-tab="portfolio">Portfolio</a>
-    <a href="#contact" class="tab" data-tab="contact">Contact</a>
-  </div>
-
-  <!-- HOME -->
-  <div id="home" class="tab-content">
-
-    <h2>Professional Summary</h2>
-    <p class="summary">
-      Strategic communications and public relations professional with experience leading nonprofit campaigns,
-      coordinating earned media outreach, producing community-focused content, and managing events across nonprofit,
-      faith-based, and youth-serving organizations. Skilled in writing, storytelling, media relations, and hands-on
-      project execution.
-    </p>
-
-    <div class="highlight-grid">
-      <div class="highlight-card">
-        <strong>Nonprofit Campaigns</strong>
-        <span>Led communications strategy, messaging, and media outreach for mission-driven client work.</span>
-      </div>
-      <div class="highlight-card">
-        <strong>Community Engagement</strong>
-        <span>Produced newsletters, event communications, and outreach materials for local organizations.</span>
-      </div>
-      <div class="highlight-card">
-        <strong>Leadership</strong>
-        <span>Managed teams, schedules, events, and public-facing communication in fast-paced environments.</span>
-      </div>
-    </div>
-
-    <h2>Professional Experience</h2>
-
-    <div class="job">
-      <div class="job-header">
-        <div>
-          <span class="job-title">Camp Director</span> –
-          <span class="company">Let It Shine Gymnastics Inc</span>
+  <main id="top" class="site-shell">
+    <section class="hero" aria-label="Introduction">
+      <div>
+        <div class="eyebrow">Public Relations · Events · Community Engagement</div>
+        <h1>Communications work with a real-world pulse.</h1>
+        <p class="hero-copy">
+          I’m Gabe Soundara, a public relations and event communications professional focused on nonprofit storytelling,
+          media outreach, community engagement, and live experiences that bring people together.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">View Portfolio</a>
+          <a class="button secondary" href="GabeSoundara-ResumeApr26.pdf" download>Download Resume</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
-        <span class="date">May 2023 – Present</span>
       </div>
-      <ul>
-        <li>Led daily operations and scheduling for a 300-camper program with 35–40 staff members.</li>
-        <li>Managed parent communication, conflict resolution, and camper health and safety needs.</li>
-        <li>Designed structured daily itineraries to improve staff efficiency and program flow.</li>
-        <li>Maintained compliance with safety protocols and emergency response procedures.</li>
-      </ul>
-    </div>
 
-    <div class="job">
-      <div class="job-header">
-        <div>
-          <span class="job-title">Family Formation Assistant</span> –
-          <span class="company">St. Bartholomew’s Episcopal Church</span>
+      <aside class="hero-card" aria-label="Profile photo and summary">
+        <img class="headshot" src="headshot-26.jpg" alt="Gabe Soundara headshot">
+        <div class="hero-card-caption">
+          <strong>Strategic communicator and event builder.</strong>
+          <span>Based in Tennessee. Interested in communications, events, tourism, and community-centered work.</span>
         </div>
-        <span class="date">Aug 2025 – Present</span>
+      </aside>
+    </section>
+
+    <div class="stats" aria-label="Quick highlights">
+      <div class="stat">
+        <strong>300+</strong>
+        <span>Campers supported through daily program leadership.</span>
       </div>
-      <ul>
-        <li>Coordinate logistics for youth and young adult programs, ministry events, and community gatherings.</li>
-        <li>Produce newsletters and community-facing communications to support engagement and participation.</li>
-        <li>Maintain member records and communication data using Breeze church management software.</li>
-      </ul>
-    </div>
-
-    <div class="job">
-      <div class="job-header">
-        <div>
-          <span class="job-title">Independent Event Coordinator</span> –
-          <span class="company">Twin Oak Live Events</span>
-        </div>
-        <span class="date">May 2023 – Nov 2023</span>
+      <div class="stat">
+        <strong>35–40</strong>
+        <span>Staff members coordinated across fast-paced operations.</span>
       </div>
-      <ul>
-        <li>Produced DIY live events featuring music, vendors, and food partners.</li>
-        <li>Managed logistics, promotion, and on-site operations for three ticketed events.</li>
-        <li>Achieved peak attendance of 140 ticket sales per event.</li>
-      </ul>
-    </div>
-
-    <div class="job">
-      <div class="job-header">
-        <div>
-          <span class="job-title">Gymnastics Coach Instructor</span> –
-          <span class="company">Let It Shine Gymnastics Inc</span>
-        </div>
-        <span class="date">Feb 2019 – Dec 2024</span>
-      </div>
-      <ul>
-        <li>Created safe, engaging learning environments for youth participants.</li>
-        <li>Designed creative equipment setups to improve engagement and skill development.</li>
-        <li>Led structured programming for groups of up to 24 children.</li>
-      </ul>
-    </div>
-
-    <h2>Education</h2>
-    <ul>
-      <li>
-        Middle Tennessee State University
-        <ul>
-          <li>Bachelor’s Degree in Public Relations — Expected May 2026</li>
-          <li>Dean’s List (2022–2025)</li>
-          <li>John Seigenthaler Chair Scholarship Winner (2023)</li>
-          <li>MTSU Tourism Proposal Competition — 1st Place (2024)</li>
-        </ul>
-      </li>
-
-      <li>
-        University of Salford — Manchester, UK
-        <ul>
-          <li>Study Abroad — Spring 2025</li>
-          <li>BJTC “Best Podcast” Award Recognition — 2025</li>
-        </ul>
-      </li>
-    </ul>
-
-    <h2>Skills</h2>
-    <ul>
-      <li>Strategic Communications</li>
-      <li>Nonprofit Storytelling</li>
-      <li>Media Relations</li>
-      <li>Campaign Development</li>
-      <li>Event Communications</li>
-      <li>Community Engagement</li>
-      <li>Content Writing and Editing</li>
-      <li>Canva, Adobe Creative Suite, Final Cut Pro</li>
-      <li>Google Workspace, Microsoft Office, Breeze CMS</li>
-    </ul>
-  </div>
-
-  <!-- PORTFOLIO -->
-  <div id="portfolio" class="tab-content">
-
-    <div class="section-divider">
-      <div class="section-title">Strategic Campaigns</div>
-
-      <div class="campaign-list" aria-label="Strategic Campaigns">
-
-        <a class="campaign-strip" href="campaigns/honor-flight.html">
-          <div class="campaign-main">
-            <div class="campaign-title">Honor Flight of Middle Tennessee</div>
-            <div class="campaign-meta">Nonprofit Campaign · Media Relations · Team Leadership</div>
-          </div>
-          <img class="campaign-thumb" src="campaign3.jpg" alt="Honor Flight Middle Tennessee thumbnail">
-        </a>
-
-        <a class="campaign-strip" href="campaigns/cheatham-tourism.html">
-          <div class="campaign-main">
-            <div class="campaign-title">Cheatham County Tourism Proposal</div>
-            <div class="campaign-meta">1st Place · Tourism Strategy · Presentation</div>
-          </div>
-          <img class="campaign-thumb" src="campaign1.jpg" alt="Cheatham County Tourism thumbnail">
-        </a>
-
-        <a class="campaign-strip" href="campaigns/nashville-flying-dress.html">
-          <div class="campaign-main">
-            <div class="campaign-title">Nashville Flying Dress</div>
-            <div class="campaign-meta">Marketing Strategy · Audience Research · Presentation</div>
-          </div>
-          <img class="campaign-thumb" src="campaign2.jpg" alt="Nashville Flying Dress thumbnail">
-        </a>
-
+      <div class="stat">
+        <strong>3</strong>
+        <span>Ticketed DIY events produced with music, vendors, and partners.</span>
       </div>
     </div>
 
-    <div class="section-divider">
-      <div class="section-title">Selected Writing</div>
-
-      <div class="campaign-list" aria-label="Selected Writing">
-
-        <a class="campaign-strip" href="writing/donor-appeal-sample.html">
-          <div class="campaign-main">
-            <div class="campaign-title">Donor Appeal Sample</div>
-            <div class="campaign-meta">Nonprofit Storytelling · Fundraising Language</div>
-          </div>
-        </a>
-
-        <a class="campaign-strip" href="writing/media-pitch-sample.html">
-          <div class="campaign-main">
-            <div class="campaign-title">Media Pitch Sample</div>
-            <div class="campaign-meta">Earned Media · Public Relations</div>
-          </div>
-        </a>
-
-        <a class="campaign-strip" href="writing/newsletter-sample.html">
-          <div class="campaign-main">
-            <div class="campaign-title">Newsletter Feature</div>
-            <div class="campaign-meta">Community Engagement · Long-Form Writing</div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-
-    <div class="section-divider">
-      <div class="section-title">DIY Events</div>
-
-      <div class="events-slider" aria-label="DIY Events">
-        <a class="event-card" href="events/over-the-leaves.html">
-          <img src="event1.jpg" alt="Over the Leaves">
-          <div class="event-card-body">
-            <div class="event-title">Over the Leaves</div>
-            <div class="event-subtitle">Concert · Promotion · Event Operations</div>
-          </div>
-        </a>
-
-        <a class="event-card" href="events/under-the-trees.html">
-          <img src="event3.jpg" alt="Under the Trees">
-          <div class="event-card-body">
-            <div class="event-title">Under the Trees</div>
-            <div class="event-subtitle">Music Festival · Vendors · Live Production</div>
-          </div>
-        </a>
-
-        <a class="event-card" href="events/triple-threat.html">
-          <img src="images/events/triple-threat-crowd.png" alt="Triple Threat">
-          <div class="event-card-body">
-            <div class="event-title">Triple Threat</div>
-            <div class="event-subtitle">Concert · Promotion · Audience Engagement</div>
-          </div>
-        </a>
+    <section aria-label="What I do">
+      <div class="section-heading">
+        <h2>What I do</h2>
+        <p>A mix of strategy, storytelling, logistics, and people-focused communication.</p>
       </div>
 
-      <div class="swipe-hint" aria-hidden="true">Swipe →</div>
-    </div>
+      <div class="focus-grid">
+        <article class="focus-card">
+          <span>01</span>
+          <h3>Strategic Communications</h3>
+          <p>Campaign planning, messaging, audience research, and communication strategy for mission-driven work.</p>
+        </article>
 
-    <div class="section-divider">
-      <div class="section-title">Media & Creative</div>
+        <article class="focus-card">
+          <span>02</span>
+          <h3>Media Relations</h3>
+          <p>Earned media coordination, interview preparation, story development, and outreach support.</p>
+        </article>
 
-      <div class="media-list" aria-label="Media and Creative Work">
+        <article class="focus-card">
+          <span>03</span>
+          <h3>Event Experiences</h3>
+          <p>Event planning, on-site operations, promotion, staffing, and community engagement.</p>
+        </article>
+      </div>
+    </section>
 
-        <div class="embed-card">
+    <section id="work" aria-label="Featured work">
+      <div class="section-heading">
+        <h2>Featured work</h2>
+        <p>Campaigns and projects that connect communications strategy with community impact.</p>
+      </div>
+
+      <div class="project-grid">
+        <a class="project-card featured" href="campaigns/honor-flight.html">
+          <img src="campaign3.jpg" alt="Honor Flight of Middle Tennessee project thumbnail">
+          <div class="project-content">
+            <div class="project-kicker">Nonprofit Campaign</div>
+            <h3>Honor Flight of Middle Tennessee</h3>
+            <p>Campaign strategy, media relations, team leadership, and outreach supporting veteran participation and donor engagement.</p>
+          </div>
+        </a>
+
+        <a class="project-card" href="campaigns/cheatham-tourism.html">
+          <img src="campaign1.jpg" alt="Cheatham County Tourism Proposal thumbnail">
+          <div class="project-content">
+            <div class="project-kicker">Tourism Strategy</div>
+            <h3>Cheatham County Tourism Proposal</h3>
+            <p>First-place tourism proposal focused on destination strategy and presentation development.</p>
+          </div>
+        </a>
+
+        <a class="project-card" href="campaigns/nashville-flying-dress.html">
+          <img src="campaign2.jpg" alt="Nashville Flying Dress project thumbnail">
+          <div class="project-content">
+            <div class="project-kicker">Marketing Strategy</div>
+            <h3>Nashville Flying Dress</h3>
+            <p>Audience research, campaign positioning, and presentation work for a visual experience brand.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="events" aria-label="Event production work">
+      <div class="section-heading">
+        <h2>Event production</h2>
+        <p>DIY live events built around music, vendors, promotion, and in-person community energy.</p>
+      </div>
+
+      <div class="events-row">
+        <a class="event-tile" href="events/over-the-leaves.html">
+          <img src="event1.jpg" alt="Over the Leaves event">
+          <div>
+            <h3>Over the Leaves</h3>
+            <p>Concert · Promotion · Event Operations</p>
+          </div>
+        </a>
+
+        <a class="event-tile" href="events/under-the-trees.html">
+          <img src="event3.jpg" alt="Under the Trees event">
+          <div>
+            <h3>Under the Trees</h3>
+            <p>Music Festival · Vendors · Live Production</p>
+          </div>
+        </a>
+
+        <a class="event-tile" href="events/triple-threat.html">
+          <img src="images/events/triple-threat-crowd.png" alt="Triple Threat event">
+          <div>
+            <h3>Triple Threat</h3>
+            <p>Concert · Promotion · Audience Engagement</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="media" aria-label="Media and creative work">
+      <div class="section-heading">
+        <h2>Media & creative</h2>
+        <p>Video, audio, and production work that supports storytelling across different formats.</p>
+      </div>
+
+      <div class="media-grid">
+        <article class="media-card">
           <div class="media-embed">
-            <iframe
-              data-src="https://www.youtube.com/embed/-xI1FW09nX4"
-              title="Music Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/-xI1FW09nX4" title="Music Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
-          <div class="embed-caption">
-            <div class="embed-title">Music Video</div>
-            <div class="embed-meta">Directing · Filming · Editing</div>
+          <div class="media-caption">
+            <h3>Music Video</h3>
+            <p>Directing · Filming · Editing</p>
           </div>
-        </div>
+        </article>
 
-        <div class="embed-card">
+        <article class="media-card">
           <div class="media-audio">
-            <iframe
-              loading="lazy"
-              scrolling="no"
-              allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-548637530/the-melting-pod&auto_play=false&show_user=true&visual=true">
-            </iframe>
+            <iframe loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-548637530/the-melting-pod&auto_play=false&show_user=true&visual=true"></iframe>
           </div>
-          <div class="embed-caption">
-            <div class="embed-title">The Melting Pod</div>
-            <div class="embed-meta">Writing · Production · Podcast Host</div>
+          <div class="media-caption">
+            <h3>The Melting Pod</h3>
+            <p>Writing · Production · Podcast Host</p>
           </div>
-        </div>
+        </article>
 
-        <div class="embed-card">
+        <article class="media-card">
           <div class="media-embed">
-            <iframe
-              data-src="https://www.youtube.com/embed/ppbuGARM8Rg"
-              title="Video Interview"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/ppbuGARM8Rg" title="Video Interview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
-          <div class="embed-caption">
-            <div class="embed-title">Video Interview</div>
-            <div class="embed-meta">Writing · Editing</div>
+          <div class="media-caption">
+            <h3>Video Interview</h3>
+            <p>Writing · Editing</p>
           </div>
-        </div>
+        </article>
 
-        <div class="embed-card">
+        <article class="media-card">
           <div class="media-embed">
-            <iframe
-              data-src="https://www.youtube.com/embed/v7l-xecVXNI"
-              title="Creative Project"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/v7l-xecVXNI" title="Creative Project" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
-          <div class="embed-caption">
-            <div class="embed-title">Video Project</div>
-            <div class="embed-meta">Directing · Filming · Editing</div>
+          <div class="media-caption">
+            <h3>Video Project</h3>
+            <p>Directing · Filming · Editing</p>
           </div>
-        </div>
-
-        <div class="embed-card">
-          <div class="media-embed">
-            <iframe
-              data-src="https://www.youtube.com/embed/JblfOt0AYR0"
-              title="Media Work"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="embed-caption">
-            <div class="embed-title">Music Video</div>
-            <div class="embed-meta">Directing · Filming · Editing</div>
-          </div>
-        </div>
-
-        <div class="embed-card">
-          <div class="media-embed">
-            <iframe
-              data-src="https://www.youtube.com/embed/avWOJLH1ZzM"
-              title="Audio Drama"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="embed-caption">
-            <div class="embed-title">Audio Drama</div>
-            <div class="embed-meta">Sound Design · Production</div>
-          </div>
-        </div>
-
+        </article>
       </div>
-    </div>
+    </section>
 
-  </div>
-
-  <!-- CONTACT -->
-  <div id="contact" class="tab-content">
-
-    <div class="section-title">Contact</div>
-
-    <div class="campaign-list">
-
-      <a class="campaign-strip" href="mailto:gbsoundara03@gmail.com">
-        <div class="campaign-main">
-          <div class="campaign-title">Email</div>
-          <div class="campaign-meta">gbsoundara03@gmail.com</div>
+    <section id="resume" aria-label="Resume highlights">
+      <div class="resume-panel">
+        <div class="resume-intro">
+          <h2>Resume highlights</h2>
+          <p>
+            A background in public relations, nonprofit communications, youth programming, and event operations.
+          </p>
+          <a class="button secondary" href="GabeSoundara-ResumeApr26.pdf" download>Download Resume</a>
         </div>
-      </a>
 
-      <a class="campaign-strip" href="tel:+16157673769">
-        <div class="campaign-main">
-          <div class="campaign-title">Phone</div>
-          <div class="campaign-meta">(615) 767-3769</div>
+        <div class="experience-list">
+          <article class="role">
+            <div class="role-top">
+              <h3>Camp Director · Let It Shine Gymnastics Inc</h3>
+              <span class="date">May 2023 – Present</span>
+            </div>
+            <p>Led daily operations and scheduling for a 300-camper program with 35–40 staff members.</p>
+          </article>
+
+          <article class="role">
+            <div class="role-top">
+              <h3>Family Formation Assistant · St. Bartholomew’s Episcopal Church</h3>
+              <span class="date">Aug 2025 – Present</span>
+            </div>
+            <p>Coordinated programs, newsletters, community communication, events, and member records.</p>
+          </article>
+
+          <article class="role">
+            <div class="role-top">
+              <h3>Independent Event Coordinator · Twin Oak Live Events</h3>
+              <span class="date">May 2023 – Nov 2023</span>
+            </div>
+            <p>Produced three ticketed DIY live events featuring music, vendors, food partners, and on-site operations.</p>
+          </article>
+
+          <article class="role">
+            <div class="role-top">
+              <h3>Middle Tennessee State University</h3>
+              <span class="date">May 2026</span>
+            </div>
+            <p>Bachelor’s Degree in Public Relations and Advertising. Dean’s List, scholarship recipient, and tourism proposal competition winner.</p>
+          </article>
         </div>
-      </a>
+      </div>
+    </section>
 
-      <a class="campaign-strip" href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">
-        <div class="campaign-main">
-          <div class="campaign-title">LinkedIn</div>
-          <div class="campaign-meta">View Profile</div>
+    <section id="contact" aria-label="Contact">
+      <div class="contact-card">
+        <div>
+          <h2>Let’s connect.</h2>
+          <p>
+            I’m interested in opportunities across communications, events, tourism, nonprofits, and community engagement.
+          </p>
         </div>
-      </a>
 
-    </div>
+        <div class="contact-links">
+          <a href="mailto:gbsoundara03@gmail.com">Email</a>
+          <a href="tel:+16157673769">Phone</a>
+          <a href="https://www.linkedin.com/in/gabesoundara/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
 
-  </div>
-
-</div>
-
-<script defer>
-  document.documentElement.classList.add('js-ready');
-
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
-  const tabsBar = document.querySelector('.tabs');
-
-  function activateTab(tabName) {
-    tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
-    contents.forEach(content => content.classList.toggle('active', content.id === tabName));
-
-    if (tabName === 'portfolio') {
-      const portfolio = document.getElementById('portfolio');
-      portfolio.querySelectorAll('iframe[data-src]').forEach((iframe) => {
-        if (!iframe.src) iframe.src = iframe.dataset.src;
-      });
-    }
-  }
-
-  function currentTabFromHash() {
-    const name = window.location.hash.replace('#', '') || 'home';
-    return document.getElementById(name) ? name : 'home';
-  }
-
-  function scrollToTabContentTop(tabName, behavior = 'auto') {
-    const el = document.getElementById(tabName);
-    if (!el) return;
-
-    const isSticky = tabsBar && getComputedStyle(tabsBar).position === 'sticky';
-    const offset = isSticky ? (tabsBar.offsetHeight + 12) : 24;
-
-    const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
-    window.scrollTo({ top: y, behavior });
-  }
-
-  function syncFromHash(mode = "hash") {
-    const tabName = currentTabFromHash();
-    activateTab(tabName);
-
-    if (mode === "click") {
-      requestAnimationFrame(() => scrollToTabContentTop(tabName, 'smooth'));
-      return;
-    }
-
-    if (mode === "hash") {
-      if (window.location.hash) {
-        requestAnimationFrame(() => scrollToTabContentTop(tabName, 'auto'));
-      }
-      return;
-    }
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = tab.dataset.tab;
-      history.pushState(null, '', `#${target}`);
-      syncFromHash("click");
-    });
-  });
-
-  window.addEventListener('hashchange', () => syncFromHash("hash"));
-  window.addEventListener('load', () => syncFromHash("init"));
-
-  window.addEventListener('pageshow', (e) => {
-    const nav = performance.getEntriesByType('navigation')[0];
-    const isBackForward = nav && nav.type === 'back_forward';
-    syncFromHash(isBackForward || e.persisted ? "restore" : "init");
-  });
-</script>
-
+    <footer>
+      © 2026 Gabe Soundara. Communications & Events Portfolio.
+    </footer>
+  </main>
 </body>
 </html>
